@@ -1,0 +1,33 @@
+{
+    "accounts": 
+        [{
+            "accountNumber": "999101",
+            "type": "Personal functional licence",
+            "licenceNumber": "999101-F-123456-001",
+            "accountStart": "2014-02-12T00:00:00",
+            "renewalDate": "2019-02-12T00:00:00",
+            "accountName": "Wade Winston Wilson",
+            "title": "Mr",
+            "firstName": "Wade",
+            "middleName": "Winston",
+            "lastName": "Wilson",
+            "dateOfBirth": "1973-11-22T00:00:00",
+            "homeAddress": {
+                "street": "",
+                "city": "",
+                "postcode": "",
+                "country": ""
+            },
+            "correspondenceAddress": {
+                "street": "",
+                "city": "",
+                "postcode": "",
+                "country": ""
+            },
+            "contactDetails": {
+                "mobile": "07940720925",
+                "home": "01212306511",
+                "emailAddress": "wade.wilson@example.com"
+            }
+        }]
+}

@@ -1,0 +1,25 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Sign in to manage your personal licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">{{accountData.type}}</span>
+        <h1 class="govuk-heading-l">
+            {{ accountData.accountName}}
+        </h1>
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+        <section id="maintenancePanel">
+            <div class="gcuk-notification-panel">
+                <h2 class="govuk-heading-m">You need to renew your licence</h2>
+            </div>
+        </section>
+    </div>
+</div> {% endblock %}

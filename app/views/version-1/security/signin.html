@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Sign in to manage your personal licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Sign in to manage your personal licence
+    </h1>
+
+    <form method="POST">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="email">
+          Email address
+        </label>
+        <input class="govuk-input" id="email" name="email" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="password">
+          Password
+        </label>
+        <input class="govuk-input" id="password" name="password" type="text">
+      </div>
+      <button type="submit" class="govuk-button">
+        Sign in
+      </button>
+    </form>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+    <p class="govuk-body">
+      <ul class="govuk-list">
+        <li><a href="">I have forgotten my password</a></li>
+        <li><a href="">I don't have sign in details</a></li>
+        <li><a href="">I need help using this service</a></li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
