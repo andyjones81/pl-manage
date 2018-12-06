@@ -1,0 +1,71 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Your licence</span>
+        <h1 class="govuk-heading-l">
+            Renew your licence
+        </h1>
+
+        <p class="govuk-body">You keep your licence active, you need to renew it every 5 years.</p>
+
+        <div class="govuk-inset-text">
+            Your licence renewal is due by {{accountData.renewalDate | date('DD MMMM YYYY')}}
+        </div>
+
+        <p class="govuk-body">
+                Use this service if you intend to carry out any of these roles in a casino:
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>dealer</li>
+                <li>cashier</li>
+                <li>inspector</li>
+                <li>pit boss</li>
+                <li>supervisor</li>
+                <li>gambling related security or surveillance</li>
+            </ul>
+            <p class="govuk-body">
+                It costs £185 to renew your licence, the fee must be paid by credit or debit card online. This fee is non-refundable.
+            </p>
+          
+            <h2 class="govuk-heading-m">
+                What you'll need
+            </h2>
+            
+            <p class="govuk-body">
+                To renew your licence you'll need:
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>all your addresses for the last 5 years and the dates you lived there</li>
+                <li>a credit or debit card to pay the application fee</li>
+                <li>details of ID documents such as your passport or drivers licence</li>
+                <li>copies of your police report and credit report or letter of good standing from your bank if you have lived outside the UK in the last 5 years.</li>
+            </ul>
+            
+            <a href="/{{version}}/maintenance/assessment/1" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-5">
+                Start now
+            </a>
+                                    
+            
+            <h2 class="govuk-heading-m">
+                Get help to use this service
+            </h2>
+            
+            <p class="govuk-body">
+                If you need support to use this service, call us on 0121 230 6666 (Option 2) or email <a href="mailto:licensing@gamblingcommission.gov.uk">licensing@gamblingcommission.gov.uk</a>
+            </p>
+      
+
+    </div>
+
+</div>
+
+{% endblock %}

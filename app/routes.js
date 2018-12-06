@@ -5,7 +5,9 @@ const version = "version-1"
 // Add your routes here - above the module.exports line
 
 router.get('/' + version + '/security/signin', (req, res) => {
-    res.render(version + '/security/signin', { version });
+    res.render(version + '/security/signin', {
+        version
+    });
 })
 
 router.post('/' + version + '/security/signin', (req, res) => {
@@ -21,7 +23,399 @@ router.get('/' + version + '/account/hub', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/account/hub', { version, accountData });
+    res.render(version + '/account/hub', {
+        version,
+        accountData
+    });
 })
 
+router.get('/' + version + '/account/manage', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/manage', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/account/notyet', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/notyet', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/surrenderlicence/start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/surrenderlicence/start', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/start', {
+        version,
+        accountData
+    });
+})
+
+
+
+router.get('/' + version + '/downloadlicence/start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/downloadlicence/start', {
+        version,
+        accountData
+    });
+})
+
+
+router.post('/' + version + '/downloadlicence/start', (req, res) => {
+    res.redirect('/' + version + '/downloadlicence/licence');
+})
+
+router.get('/' + version + '/downloadlicence/licence', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/downloadlicence/licence', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/surrenderlicence/form', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    req.session.data['action'] = null
+    req.session.data['actiondetail'] = null
+    req.session.data['more-detail'] = null
+
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/surrenderlicence/form', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/surrenderlicence/form1', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/surrenderlicence/form1', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/surrenderlicence/form1', (req, res) => {
+    res.redirect('/' + version + '/surrenderlicence/form2');
+})
+
+router.get('/' + version + '/surrenderlicence/form2', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/surrenderlicence/form2', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/surrenderlicence/form2', (req, res) => {
+    res.redirect('/' + version + '/surrenderlicence/form3');
+})
+
+router.get('/' + version + '/surrenderlicence/form3', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/surrenderlicence/form3', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/surrenderlicence/form3', (req, res) => {
+
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+
+    var NotifyClient = require('notifications-node-client').NotifyClient,
+        notifyClient = new NotifyClient(process.env.NotifyAPIKey);
+    var personalisation = {
+        'accountName': accountData.accountName,
+        'licenceNumber': accountData.licenceNumber,
+        'type': accountData.type,
+        'action': req.session.data['action'],
+        'actiondetail': req.session.data['actiondetail'],
+        'more-detail': req.session.data['more-detail'],
+        'today': (new Date()).toLocaleDateString(),
+        'ar': '1-22132213'
+    }
+    notifyClient
+        .sendEmail(process.env.TemplateId, 'ajones@gamblingcommission.gov.uk', {
+            personalisation: personalisation
+        })
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+
+
+    res.redirect('/' + version + '/surrenderlicence/form4');
+})
+
+router.get('/' + version + '/surrenderlicence/form4', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/surrenderlicence/form4', {
+        version,
+        accountData
+    });
+})
+
+
+
+router.get('/' + version + '/reportevent/list', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/list', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/reportevent/detail', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/detail', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/reportevent/start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+
+    req.session.data['type'] = null
+    req.session.data['more-detail'] = null
+    req.session.data['dob-day'] = null
+    req.session.data['dob-month'] = null    
+    req.session.data['dob-year'] = null
+
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/start', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/reportevent/add/step1', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step1', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step2', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step2', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step3', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step3', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step4', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step4', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step5', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step5', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step6', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step6', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step7', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step7', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/reportevent/add/step8', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step8', {
+        version,
+        accountData
+    });
+})
+
+
+router.post('/' + version + '/reportevent/add/step1', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step2');
+})
+router.post('/' + version + '/reportevent/add/step2', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step3');
+})
+router.post('/' + version + '/reportevent/add/step3', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step4');
+})
+router.post('/' + version + '/reportevent/add/step4', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step7');
+})
+router.post('/' + version + '/reportevent/add/step5', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step6');
+})
+router.post('/' + version + '/reportevent/add/step6', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step7');
+})
+router.post('/' + version + '/reportevent/add/step7', (req, res) => {
+    res.redirect('/' + version + '/reportevent/add/step8');
+})
 module.exports = router

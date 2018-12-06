@@ -1,7 +1,7 @@
 {% extends "layout-signedin.html" %}
 
 {% block pageTitle %}
-Sign in to manage your personal licence
+Personal licence hub
 {% endblock %}
 
 {% block content %}
@@ -17,6 +17,21 @@ Sign in to manage your personal licence
 
     </div>
 
+    {% if accountData.surrender === "yes" %}
+    <div class="govuk-grid-column-full">
+        <section id="maintenancePanel">
+            <div class="gc-alert gc-alert-important">
+                <h2 class="govuk-heading-m">Your licence surrender is being processed</h2>
+                <p class="govuk-body">You cannot make any changes to your licence at this time.
+                </p>
+
+            </div>
+        </section>
+    </div>
+    {% else %}
+
+
+
     {% if accountData.renewalDue === "yes" %}
     <div class="govuk-grid-column-full">
         <section id="maintenancePanel">
@@ -25,10 +40,10 @@ Sign in to manage your personal licence
                 <p class="govuk-body">To keep your personal licence active, you need to renew it by
                     {{accountData.renewalDate | date('DD MMMM YYYY')}}
                 </p>
-                <a href="/maintenance/start" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-bottom-2">
+                <a href="/{{version}}/maintenance/start" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-bottom-2">
                     Start now
                 </a>
-               
+
             </div>
         </section>
     </div>
@@ -40,9 +55,10 @@ Sign in to manage your personal licence
         <hr class="govuk-section-break govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-5">
     </div>
 
-</div>
 
-<div class="govuk-grid-row">
+
+
+
 
     <div class="govuk-grid-column-one-third">
         <div class="card">
@@ -59,11 +75,11 @@ Sign in to manage your personal licence
             <div class="card-action">
                 <ul class="govuk-list">
                     {% if accountData.renewalDue === "yes" %}
-                    <li><a class="govuk-link" href="/maintenance/start">Renew your licence</a></li>
+                    <li><a class="govuk-link" href="/{{version}}/maintenance/start">Renew your licence</a></li>
                     {% endif %}
-                    <li><a class="govuk-link" href="/downloadlicence/start">Download your licence</a></li>
+                    <li><a class="govuk-link" href="/{{version}}/downloadlicence/start">Download your licence</a></li>
 
-                    <li><a class="govuk-link" href="/surrenderlicence/start">Surrender your licence</a></li>
+                    <li><a class="govuk-link" href="/{{version}}/surrenderlicence/start">Surrender your licence</a></li>
                 </ul>
             </div>
         </div>
@@ -78,9 +94,11 @@ Sign in to manage your personal licence
             </div>
             <div class="card-action">
                 <ul class="govuk-list">
-                    <li><a class="govuk-link" href="/reportevent/start">Report an event
+                    <li><a class="govuk-link" href="/{{version}}/reportevent/list">View submitted events
                         </a></li>
-                    <li><a class="govuk-link" href="/guidance/lccp">What you must report</a></li>
+                    <li><a class="govuk-link" href="/{{version}}/reportevent/start">Report an event
+                        </a></li>
+                    <li><a class="govuk-link" href="/{{version}}/guidance/lccp">What you must report</a></li>
                 </ul>
             </div>
         </div>
@@ -91,18 +109,20 @@ Sign in to manage your personal licence
             <div class="card-body">
                 <h3 class="govuk-heading-s">{{accountData.title}} {{accountData.firstName}} {{accountData.middleName}}
                     {{accountData.lastName}}</h3>
-<ul class="govuk-list govuk-!-font-size-16">
-    <li>{{accountData.contactDetails.emailAddress}}</li>
-    <li>{{accountData.contactDetails.mobile}}</li>
-</ul>
-               
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li>{{accountData.contactDetails.emailAddress}}</li>
+                    <li>{{accountData.contactDetails.mobile}}</li>
+                </ul>
+
             </div>
             <div class="card-action">
                 <ul class="govuk-list">
-                    <li><a class="govuk-link" href="/account/manage">Manage your details</a></li>
+                    <li><a class="govuk-link" href="/{{version}}/account/manage">Manage your details</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-</div> {% endblock %}
+
+    {% endif %}
+    {% endblock %}

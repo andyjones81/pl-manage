@@ -1,0 +1,31 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+                <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+                <span class="govuk-caption-l">Report something that may affect your licence</span>
+            <h1 class="govuk-heading-l">
+                Report an event
+            </h1>
+    
+            <p class="govuk-body">
+                    You must report anything that may affect your licence. This includes:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>change of name or address</li>
+                    <li>...</li>
+                </ul>
+                
+                <a href="/{{version}}/reportevent/add/step1" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-5">
+                    Start now
+                </a>
+    
+    </div>
+{% endblock %}
