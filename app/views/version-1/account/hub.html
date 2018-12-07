@@ -1,7 +1,7 @@
 {% extends "layout-signedin.html" %}
 
 {% block pageTitle %}
-Personal licence hub
+Sign in to manage your personal licence
 {% endblock %}
 
 {% block content %}
@@ -17,21 +17,6 @@ Personal licence hub
 
     </div>
 
-    {% if accountData.surrender === "yes" %}
-    <div class="govuk-grid-column-full">
-        <section id="maintenancePanel">
-            <div class="gc-alert gc-alert-important">
-                <h2 class="govuk-heading-m">Your licence surrender is being processed</h2>
-                <p class="govuk-body">You cannot make any changes to your licence at this time.
-                </p>
-
-            </div>
-        </section>
-    </div>
-    {% else %}
-
-
-
     {% if accountData.renewalDue === "yes" %}
     <div class="govuk-grid-column-full">
         <section id="maintenancePanel">
@@ -43,22 +28,17 @@ Personal licence hub
                 <a href="/{{version}}/maintenance/start" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-bottom-2">
                     Start now
                 </a>
-
+               
             </div>
         </section>
     </div>
 
     {% endif %}
-    <div class="govuk-grid-column-full">
-        <h2 class="govuk-heading-m">Your licence</h2>
+  
 
-        <hr class="govuk-section-break govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-5">
-    </div>
+</div>
 
-
-
-
-
+<div class="govuk-grid-row">
 
     <div class="govuk-grid-column-one-third">
         <div class="card">
@@ -94,8 +74,6 @@ Personal licence hub
             </div>
             <div class="card-action">
                 <ul class="govuk-list">
-                    <li><a class="govuk-link" href="/{{version}}/reportevent/list">View submitted events
-                        </a></li>
                     <li><a class="govuk-link" href="/{{version}}/reportevent/start">Report an event
                         </a></li>
                     <li><a class="govuk-link" href="/{{version}}/guidance/lccp">What you must report</a></li>
@@ -109,11 +87,11 @@ Personal licence hub
             <div class="card-body">
                 <h3 class="govuk-heading-s">{{accountData.title}} {{accountData.firstName}} {{accountData.middleName}}
                     {{accountData.lastName}}</h3>
-                <ul class="govuk-list govuk-!-font-size-16">
-                    <li>{{accountData.contactDetails.emailAddress}}</li>
-                    <li>{{accountData.contactDetails.mobile}}</li>
-                </ul>
-
+<ul class="govuk-list govuk-!-font-size-16">
+    <li>{{accountData.contactDetails.emailAddress}}</li>
+    <li>{{accountData.contactDetails.mobile}}</li>
+</ul>
+               
             </div>
             <div class="card-action">
                 <ul class="govuk-list">
@@ -123,6 +101,4 @@ Personal licence hub
         </div>
     </div>
 
-
-    {% endif %}
-    {% endblock %}
+</div> {% endblock %}
