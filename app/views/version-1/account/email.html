@@ -1,0 +1,48 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Change your email address
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+            <span class="govuk-caption-l">Manage your details</span>
+            <h1 class="govuk-heading-l">
+                Change your email address
+            </h1>
+            <p class="govuk-body">Changing your email address will also cause the email address you use to sign in to this
+                service to change.</p>
+    
+            <div class="govuk-inset-text">
+                    <h2 class="govuk-heading-s">
+                            Current email address
+                        </h2>
+                {{account.contact.email}}
+            </div>
+    
+            <form method="POST">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="name">
+                        New email address
+                    </label>
+                    <input class="govuk-input" id="name" name="name" type="text">
+                </div>
+    
+                <button type="submit" class="govuk-button">
+                    Save new email address
+                </button>
+    
+                <p>
+                    <a href="/{{version}}/manage/hub/{{account.accountNumber}}" class="govuk-link">Cancel and return to your account hub</a>
+                </p>
+            </form>
+        </div>
+    
+    </div>
+
+
+{% endblock %}
