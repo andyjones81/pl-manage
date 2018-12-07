@@ -396,6 +396,33 @@ router.get('/' + version + '/reportevent/add/step8', (req, res) => {
     });
 })
 
+router.get('/' + version + '/account/email', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/email', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/account/email-alt', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/email-alt', {
+        version,
+        accountData
+    });
+})
 
 router.post('/' + version + '/reportevent/add/step1', (req, res) => {
     res.redirect('/' + version + '/reportevent/add/step2');

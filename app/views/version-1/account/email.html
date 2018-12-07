@@ -9,19 +9,18 @@ Change your email address
 <div class="govuk-grid-row">
 
         <div class="govuk-grid-column-two-thirds">
-            <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+            <a href="/{{version}}/account/manage" class="govuk-back-link">Back</a>
             <span class="govuk-caption-l">Manage your details</span>
             <h1 class="govuk-heading-l">
                 Change your email address
             </h1>
-            <p class="govuk-body">Changing your email address will also cause the email address you use to sign in to this
-                service to change.</p>
+            <p class="govuk-body">If you change your email address, your sign in email address will also change.</p>
     
             <div class="govuk-inset-text">
                     <h2 class="govuk-heading-s">
                             Current email address
                         </h2>
-                {{account.contact.email}}
+                {{accountData.contactDetails.emailAddress}}
             </div>
     
             <form method="POST">
@@ -37,9 +36,11 @@ Change your email address
                 </button>
     
                 <p>
-                    <a href="/{{version}}/manage/hub/{{account.accountNumber}}" class="govuk-link">Cancel and return to your account hub</a>
+                    <a href="/{{version}}/account/hub" class="govuk-link">Cancel and return to your account hub</a>
                 </p>
             </form>
+
+            <a href="/{{version}}/account/email-alt" class="govuk-link">Alternative version</a>
         </div>
     
     </div>
