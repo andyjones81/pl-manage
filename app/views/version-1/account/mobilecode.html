@@ -12,20 +12,20 @@ Change your email address
             <a href="/{{version}}/account/mobile" class="govuk-back-link">Back</a>
             <span class="govuk-caption-l">Manage your details</span>
             <h1 class="govuk-heading-l">
-               Enter the code we've sent to your mobile
+               Enter the code we've sent to your mobile number {{data['mobile']}}
             </h1>
           
-    <p class="govuk-body">Enter the code we</p>
+    <p class="govuk-body">If you haven't received a code, you can go back, <a href="/{{version}}/account/mobile">check your number</a> and try again.</p>
             <form method="POST">
                 <div class="govuk-form-group">
-                    <label class="govuk-label" for="mobile">
-                        Mobile number
+                    <label class="govuk-label" for="mobilecode">
+                       Enter code
                     </label>
-                    <input class="govuk-input" id="mobile" name="mobile" type="text" value="{{accountData.contactDetails.mobile}}">
+                    <input class="govuk-input" id="mobilecode" name="mobilecode" type="text">
                 </div>
     
                 <button type="submit" class="govuk-button">
-                    Send me a code
+                    Save new mobile number
                 </button>
                 <a href="/{{version}}/account/manage" role="button" type="submit" class="govuk-button gc-button-secondary">
                         Return to manage your details

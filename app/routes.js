@@ -456,17 +456,7 @@ router.get('/' + version + '/account/mobile', (req, res) => {
 
 router.post('/' + version + '/account/mobile', (req, res) => {
 
-    var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
-
-    var accountData = d.accounts.filter(function (value) {
-        return value.accountNumber === accountNumber;
-    })[0];
-
-    res.render(version + '/account/mobile', {
-        version,
-        accountData
-    });
+  
 
     res.redirect('/' + version + '/account/mobilecode');
 })
@@ -483,6 +473,13 @@ router.get('/' + version + '/account/mobilecode', (req, res) => {
         version,
         accountData
     });
+})
+
+router.post('/' + version + '/account/mobilecode', (req, res) => {
+
+  
+
+    res.redirect('/' + version + '/account/manage');
 })
 
 router.post('/' + version + '/reportevent/add/step1', (req, res) => {
