@@ -424,6 +424,67 @@ router.get('/' + version + '/account/email-alt', (req, res) => {
     });
 })
 
+
+router.get('/' + version + '/account/password', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/password', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/account/mobile', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/mobile', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/mobile', (req, res) => {
+
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/mobile', {
+        version,
+        accountData
+    });
+
+    res.redirect('/' + version + '/account/mobilecode');
+})
+
+router.get('/' + version + '/account/mobilecode', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/mobilecode', {
+        version,
+        accountData
+    });
+})
+
 router.post('/' + version + '/reportevent/add/step1', (req, res) => {
     res.redirect('/' + version + '/reportevent/add/step2');
 })

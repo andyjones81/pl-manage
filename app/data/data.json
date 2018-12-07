@@ -15,16 +15,16 @@
             "lastName": "Wilson",
             "dateOfBirth": "1973-11-22T00:00:00",
             "homeAddress": {
-                "street": "",
-                "city": "",
-                "postcode": "",
-                "country": ""
+                "street": "Apt 15 Rue De Nord",
+                "city": "Paris",
+                "postcode": "82933",
+                "country": "France"
             },
             "correspondenceAddress": {
-                "street": "",
-                "city": "",
-                "postcode": "",
-                "country": ""
+                "street": "13 Some Street",
+                "city": "London",
+                "postcode": "E16 1SD",
+                "country": "United Kingdom"
             },
             "contactDetails": {
                 "mobile": "07940720925",
