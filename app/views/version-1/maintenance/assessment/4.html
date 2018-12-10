@@ -1,0 +1,56 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/assessment/3" class="govuk-back-link">Back</a>
+
+            
+ 
+        <form method="POST"> 
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="changed-criminal-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                            <span class="govuk-caption-l">Renew your licence</span>
+                        <h1 class="govuk-fieldset__heading">
+                          Have you ever been convicted of a criminal offence, or currently subject to a criminal investigation?
+                        </h1>
+                      </legend>
+                      <span id="changed-criminal-hint" class="govuk-hint">
+                       You must tell us about any offences spent or unspent, and any criminal investigations currently in progress
+                      </span>
+
+                      
+                      <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-criminal-1" name="changed-criminal" type="radio" value="yes" {{ checked('changed-criminal', 'yes') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-criminal-1">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-criminal-2" name="changed-criminal" type="radio" value="no"{{ checked('changed-criminal', 'no') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-criminal-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+        <button type="submit" class="govuk-button">
+            Save and continue
+        </button>
+    </form>
+           
+    </div>
+
+</div>
+
+{% endblock %}

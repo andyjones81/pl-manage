@@ -22,7 +22,6 @@ router.get('/' + version + '/account/hub', (req, res) => {
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
-
     res.render(version + '/account/hub', {
         version,
         accountData
@@ -36,7 +35,6 @@ router.get('/' + version + '/account/manage', (req, res) => {
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
-
     res.render(version + '/account/manage', {
         version,
         accountData
@@ -86,6 +84,134 @@ router.get('/' + version + '/maintenance/start', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/assessment/1', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/1', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/1', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/2');
+})
+
+router.get('/' + version + '/maintenance/assessment/2', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/2', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/2', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/3');
+})
+
+router.get('/' + version + '/maintenance/assessment/3', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/3', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/3', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/4');
+})
+
+
+router.get('/' + version + '/maintenance/assessment/4', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/4', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/4', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/5');
+})
+
+
+router.get('/' + version + '/maintenance/assessment/5', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/5', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/5', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/6');
+})
+
+
+router.get('/' + version + '/maintenance/assessment/6', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/6', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/6', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/check');
+})
+
+router.get('/' + version + '/maintenance/assessment/check', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/check', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/check', (req, res) => {
+    res.redirect('/' + version + '/maintenance/start');
+})
 
 
 router.get('/' + version + '/downloadlicence/start', (req, res) => {

@@ -1,0 +1,71 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/assessment/5" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+        <form method="POST"> 
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="changed-contact-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                            <span class="govuk-caption-l">Renew your licence</span>
+                        <h1 class="govuk-fieldset__heading">
+                          Have your contact details changed?
+                        </h1>
+                      </legend>
+                    
+
+                      <div class="govuk-inset-text">
+                          <p class="govuk-body">
+                              <span class="govuk-!-font-weight-bold">Your mobile number</span>
+                            </p>  <p class="govuk-body">
+                                {{accountData.contactDetails.mobile}}
+                              </p>  
+                              <p class="govuk-body">
+                                  <span class="govuk-!-font-weight-bold">Your alternative contact number</span>
+                                </p>  <p class="govuk-body">
+                                    {{accountData.contactDetails.home}} </p>  
+
+                                <p class="govuk-body">
+                                    <span class="govuk-!-font-weight-bold">Your email address</span>
+                                  </p>  <p class="govuk-body">
+                                      {{accountData.contactDetails.emailAddress}} </p>  
+                          </div>
+                      <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-contact-1" name="changed-contact" type="radio" value="yes" {{ checked('changed-contact', 'yes') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-contact-1">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-contact-2" name="changed-contact" type="radio" value="no"{{ checked('changed-contact', 'no') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-contact-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+        <button type="submit" class="govuk-button">
+            Save and continue
+        </button>
+    </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

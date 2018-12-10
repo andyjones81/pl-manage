@@ -1,0 +1,66 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/assessment/2" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+        <form method="POST"> 
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="changed-address-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                            <span class="govuk-caption-l">Renew your licence</span>
+                        <h1 class="govuk-fieldset__heading">
+                          Have you lived at any other address in the last 5 years?
+                        </h1>
+                      </legend>
+                      <span id="changed-address-hint" class="govuk-hint">
+                        This includes elswhere in the world
+                      </span>
+
+                      <div class="govuk-inset-text">
+                            <p class="govuk-body"><span class="govuk-!-font-weight-bold">Your current home address</span>
+                            </p>  <p class="govuk-body">
+                                {{accountData.homeAddress.street}}<br/>
+                                {{accountData.homeAddress.city}}<br/>
+                                {{accountData.homeAddress.postcode}}<br/>
+                                {{accountData.homeAddress.country}}<br/>
+                                    </p>
+                          </div>
+                      <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-address-1" name="changed-address" type="radio" value="yes" {{ checked('changed-address', 'yes') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-address-1">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-address-2" name="changed-address" type="radio" value="no"{{ checked('changed-address', 'no') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-address-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+        <button type="submit" class="govuk-button">
+            Save and continue
+        </button>
+    </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

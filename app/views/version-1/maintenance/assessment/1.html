@@ -1,0 +1,44 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Renew your licence</span>
+        <h1 class="govuk-heading-l">
+            We're going to check a few things before you start 
+        </h1>
+            
+            <p class="govuk-body">
+              We will ask you 5 questions. The information you provide will be used to make the application process easier. 
+            </p>
+
+      
+                  <div class="govuk-warning-text">
+                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                        <strong class="govuk-warning-text__text">
+                          <span class="govuk-warning-text__assistive">Warning</span>
+                          During the renewal process, we will carry out a criminal records check, so you must provide accurate information when requested.
+                        </strong>
+                      </div>
+
+            <form method="POST"> 
+                <button type="submit" class="govuk-button">
+                    Continue
+                </button>
+            </form>
+
+            <p class="govuk-body">
+            <a href="/{{version}}/account/hub">I'm not ready to renew</a>
+            </p>
+    </div>
+
+</div>
+
+{% endblock %}

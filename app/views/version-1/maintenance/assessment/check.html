@@ -1,0 +1,118 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+    
+        <span class="govuk-caption-xl">Renew your licence</span>
+        <h1 class="govuk-heading-xl">
+           Check your answers
+        </h1>
+
+
+
+  <form method="post">
+
+    <dl class="app-check-your-answers app-check-your-answers--short">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+         Name changed
+        </dt>
+        <dd class="app-check-your-answers__answer">
+           
+                {{data['changed-name'] | title }}
+
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="2">
+            Change<span class="govuk-visually-hidden"> name answer</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+           Address changed
+          </dt>
+          <dd class="app-check-your-answers__answer">
+              {{data['changed-address'] | title }}
+  
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="3">
+              Change<span class="govuk-visually-hidden"> address answer</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+             Any criminality
+            </dt>
+            <dd class="app-check-your-answers__answer">
+                    {{data['changed-criminal'] | title }}
+    
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="4">
+                Change<span class="govuk-visually-hidden"> criminality answer</span>
+              </a>
+            </dd>
+          </div>
+      
+          <div class="app-check-your-answers__contents">
+              <dt class="app-check-your-answers__question">
+               Any financial actions
+              </dt>
+              <dd class="app-check-your-answers__answer">
+                      {{data['changed-financial'] | title }}
+      
+              </dd>
+              <dd class="app-check-your-answers__change">
+                <a href="5">
+                  Change<span class="govuk-visually-hidden"> financial answer</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                 Contact details changed
+                </dt>
+                <dd class="app-check-your-answers__answer">
+
+          
+                        {{data['changed-contact'] | title }}
+        
+                </dd>
+                <dd class="app-check-your-answers__change">
+                  <a href="6">
+                    Change<span class="govuk-visually-hidden"> financial answer</span>
+                  </a>
+                </dd>
+              </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">Continue your application</h2>
+    <p class="govuk-body">We have all the information we need to start your renewal application.</p>
+    <form method="POST">
+        <div class="govuk-form-group">
+            <button class="govuk-button" type="submit">
+                Continue application
+            </button>
+        </div>
+    </form>
+
+
+
+</div>
+
+</div>
+
+{% endblock %}

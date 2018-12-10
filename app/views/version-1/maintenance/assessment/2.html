@@ -1,0 +1,64 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/assessment/1" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+            <form method="POST"> 
+                    <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                                    <span class="govuk-caption-l">Renew your licence</span>
+                                <h1 class="govuk-fieldset__heading">
+                                  Have you changed your name?
+                                </h1>
+                              </legend>
+                              <span id="changed-name-hint" class="govuk-hint">
+                                This includes changing your title, last name or spelling your name differently.
+                              </span>
+
+                              <div class="govuk-inset-text">
+                                    <p class="govuk-body"><span class="govuk-!-font-weight-bold">Your current title and name</span>
+                                    </p>  <p class="govuk-body">
+                                    {{accountData.title}} {{accountData.firstName}} {{accountData.middleName}}
+                                            {{accountData.lastName}}
+                                            </p>
+                                  </div>
+                              <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="changed-name-1" name="changed-name" type="radio" value="yes" {{ checked('changed-name', 'yes') }}>
+                                  <label class="govuk-label govuk-radios__label" for="changed-name-1">
+                                    Yes
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no"{{ checked('changed-name', 'no') }}>
+                                  <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                    No
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}
