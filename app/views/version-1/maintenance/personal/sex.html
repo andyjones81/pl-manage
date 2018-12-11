@@ -1,0 +1,56 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/personal/dob" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+            <form method="POST"> 
+                    <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="sex-hint">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                                    <span class="govuk-caption-l">Renew your licence</span>
+                                <h1 class="govuk-fieldset__heading">
+                                  What is your sex?
+                                </h1>
+                              </legend>
+                             
+
+                             
+                              <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="sex-1" name="sex" type="radio" value="female" {{ checked('sex', 'female') }}>
+                                  <label class="govuk-label govuk-radios__label" for="sex-1">
+                                    Female
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="sex-2" name="sex" type="radio" value="male"{{ checked('sex', 'male') }}>
+                                  <label class="govuk-label govuk-radios__label" for="sex-2">
+                                    Male
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

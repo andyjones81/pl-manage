@@ -15,10 +15,10 @@
             "lastName": "Wilson",
             "dateOfBirth": "1973-11-22T00:00:00",
             "homeAddress": {
-                "street": "Apt 15 Rue De Nord",
-                "city": "Paris",
-                "postcode": "82933",
-                "country": "France"
+                "street": "15 Electric Avenue",
+                "city": "Nottingham",
+                "postcode": "NG2 8JU",
+                "country": "United Kingdom"
             },
             "correspondenceAddress": {
                 "street": "13 Some Street",

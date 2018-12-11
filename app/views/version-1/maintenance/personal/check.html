@@ -1,0 +1,164 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+    
+        <span class="govuk-caption-xl">Renew your licence</span>
+        <h1 class="govuk-heading-xl">
+           Check your answers
+        </h1>
+
+
+
+  <form method="post">
+
+        <h2 class="govuk-heading-l">
+                Personal details
+             </h2>
+
+    <dl class="app-check-your-answers app-check-your-answers--short">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+         Name changed
+        </dt>
+        <dd class="app-check-your-answers__answer">           
+                {{data['changed-name'] | title }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="name">
+            Change<span class="govuk-visually-hidden"> name answer</span>
+          </a>
+        </dd>
+      </div>
+
+      {% if data['changed-name'] === 'yes' %}
+
+      <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+             Updated name
+            </dt>
+            <dd class="app-check-your-answers__answer">
+                {{data['title'] | title }}  {{data['firstname'] | title }}  {{data['middlename'] | title }}  {{data['lastname'] | title }}
+    
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="new-name">
+                Change<span class="govuk-visually-hidden"> new name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                 Name changed date
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['name-changed-day']}}/{{data['name-changed-month']}}/{{data['name-changed-year'] }}
+        
+                </dd>
+                <dd class="app-check-your-answers__change">
+                  <a href="name-changed-date">
+                    Change<span class="govuk-visually-hidden"> name changed date</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                     Name change evidence
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+                       1 file uloaded
+            
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                      <a href="name-changed-evidence">
+                        Change<span class="govuk-visually-hidden"> name change evidence</span>
+                      </a>
+                    </dd>
+                  </div>
+
+      {% endif %}
+
+      <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+          Date of birth correct
+          </dt>
+          <dd class="app-check-your-answers__answer">
+
+
+{{data['dob-correct'] | title}}        
+  
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="dob">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['dob-correct'] === 'no' %}
+
+        <div class="app-check-your-answers__contents">
+              <dt class="app-check-your-answers__question">
+               Updated date of birth
+              </dt>
+              <dd class="app-check-your-answers__answer">
+                  {{data['dob-day']}}/{{data['dob-month']}}/{{data['dob-year'] }}
+      
+              </dd>
+              <dd class="app-check-your-answers__change">
+                <a href="dob">
+                  Change<span class="govuk-visually-hidden"> new dob</span>
+                </a>
+              </dd>
+            </div>
+  
+        {% endif %}
+  
+
+
+
+        <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+             Sex
+            </dt>
+            <dd class="app-check-your-answers__answer">
+                    {{data['sex'] | title }}
+    
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="sex">
+                Change<span class="govuk-visually-hidden"> sex</span>
+              </a>
+            </dd>
+          </div>
+      
+         
+
+           
+    </dl>
+
+    <h2 class="govuk-heading-m">Continue your application</h2>
+    <form method="POST">
+        <div class="govuk-form-group">
+            <button class="govuk-button" type="submit">
+                Continue
+            </button>
+        </div>
+    </form>
+
+
+
+</div>
+
+</div>
+
+{% endblock %}
