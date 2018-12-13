@@ -1,0 +1,40 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/outcomes/surrender" class="govuk-back-link">Back</a>
+
+  <span class="govuk-caption-l">Renew your licence</span>
+            <h1 class="govuk-heading-l">
+                Tell us why you want to keep your licence
+            </h1>
+
+
+        <form method="POST">
+          
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="more-detail">
+                    Details
+                </label>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['more-detail']}}</textarea>
+            </div>
+
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Guidance
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+       
+        <a href="/{{version}}/maintenance/assessment/keep" class="govuk-back-link">Back</a>
+        <h1 class="govuk-heading-l">
+            You have told us that you no longer need your licence
+        </h1>
+
+        <p class="govuk-body">
+            You should surrender your licence if you do not need it.
+        </p>
+        <p class="govuk-body">
+            You cannot do this online at the moment. To surrender your licence, you can:
+        </p>
+
+        <ul class="govuk-list">
+            <li>Email <a href="mailto:licensing@gamblingcommission.gov.uk">licensing@gamblingcommission.gov.uk</a></li>
+            <li>Call us on 0121 230 6666 (Option 2)</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">
+            If you want to keep your licence
+        </h2>
+
+        <p class="govuk-body">
+            You can still renew your licence online.
+        </p>
+
+
+      <form method="POST">
+        <button type="submit" class="govuk-button">
+          Continue to renew my licence
+          </button>
+      </form>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

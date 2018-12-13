@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Sign in to manage your personal licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+          Manage your personal licence
+        </h1>
+
+
+        <p class="govuk-body">If you hold a personal management or personal functional licence, you can use this service to:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>View and download your licence</li>          
+          <li>Report something that might affect your licence as part of the <a href="#">Licence Conditions and Codes of Practice</a></li>
+          <li>Renew your licence</li>
+          <li>Update your contact details</li>
+        </ul>
+
+    <h2 class="govuk-heading-l">
+      Sign in
+    </h2>
+
+    <form method="POST">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="email">
+          Email address
+        </label>
+        <input class="govuk-input" id="email" name="email" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="password">
+          Password
+        </label>
+        <input class="govuk-input" id="password" name="password" type="text">
+      </div>
+      <button type="submit" class="govuk-button">
+        Sign in
+      </button>
+    </form>
+
+    <p class="govuk-body">If you hold a personal licence but do not have access to this service, you can <a href="/security/createaccount">create an account</a>.</p>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+    <p class="govuk-body">
+      <ul class="govuk-list">
+        <li><a href="">I have forgotten my password</a></li>
+        <li><a href="">I need help using this service</a></li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const version = "version-1"
+const version = "version-2"
 
 // Add your routes here - above the module.exports line
 
@@ -84,7 +84,7 @@ router.get('/' + version + '/maintenance/start', (req, res) => {
     });
 })
 
-router.get('/' + version + '/maintenance/assessment/1', (req, res) => {
+router.get('/' + version + '/maintenance/assessment/keep', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = req.session.data['account']
 
@@ -92,17 +92,21 @@ router.get('/' + version + '/maintenance/assessment/1', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/maintenance/assessment/1', {
+    res.render(version + '/maintenance/assessment/keep', {
         version,
         accountData
     });
 })
 
-router.post('/' + version + '/maintenance/assessment/1', (req, res) => {
-    res.redirect('/' + version + '/maintenance/assessment/2');
+router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
+    if (req.session.data['keep-licence'] === 'no') {
+        res.redirect('/' + version + '/maintenance/assessment/outcome/surrender');
+    }
+
+    res.redirect('/' + version + '/maintenance/assessment/financial');
 })
 
-router.get('/' + version + '/maintenance/assessment/2', (req, res) => {
+router.get('/' + version + '/maintenance/assessment/financial', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = req.session.data['account']
 
@@ -110,17 +114,21 @@ router.get('/' + version + '/maintenance/assessment/2', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/maintenance/assessment/2', {
+    res.render(version + '/maintenance/assessment/financial', {
         version,
         accountData
     });
 })
 
-router.post('/' + version + '/maintenance/assessment/2', (req, res) => {
-    res.redirect('/' + version + '/maintenance/assessment/3');
+router.post('/' + version + '/maintenance/assessment/financial', (req, res) => {
+    if (req.session.data['changed-financial'] === 'no') {
+        res.redirect('/' + version + '/maintenance/assessment/name-changed');
+    }
+
+    res.redirect('/' + version + '/maintenance/assessment/outcome/refuse');
 })
 
-router.get('/' + version + '/maintenance/assessment/3', (req, res) => {
+router.get('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = req.session.data['account']
 
@@ -128,16 +136,269 @@ router.get('/' + version + '/maintenance/assessment/3', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/maintenance/assessment/3', {
+    res.render(version + '/maintenance/assessment/outcome/refuse', {
         version,
         accountData
     });
 })
 
-router.post('/' + version + '/maintenance/assessment/3', (req, res) => {
-    res.redirect('/' + version + '/maintenance/assessment/4');
+router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/new-name', {
+        version,
+        accountData
+    });
 })
 
+router.post('/' + version + '/maintenance/assessment/new-name', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/name-changed-date');
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/why-keep');
+})
+
+
+router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/name-changed');
+})
+
+
+router.get('/' + version + '/maintenance/aassessment/date-changed', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/aassessment/date-changed', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/aassessment/date-changed', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/evidence');
+})
+
+router.get('/' + version + '/maintenance/aassessment/evidence', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/aassessment/evidence', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/aassessment/evidence', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/dob');
+})
+
+
+
+router.get('/' + version + '/maintenance/aassessment/surrender', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/aassessment/surrender', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/aassessment/surrender', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/why-keep');
+})
+
+router.get('/' + version + '/maintenance/assessment/why-keep', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/why-keep', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/why-keep', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/financial');
+})
+
+
+router.get('/' + version + '/maintenance/assessment/name-changed', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/name-changed', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/name-changed', (req, res) => {
+    if (req.session.data['same-name'] == "no") {
+        res.redirect('/' + version + '/maintenance/assessment/new-name');
+    }
+    res.redirect('/' + version + '/maintenance/assessment/dob');
+})
+
+router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/new-name', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/new-name', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/name-changed-date');
+})
+
+
+router.get('/' + version + '/maintenance/assessment/name-changed-date', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/name-changed-date', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/name-changed-date', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/name-changed-evidence');
+})
+
+router.get('/' + version + '/maintenance/assessment/name-changed-evidence', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/name-changed-evidence', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/name-changed-evidence', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/dob');
+})
+
+router.get('/' + version + '/maintenance/assessment/dob', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/dob', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/dob', (req, res) => {
+
+    if (req.session.data['dob-correct'] == "no") {
+        res.redirect('/' + version + '/maintenance/assessment/new-dob');
+    }
+    res.redirect('/' + version + '/maintenance/assessment/current-home-address');
+})
+
+router.get('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/new-dob', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/current-home-address');
+})
+
+router.get('/' + version + '/maintenance/assessment/current-home-address', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/current-home-address', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/current-home-address', (req, res) => {
+    if (req.session.data['current-home-address'] == "no") {
+        res.redirect('/' + version + '/maintenance/assessment/set-end-date');
+    }
+    res.redirect('/' + version + '/maintenance/assessment/check');
+})
+
+router.get('/' + version + '/maintenance/assessment/set-end-date', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/set-end-date', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/set-end-date', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/check');
+})
 
 router.get('/' + version + '/maintenance/assessment/4', (req, res) => {
     var d = require('./data/data.json')
@@ -402,7 +663,7 @@ router.get('/' + version + '/reportevent/start', (req, res) => {
     req.session.data['type'] = null
     req.session.data['more-detail'] = null
     req.session.data['dob-day'] = null
-    req.session.data['dob-month'] = null    
+    req.session.data['dob-month'] = null
     req.session.data['dob-year'] = null
 
 
@@ -582,7 +843,7 @@ router.get('/' + version + '/account/mobile', (req, res) => {
 
 router.post('/' + version + '/account/mobile', (req, res) => {
 
-  
+
 
     res.redirect('/' + version + '/account/mobilecode');
 })
@@ -603,7 +864,7 @@ router.get('/' + version + '/account/mobilecode', (req, res) => {
 
 router.post('/' + version + '/account/mobilecode', (req, res) => {
 
-  
+
 
     res.redirect('/' + version + '/account/manage');
 })
@@ -649,8 +910,7 @@ router.get('/' + version + '/maintenance/personal/name', (req, res) => {
 
 router.post('/' + version + '/maintenance/personal/name', (req, res) => {
 
-    if(req.session.data['changed-name'] == "yes")
-    {
+    if (req.session.data['changed-name'] == "yes") {
         res.redirect('/' + version + '/maintenance/personal/new-name');
     }
     res.redirect('/' + version + '/maintenance/personal/dob');
@@ -671,8 +931,8 @@ router.get('/' + version + '/maintenance/personal/new-name', (req, res) => {
     });
 })
 
-router.post('/' + version + '/maintenance/personal/new-name', (req, res) => {    
-        res.redirect('/' + version + '/maintenance/personal/name-changed-date');  
+router.post('/' + version + '/maintenance/personal/new-name', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/name-changed-date');
 })
 
 
@@ -690,8 +950,8 @@ router.get('/' + version + '/maintenance/personal/name-changed-date', (req, res)
     });
 })
 
-router.post('/' + version + '/maintenance/personal/name-changed-date', (req, res) => {    
-    res.redirect('/' + version + '/maintenance/personal/name-change-evidence');  
+router.post('/' + version + '/maintenance/personal/name-changed-date', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/name-change-evidence');
 })
 
 router.get('/' + version + '/maintenance/personal/name-change-evidence', (req, res) => {
@@ -708,8 +968,8 @@ router.get('/' + version + '/maintenance/personal/name-change-evidence', (req, r
     });
 })
 
-router.post('/' + version + '/maintenance/personal/name-change-evidence', (req, res) => {    
-    res.redirect('/' + version + '/maintenance/personal/dob');  
+router.post('/' + version + '/maintenance/personal/name-change-evidence', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/dob');
 })
 
 
@@ -728,8 +988,8 @@ router.get('/' + version + '/maintenance/personal/dob', (req, res) => {
 })
 
 
-router.post('/' + version + '/maintenance/personal/dob', (req, res) => {    
-    res.redirect('/' + version + '/maintenance/personal/sex');  
+router.post('/' + version + '/maintenance/personal/dob', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/sex');
 })
 
 router.get('/' + version + '/maintenance/personal/sex', (req, res) => {
@@ -747,8 +1007,8 @@ router.get('/' + version + '/maintenance/personal/sex', (req, res) => {
 })
 
 
-router.post('/' + version + '/maintenance/personal/sex', (req, res) => {    
-    res.redirect('/' + version + '/maintenance/personal/check');  
+router.post('/' + version + '/maintenance/personal/sex', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/check');
 })
 
 router.get('/' + version + '/maintenance/personal/check', (req, res) => {
@@ -766,9 +1026,9 @@ router.get('/' + version + '/maintenance/personal/check', (req, res) => {
 })
 
 
-router.post('/' + version + '/maintenance/personal/homeaddress', (req, res) => {    
-    
-    res.redirect('/' + version + '/maintenance/personal/born');  
+router.post('/' + version + '/maintenance/personal/homeaddress', (req, res) => {
+
+    res.redirect('/' + version + '/maintenance/personal/born');
 })
 
 router.get('/' + version + '/maintenance/personal/born', (req, res) => {
