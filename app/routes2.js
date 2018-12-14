@@ -471,7 +471,7 @@ router.get('/' + version + '/maintenance/assessment/check', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/check', (req, res) => {
-    res.redirect('/' + version + '/maintenance/start');
+    res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
 
@@ -490,8 +490,25 @@ router.get('/' + version + '/downloadlicence/start', (req, res) => {
 })
 
 
+
+
 router.post('/' + version + '/downloadlicence/start', (req, res) => {
     res.redirect('/' + version + '/downloadlicence/licence');
+})
+
+
+router.get('/' + version + '/maintenance/tasks/list', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/tasks/list', {
+        version,
+        accountData
+    });
 })
 
 router.get('/' + version + '/downloadlicence/licence', (req, res) => {
