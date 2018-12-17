@@ -12,34 +12,32 @@ Guidance
     <div class="govuk-grid-column-two-thirds">
        
         <a href="/{{version}}/maintenance/assessment/keep" class="govuk-back-link">Back</a>
-        <h1 class="govuk-heading-l">
-            You have told us that you no longer need your licence
+        <span class="govuk-caption-l">Surrender your licence</span>
+        <h1 class="govuk-heading-xl">
+                Tell us why you no longer need your licence
         </h1>
 
-        <p class="govuk-body">
-            You should surrender your licence if you do not need it.
-        </p>
-        <p class="govuk-body">
-            You cannot do this online at the moment. To surrender your licence, you can:
-        </p>
-
-        <ul class="govuk-list">
-            <li>Email <a href="mailto:licensing@gamblingcommission.gov.uk">licensing@gamblingcommission.gov.uk</a></li>
-            <li>Call us on 0121 230 6666 (Option 2)</li>
-        </ul>
-
-        <h2 class="govuk-heading-m">
-            If you want to keep your licence
-        </h2>
-
-        <p class="govuk-body">
-            You can still renew your licence online.
-        </p>
+        <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  Surrendering your licence is not reversable. If you intend to work in the same or similar role in future, you will need to apply for a new licence.
+                </strong>
+              </div>
 
 
       <form method="POST">
+            <div class="govuk-form-group">
+                    <label class="govuk-label" for="why-surrender">
+                      Details
+                    </label>
+                    <span id="why-surrender-hint" class="govuk-hint">
+                      Do not include personal or financial information, like your National Insurance number or credit card details.
+                    </span>
+                    <textarea class="govuk-textarea" id=why-surrender" name="why-surrender" rows="5" aria-describedby="why-surrender-hint"></textarea>
+                  </div>
         <button type="submit" class="govuk-button">
-          Continue to renew my licence
+          Send surrender request
           </button>
       </form>
 

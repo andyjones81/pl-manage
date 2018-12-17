@@ -142,6 +142,111 @@ router.get('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) 
     });
 })
 
+router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/refuse-details', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-details');
+ })
+
+
+ router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/refuse-details', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-check');
+ })
+
+ 
+ router.get('/' + version + '/maintenance/assessment/outcome/refuse-check', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/refuse-check', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/refuse-check', (req, res) => {
+    res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-complete');
+ })
+
+
+ router.get('/' + version + '/maintenance/assessment/outcome/refuse-complete', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/refuse-complete', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/surrender', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
+   res.redirect('/' + version + '/maintenance/assessment/outcome/surrender-submitted');
+})
+
+
+
+router.get('/' + version + '/maintenance/assessment/outcome/surrender-submitted', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/surrender-submitted', {
+        version,
+        accountData
+    });
+})
+
 router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = req.session.data['account']
@@ -162,11 +267,6 @@ router.post('/' + version + '/maintenance/assessment/new-name', (req, res) => {
 
 router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
     res.redirect('/' + version + '/maintenance/assessment/why-keep');
-})
-
-
-router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
-    res.redirect('/' + version + '/maintenance/assessment/name-changed');
 })
 
 
@@ -1044,7 +1144,6 @@ router.get('/' + version + '/maintenance/personal/check', (req, res) => {
 
 
 router.post('/' + version + '/maintenance/personal/homeaddress', (req, res) => {
-
     res.redirect('/' + version + '/maintenance/personal/born');
 })
 
@@ -1065,5 +1164,189 @@ router.get('/' + version + '/maintenance/personal/born', (req, res) => {
 
 
 
+//APP
+
+router.get('/' + version + '/maintenance/app/certaddress', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/certaddress', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/criminality', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/criminality', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/dbsconsent', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/declaration', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/declaration', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/financialactions', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/financialactions', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/place', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/place', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/placeofbirth', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/placeofbirth', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/previousaddresses', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/previousnames', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/previousnames', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/sex', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/sex', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/thirdparty', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/thirdparty', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/verification', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = req.session.data['account']
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verification', {
+        version,
+        accountData
+    });
+})
+
+
+
+router.post('/' + version + '/maintenance/personal/homeaddress', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/born');
+})
 
 module.exports = router

@@ -12,39 +12,54 @@ Guidance
     <div class="govuk-grid-column-two-thirds">
        
         <a href="/{{version}}/maintenance/assessment/financial" class="govuk-back-link">Back</a>
-        <h1 class="govuk-heading-l">
-            We may not be able to renew your licence
-        </h1>
+        <span class="govuk-caption-l">Renew your licence</span>
+      
 
+        <form method="POST"> 
+                 
 
-        <p class="govuk-body">
-            You have indicated that in the last 5 years you have:
-        </p>
-
-<ul class="govuk-list govuk-list--bullet">
-    <li>been declared bankrupt</li>
-    <li>been sequestrated</li>
-    <li>entered into an agreement with creditors</li>
-    <li>entered into an Individual Voluntary Agreement (IVA)</li>    
-    <li>or entered into a protected trust deed</li>
-  </ul>
-
-
-        <h2 class="govuk-heading-m">
-            If you want to keep your licence
-        </h2>
-
-        <p class="govuk-body">
-            You can still renew your licence online, however, we may refuse the application.
-        </p>
-
-
-      <form method="POST">
-        <button type="submit" class="govuk-button">
-          Continue to renew my licence
-          </button>
-      </form>
-
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="bankrupt-hint" role="group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                      <h1 class="govuk-fieldset__heading">
+                        When did this happen?
+                      </h1>
+                    </legend>
+                    <span id="bankrupt-hint" class="govuk-hint">
+                      For example, 31 3 2018
+                    </span>
+                    <div class="govuk-date-input" id="bankrupt">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="bankrupt-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="bankrupt-day" name="bankrupt-day" type="number" pattern="[0-9]*" value="{{data['bankrupt-day']}}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="bankrupt-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="bankrupt-month" name="bankrupt-month" type="number" pattern="[0-9]*"value="{{data['bankrupt-month']}}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="bankrupt-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="bankrupt-year" name="bankrupt-year" type="number" pattern="[0-9]*"value="{{data['bankrupt-year']}}">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                  <button type="submit" class="govuk-button">
+                      Save and continue
+                  </button>
+              </form>
 
     </div>
 
