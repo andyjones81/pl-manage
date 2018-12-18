@@ -1,0 +1,72 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+
+        <span class="govuk-caption-xl">Renew your licence</span>
+        <h1 class="govuk-heading-xl">
+            Check your address history
+        </h1>
+
+        <p class="govuk-body">You must tell us about all the addresses you've lived at in the last 5 years.
+            You can not leave any gaps but dates may overlap.</p>
+
+        <p class="govuk-body">You should include secondary addresses, for example student accommodation or if you work
+            away from home. </p>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Addresses</span></caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Address</th>
+                    <th class="govuk-table__header" scope="col">Dates</th>
+                    <th class="govuk-table__header" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"> {{accountData.homeAddress.street}},
+                        {{accountData.homeAddress.city}}, {{accountData.homeAddress.postcode}}</th>
+                    <td class="govuk-table__cell">{{accountData.homeAddress.since | date('MMM YYYY') }}
+
+                        {% if(data['current-home-address'] === 'no') %}
+
+                        {% set vdate %}
+                        {{data['address-end-day']}}/{{data['address-end-month']}}/{{data['address-end-year']}} {%
+                        endset %}
+
+                        to {{vdate | date('MMM YYYY')}}
+                        {%else%}
+
+                        to present
+                        {% endif %}
+
+
+                    </td>
+                    <td class="govuk-table__cell"><a href="">Manage</a> <span class="govuk-visually-hidden">{{accountData.homeAddress.street}}</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <p class="govuk-body"><a href="">Add address</a></p>
+
+        <form method="POST">
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

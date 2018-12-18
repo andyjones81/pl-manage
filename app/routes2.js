@@ -17,7 +17,7 @@ router.post('/' + version + '/security/signin', (req, res) => {
 
 router.get('/' + version + '/account/hub', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -30,7 +30,7 @@ router.get('/' + version + '/account/hub', (req, res) => {
 
 router.get('/' + version + '/account/manage', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -43,7 +43,7 @@ router.get('/' + version + '/account/manage', (req, res) => {
 
 router.get('/' + version + '/account/notyet', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -58,7 +58,7 @@ router.get('/' + version + '/account/notyet', (req, res) => {
 
 router.get('/' + version + '/surrenderlicence/start', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -72,7 +72,7 @@ router.get('/' + version + '/surrenderlicence/start', (req, res) => {
 
 router.get('/' + version + '/maintenance/start', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -86,7 +86,7 @@ router.get('/' + version + '/maintenance/start', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/keep', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -108,7 +108,7 @@ router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/financial', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -130,7 +130,7 @@ router.post('/' + version + '/maintenance/assessment/financial', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -144,7 +144,7 @@ router.get('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) 
 
 router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -163,7 +163,7 @@ router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res)
 
  router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -182,7 +182,7 @@ router.post('/' + version + '/maintenance/assessment/outcome/refuse-details', (r
  
  router.get('/' + version + '/maintenance/assessment/outcome/refuse-check', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -201,7 +201,7 @@ router.post('/' + version + '/maintenance/assessment/outcome/refuse-check', (req
 
  router.get('/' + version + '/maintenance/assessment/outcome/refuse-complete', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -215,7 +215,7 @@ router.post('/' + version + '/maintenance/assessment/outcome/refuse-check', (req
 
 router.get('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -235,7 +235,7 @@ router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, r
 
 router.get('/' + version + '/maintenance/assessment/outcome/surrender-submitted', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -249,7 +249,7 @@ router.get('/' + version + '/maintenance/assessment/outcome/surrender-submitted'
 
 router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -272,7 +272,7 @@ router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, r
 
 router.get('/' + version + '/maintenance/aassessment/date-changed', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -290,7 +290,7 @@ router.post('/' + version + '/maintenance/aassessment/date-changed', (req, res) 
 
 router.get('/' + version + '/maintenance/aassessment/evidence', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -310,7 +310,7 @@ router.post('/' + version + '/maintenance/aassessment/evidence', (req, res) => {
 
 router.get('/' + version + '/maintenance/aassessment/surrender', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -328,7 +328,7 @@ router.post('/' + version + '/maintenance/aassessment/surrender', (req, res) => 
 
 router.get('/' + version + '/maintenance/assessment/why-keep', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -347,7 +347,7 @@ router.post('/' + version + '/maintenance/assessment/why-keep', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/name-changed', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -368,7 +368,7 @@ router.post('/' + version + '/maintenance/assessment/name-changed', (req, res) =
 
 router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -387,7 +387,7 @@ router.post('/' + version + '/maintenance/assessment/new-name', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/name-changed-date', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -405,7 +405,7 @@ router.post('/' + version + '/maintenance/assessment/name-changed-date', (req, r
 
 router.get('/' + version + '/maintenance/assessment/name-changed-evidence', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -423,7 +423,7 @@ router.post('/' + version + '/maintenance/assessment/name-changed-evidence', (re
 
 router.get('/' + version + '/maintenance/assessment/dob', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -445,7 +445,7 @@ router.post('/' + version + '/maintenance/assessment/dob', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -463,7 +463,7 @@ router.post('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/current-home-address', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -484,7 +484,7 @@ router.post('/' + version + '/maintenance/assessment/current-home-address', (req
 
 router.get('/' + version + '/maintenance/assessment/set-end-date', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -502,7 +502,7 @@ router.post('/' + version + '/maintenance/assessment/set-end-date', (req, res) =
 
 router.get('/' + version + '/maintenance/assessment/4', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -521,7 +521,7 @@ router.post('/' + version + '/maintenance/assessment/4', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/5', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -540,7 +540,7 @@ router.post('/' + version + '/maintenance/assessment/5', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/6', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -558,7 +558,7 @@ router.post('/' + version + '/maintenance/assessment/6', (req, res) => {
 
 router.get('/' + version + '/maintenance/assessment/check', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -571,13 +571,13 @@ router.get('/' + version + '/maintenance/assessment/check', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/check', (req, res) => {
-    res.redirect('/' + version + '/maintenance/tasks/list');
+    res.redirect('/' + version + '/maintenance/tasks/no');
 })
 
 
 router.get('/' + version + '/downloadlicence/start', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -599,7 +599,7 @@ router.post('/' + version + '/downloadlicence/start', (req, res) => {
 
 router.get('/' + version + '/maintenance/tasks/list', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -613,7 +613,7 @@ router.get('/' + version + '/maintenance/tasks/list', (req, res) => {
 
 router.get('/' + version + '/downloadlicence/licence', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -627,7 +627,7 @@ router.get('/' + version + '/downloadlicence/licence', (req, res) => {
 
 router.get('/' + version + '/surrenderlicence/form', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     req.session.data['action'] = null
     req.session.data['actiondetail'] = null
@@ -646,7 +646,7 @@ router.get('/' + version + '/surrenderlicence/form', (req, res) => {
 
 router.get('/' + version + '/surrenderlicence/form1', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -664,7 +664,7 @@ router.post('/' + version + '/surrenderlicence/form1', (req, res) => {
 
 router.get('/' + version + '/surrenderlicence/form2', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -682,7 +682,7 @@ router.post('/' + version + '/surrenderlicence/form2', (req, res) => {
 
 router.get('/' + version + '/surrenderlicence/form3', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -697,7 +697,7 @@ router.get('/' + version + '/surrenderlicence/form3', (req, res) => {
 router.post('/' + version + '/surrenderlicence/form3', (req, res) => {
 
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -729,7 +729,7 @@ router.post('/' + version + '/surrenderlicence/form3', (req, res) => {
 
 router.get('/' + version + '/surrenderlicence/form4', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -745,7 +745,7 @@ router.get('/' + version + '/surrenderlicence/form4', (req, res) => {
 
 router.get('/' + version + '/reportevent/list', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -760,7 +760,7 @@ router.get('/' + version + '/reportevent/list', (req, res) => {
 
 router.get('/' + version + '/reportevent/detail', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -774,7 +774,7 @@ router.get('/' + version + '/reportevent/detail', (req, res) => {
 
 router.get('/' + version + '/reportevent/start', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
 
     req.session.data['type'] = null
@@ -797,7 +797,7 @@ router.get('/' + version + '/reportevent/start', (req, res) => {
 
 router.get('/' + version + '/reportevent/add/step1', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -810,7 +810,7 @@ router.get('/' + version + '/reportevent/add/step1', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step2', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -823,7 +823,7 @@ router.get('/' + version + '/reportevent/add/step2', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step3', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -836,7 +836,7 @@ router.get('/' + version + '/reportevent/add/step3', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step4', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -849,7 +849,7 @@ router.get('/' + version + '/reportevent/add/step4', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step5', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -862,7 +862,7 @@ router.get('/' + version + '/reportevent/add/step5', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step6', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -875,7 +875,7 @@ router.get('/' + version + '/reportevent/add/step6', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step7', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -888,7 +888,7 @@ router.get('/' + version + '/reportevent/add/step7', (req, res) => {
 })
 router.get('/' + version + '/reportevent/add/step8', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -902,7 +902,7 @@ router.get('/' + version + '/reportevent/add/step8', (req, res) => {
 
 router.get('/' + version + '/account/email', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -916,7 +916,7 @@ router.get('/' + version + '/account/email', (req, res) => {
 
 router.get('/' + version + '/account/email-alt', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -931,7 +931,7 @@ router.get('/' + version + '/account/email-alt', (req, res) => {
 
 router.get('/' + version + '/account/password', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -946,7 +946,7 @@ router.get('/' + version + '/account/password', (req, res) => {
 
 router.get('/' + version + '/account/mobile', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -967,7 +967,7 @@ router.post('/' + version + '/account/mobile', (req, res) => {
 
 router.get('/' + version + '/account/mobilecode', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1013,7 +1013,7 @@ router.post('/' + version + '/reportevent/add/step7', (req, res) => {
 
 router.get('/' + version + '/maintenance/personal/name', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1036,7 +1036,7 @@ router.post('/' + version + '/maintenance/personal/name', (req, res) => {
 
 router.get('/' + version + '/maintenance/personal/new-name', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1055,7 +1055,7 @@ router.post('/' + version + '/maintenance/personal/new-name', (req, res) => {
 
 router.get('/' + version + '/maintenance/personal/name-changed-date', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1073,7 +1073,7 @@ router.post('/' + version + '/maintenance/personal/name-changed-date', (req, res
 
 router.get('/' + version + '/maintenance/personal/name-change-evidence', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1092,7 +1092,7 @@ router.post('/' + version + '/maintenance/personal/name-change-evidence', (req, 
 
 router.get('/' + version + '/maintenance/personal/dob', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1111,7 +1111,7 @@ router.post('/' + version + '/maintenance/personal/dob', (req, res) => {
 
 router.get('/' + version + '/maintenance/personal/sex', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1130,7 +1130,7 @@ router.post('/' + version + '/maintenance/personal/sex', (req, res) => {
 
 router.get('/' + version + '/maintenance/personal/check', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1149,7 +1149,7 @@ router.post('/' + version + '/maintenance/personal/homeaddress', (req, res) => {
 
 router.get('/' + version + '/maintenance/personal/born', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1168,7 +1168,7 @@ router.get('/' + version + '/maintenance/personal/born', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/certaddress', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1182,7 +1182,7 @@ router.get('/' + version + '/maintenance/app/certaddress', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/criminality', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1196,7 +1196,7 @@ router.get('/' + version + '/maintenance/app/criminality', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1211,7 +1211,7 @@ router.get('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/declaration', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1226,7 +1226,7 @@ router.get('/' + version + '/maintenance/app/declaration', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/financialactions', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1241,7 +1241,7 @@ router.get('/' + version + '/maintenance/app/financialactions', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/place', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1256,7 +1256,7 @@ router.get('/' + version + '/maintenance/app/place', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/placeofbirth', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1271,7 +1271,7 @@ router.get('/' + version + '/maintenance/app/placeofbirth', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1286,7 +1286,7 @@ router.get('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/previousnames', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1301,7 +1301,7 @@ router.get('/' + version + '/maintenance/app/previousnames', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/sex', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1316,7 +1316,7 @@ router.get('/' + version + '/maintenance/app/sex', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/thirdparty', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1331,7 +1331,7 @@ router.get('/' + version + '/maintenance/app/thirdparty', (req, res) => {
 
 router.get('/' + version + '/maintenance/app/verification', (req, res) => {
     var d = require('./data/data.json')
-    var accountNumber = req.session.data['account']
+    var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1345,8 +1345,38 @@ router.get('/' + version + '/maintenance/app/verification', (req, res) => {
 
 
 
-router.post('/' + version + '/maintenance/personal/homeaddress', (req, res) => {
-    res.redirect('/' + version + '/maintenance/personal/born');
+router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
+    req.session.data["adressscomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+
+router.post('/' + version + '/maintenance/app/previousnames', (req, res) => {
+    req.session.data["previousnamescomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/sex');
+})
+
+
+router.post('/' + version + '/maintenance/app/sex', (req, res) => {
+    req.session.data["sexcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/placeofbirth');
+})
+
+router.post('/' + version + '/maintenance/app/placeofbirth', (req, res) => {
+    req.session.data["placeofbirthcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+
+router.post('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
+    req.session.data["dbsconsentcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/certaddress');
+})
+
+
+router.post('/' + version + '/maintenance/app/certaddress', (req, res) => {
+    req.session.data["certcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
 module.exports = router
