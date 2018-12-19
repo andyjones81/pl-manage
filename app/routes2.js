@@ -10,6 +10,42 @@ router.get('/' + version + '/security/signin', (req, res) => {
     });
 })
 
+router.get('/' + version + '/security/createaccount', (req, res) => {
+    res.render(version + '/security/createaccount', {
+        version
+    });
+})
+
+router.get('/' + version + '/security/forgot', (req, res) => {
+    res.render(version + '/security/forgot', {
+        version
+    });
+})
+
+
+router.get('/' + version + '/security/found', (req, res) => {
+    res.render(version + '/security/found', {
+        version
+    });
+})
+
+
+router.get('/' + version + '/security/notfound', (req, res) => {
+    res.render(version + '/security/notfound', {
+        version
+    });
+})
+
+router.get('/' + version + '/security/setpassword', (req, res) => {
+    res.render(version + '/security/setpassword', {
+        version
+    });
+})
+
+router.post('/' + version + '/security/createaccount', (req, res) => {   
+    res.redirect('/' + version + '/security/found');
+})
+
 router.post('/' + version + '/security/signin', (req, res) => {
     req.session.data['account'] = '999101'
     res.redirect('/' + version + '/account/hub');
@@ -231,6 +267,25 @@ router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, r
    res.redirect('/' + version + '/maintenance/assessment/outcome/surrender-submitted');
 })
 
+
+
+router.get('/' + version + '/account/surrender', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/surrender', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/surrender', (req, res) => {
+   res.redirect('/' + version + '/account/surrender-submitted');
+})
 
 
 router.get('/' + version + '/maintenance/assessment/outcome/surrender-submitted', (req, res) => {
@@ -1343,6 +1398,206 @@ router.get('/' + version + '/maintenance/app/verification', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/verify-employer', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-employer', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/verify-employer-file', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-employer-file', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/verify-thirdparty', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-thirdparty', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/verify-thirdparty-file', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-thirdparty-file', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/verify-gc', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-gc', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/verify-thirdparty-file-add', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-thirdparty-file-add', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/verify-thirdparty-file-list', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/verify-thirdparty-file-list', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-criminal', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-criminal', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-disciplinary', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-disciplinary', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-disqualifications', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-disqualifications', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-financial', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-financial', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-investigations', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-investigations', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-sanctions', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-sanctions', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/personal-criminal-add', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-criminal-add', {
+        version,
+        accountData
+    });
+})
+
+
 
 
 router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
@@ -1376,6 +1631,89 @@ router.post('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
 
 router.post('/' + version + '/maintenance/app/certaddress', (req, res) => {
     req.session.data["certcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+router.post('/' + version + '/maintenance/app/verification', (req, res) => {
+   
+    if(req.session.data['verify-method'] === 'employer')
+    {req.session.data["verificationcomplete"] = 1
+        res.redirect('/' + version + '/maintenance/app/verify-employer');
+    }
+
+    if(req.session.data['verify-method'] === 'thirdparty')
+    {req.session.data["verificationcomplete"] = 1
+        res.redirect('/' + version + '/maintenance/app/verify-thirdparty');
+    }
+
+    if(req.session.data['verify-method'] === 'gc')
+    {req.session.data["verificationcomplete"] = 1
+        res.redirect('/' + version + '/maintenance/app/verify-gc');        
+    }
+    
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+
+router.post('/' + version + '/maintenance/app/verify-employer', (req, res) => {    
+    res.redirect('/' + version + '/maintenance/app/verify-employer-file');
+})
+
+router.post('/' + version + '/maintenance/app/verify-employer-file', (req, res) => {    
+    req.session.data["verifyemployerfilecomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+router.post('/' + version + '/maintenance/app/verify-thirdparty', (req, res) => {    
+    req.session.data["verifythirdpartyfilecomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/verify-thirdparty-file');
+})
+
+router.post('/' + version + '/maintenance/app/verify-gc', (req, res) => {  
+    req.session.data["verifygccomplete"] = 1  
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+
+router.post('/' + version + '/maintenance/app/verify-thirdparty-file', (req, res) => {    
+    req.session.data["verifythirdpartyfilecomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+
+
+router.post('/' + version + '/maintenance/app/verify-thirdparty-file-add', (req, res) => {    
+    req.session.data["verifythirdpartyfilecomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/verify-thirdparty-file-list');
+})
+
+router.post('/' + version + '/maintenance/app/personal-criminal', (req, res) => {
+    req.session.data["personal-criminalcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/personal-investigations');
+})
+
+router.post('/' + version + '/maintenance/app/personal-investigations', (req, res) => {
+    req.session.data["personal-investigationscomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/personal-sanctions');
+})
+
+router.post('/' + version + '/maintenance/app/personal-sanctions', (req, res) => {
+    req.session.data["personal-sanctionscomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/personal-disciplinary');
+})
+
+router.post('/' + version + '/maintenance/app/personal-disciplinary', (req, res) => {
+    req.session.data["personal-disciplinarycomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/personal-disqualifications');
+})
+
+router.post('/' + version + '/maintenance/app/personal-disqualifications', (req, res) => {
+    req.session.data["personal-disqualificationscomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/personal-financial');
+})
+
+router.post('/' + version + '/maintenance/app/personal-financial', (req, res) => {
+    req.session.data["personal-financialcomplete"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 

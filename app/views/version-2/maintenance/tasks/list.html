@@ -11,21 +11,9 @@ Tasks
 
     <div class="govuk-grid-column-two-thirds">
 
-
-        <div class="app-panel app-panel--success">
-            <h1 class="govuk-heading-l">DO NOT PROCEED ANY FURTHER</h1>
-            <p class="govuk-!-font-size-24">
-                These pages are still being prototyped
-            </p>
-        </div>
-
-
-
-
         <h1 class="govuk-heading-l">
             Renew your personal licence tasks
         </h1>
-
 
         <ol class="app-task-list">
             <li>
@@ -137,7 +125,44 @@ Tasks
                             aria-describedby="company-information-completed">
                             Verification method
                         </a>
+                        {% if data['verificationcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
                     </li>
+                    {%if data['verify-method'] === 'employer'%}
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verify-employer"
+                            aria-describedby="company-information-completed">
+                            Employer or prospective employer verification
+                        </a>
+                        {% if data['verifyemployerfilecomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%endif%}
+                    {%if data['verify-method'] === 'thirdparty'%}
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verify-thirdparty"
+                            aria-describedby="company-information-completed">
+                            Third party
+                        </a>
+                        {% if data['verifythirdpartyfilecomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%endif%}
+
+                    {%if data['verify-method'] === 'gc'%}
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verify-gc"
+                            aria-describedby="company-information-completed">
+                            Third party
+                        </a>
+                        {% if data['verifygccomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%endif%}
 
                 </ul>
             </li>
@@ -194,9 +219,9 @@ Tasks
             {%if accountData.homeAddress.country != 'United Kingdom'%}
             <li>
                 <h2 class="app-task-list__section">
-                       
-                        <span class="app-task-list__section-number">5. </span> Police reports
-                        
+
+                    <span class="app-task-list__section-number">5. </span> Police reports
+
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
@@ -206,22 +231,22 @@ Tasks
                         </a>
 
                     </li>
-                  
+
 
                 </ul>
             </li>
 
 
-         
+
             {%endif%}
 
             <li>
                 <h2 class="app-task-list__section">
-                        {%if accountData.homeAddress.country === 'United Kingdom'%}
-                        <span class="app-task-list__section-number">7. </span> Apply
-                        {%else%}
-                        <span class="app-task-list__section-number">6. </span> Apply
-                        {%endif%}
+                    {%if accountData.homeAddress.country === 'United Kingdom'%}
+                    <span class="app-task-list__section-number">7. </span> Apply
+                    {%else%}
+                    <span class="app-task-list__section-number">6. </span> Apply
+                    {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">

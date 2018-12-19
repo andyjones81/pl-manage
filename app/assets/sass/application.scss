@@ -18,7 +18,7 @@ $pink-25: #f6d7e5;
 $baby-pink: #f499be;
 $baby-pink-50: #faccdf;
 $baby-pink-25: #fdebf2;
-$red: #b10e1e;
+$red: #ffebed;
 $red-50: #d9888c;
 $red-25: #efcfd1;
 $mellow-red: #df3034;
@@ -1000,6 +1000,7 @@ $govuk-global-styles: true;
 
     .gc-alert{ display: block;  padding: 20px; margin-bottom: 20px;}
     .gc-alert-important{  border: 5px solid $govuk-blue}
+
     .app-panel {
       @include govuk-responsive-margin(9, 'bottom');
       border: 5px solid govuk-colour('black');
@@ -1011,6 +1012,15 @@ $govuk-global-styles: true;
     .app-panel--success {
       border-color: govuk-colour('light-green');
     }
+
+
+    .app-panel--success {
+      border-color: govuk-colour('light-green');
+    }
+    .gc-alert-error {
+      border: 5px solid $mellow-red;
+      }
+
     .sus-blue{color: rgb(0,112,192)}
     .sus-green{color: rgb(0,176,80)}
     .sus-orange{color: rgb(255,192,0)}
