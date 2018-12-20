@@ -626,7 +626,7 @@ router.get('/' + version + '/maintenance/assessment/check', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/check', (req, res) => {
-    res.redirect('/' + version + '/maintenance/tasks/no');
+    res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
 
