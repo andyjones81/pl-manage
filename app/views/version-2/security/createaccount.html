@@ -36,10 +36,13 @@ Sign in to manage your personal licence
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-            <p class="govuk-fieldset__heading">
+            <p class="govuk-fieldset__heading govuk-visually-hidden">
               What is your date of birth?
             </p>
           </legend>
+          <p class="govuk-body govuk-!-margin-bottom-2">
+            Date of birth
+          </p>
           <span id="dob-hint" class="govuk-hint">
             For example, 31 3 1980
           </span>
@@ -75,6 +78,10 @@ Sign in to manage your personal licence
       <button type="submit" class="govuk-button">
         Register for this service
       </button>
+
+      <a href="/{{version}}/security/signin" role="button" type="submit" class="govuk-button gc-button-secondary">
+        Return to sign in
+</a>
     </form>
 
   

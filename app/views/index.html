@@ -1,44 +1,60 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Gambling Commission Prototypes
+Gambling Commission Prototypes
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-       <h1 class="govuk-heading-xl">
-        Manage and maintain your personal licence prototype kit      
-      </h1>
-      <p>
-        This kit demonstrates the prototypes available for managing and maintaining a personal licence.
-      </p>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Manage and maintain your personal licence prototype
 
-      
-      
-      <table class="govuk-table">
-        <caption class="govuk-table__caption">Select an appropriate prototype:</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="col">Version</th>
-            <th class="govuk-table__header" scope="col">Details</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="agovuk-table__row">
-            <th class="govuk-table__header" scope="row">1</th>
-            <td class="govuk-table__cell"><a href="/version-1/security/signin">Phase 1 - Manage and maintain your personal licence</a></td>
-          </tr>
-          <tr class="agovuk-table__row">
-            <th class="govuk-table__header" scope="row">2</th>
-            <td class="govuk-table__cell"><a href="/version-2/security/signin">Phase 1 - Manage and maintain your personal licence</a></td>
-          </tr>
-        </tbody>
-      </table>
+    </h1>
+    <p>
+      This prototype is for demonstrating the features which are being considered for the following services:
+    </p>
 
-    </div>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Manage your personal licence</li>
+      <li>Maintain your personal licence</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Information on data and usage
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>This is not a live service and does not reflect the performance of any final service we may provide</li>
+      <li>All account data and associated information is ficticious</li>
+      <li>Data, answers to questions and any changes are stored in your browser session, no data is stored or
+        accessible by the Gambling Commission</li>
+      <li>When competing any form fileds, do not type in bank account or credit card numbers</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">
+      Limitations
+    </h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>This is a prototype, there is no validation or error checking on forms</li>      
+      <li>This is a prototype, it is being used to get feedback on design, functionality and usability of features</li>
+    </ul>
+
+    <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          By being invited to test this prototype, you agree to not distribute the link or username and password. 
+        </strong>
+      </div>
+
+    <p class="govuk-body">I understand all this and I am happy to proceed on this understanding</p>
+
+    <a href="/version-2/account/hub" class="govuk-button">Access the prototype</a>
+
+  </div>
 </div>
 
 {% endblock %}
