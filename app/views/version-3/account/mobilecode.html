@@ -1,0 +1,42 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Enter the code we've sent to your mobile number 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/account/mobile" class="govuk-back-link">Back</a>
+            <span class="govuk-caption-l">Manage your details</span>
+            <h1 class="govuk-heading-l">
+               Enter the code we've sent to your mobile number {{data['mobile']}}
+            </h1>
+          
+    <p class="govuk-body">If you haven't received a code, you can go back, <a href="/{{version}}/account/mobile">check your number</a> and try again.</p>
+            <form method="POST">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="mobilecode">
+                       Enter code
+                    </label>
+                    <input class="govuk-input" id="mobilecode" name="mobilecode" type="text">
+                </div>
+    
+                <button type="submit" class="govuk-button">
+                    Save new mobile number
+                </button>
+                <a href="/{{version}}/account/manage" role="button" type="submit" class="govuk-button gc-button-secondary">
+                        Return to manage your details
+                </a>
+    
+               
+            </form>
+           
+        </div>
+    
+    </div>
+
+
+{% endblock %}

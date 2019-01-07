@@ -1,0 +1,66 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+            <span class="govuk-caption-l">Report something that may affect your licence</span>
+            <h1 class="govuk-heading-l">
+                Submitted events
+            </h1>
+    
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                      <th class="govuk-table__header" scope="col">Reason</th>
+                      <th class="govuk-table__header" scope="col">Submitted</th>
+                  </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                      <td class="govuk-table__cell" scope="row"><a href="/{{version}}/reportevent/detail">Change of name</a></td>
+                      <td class="govuk-table__cell">10 July 2018 </td>
+                  </tr>
+                 
+              </tbody>
+          </table>
+    
+          <p class="govuk-body">
+          <a class="govuk-link" href="start">
+            Report an event
+          </a></p>
+        </div>
+    
+        <div class="govuk-grid-column-one-third">
+    
+                <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+        
+                <aside class="app-related-items" role="complementary">
+                
+                 
+                  <h2 class="govuk-heading-m" id="subsection-title">
+                    Guidance
+                  </h2>
+                  <nav role="navigation" aria-labelledby="subsection-title">
+                    <ul class="govuk-list govuk-!-font-size-16">
+                      <li>
+                        <a class="govuk-link" href="#">
+                          What you need to tell us about
+                        </a>
+                      </li>
+                     
+                    </ul>
+                  </nav>
+                </aside>
+        
+              </div>
+    
+    </div>
+
+{% endblock %}

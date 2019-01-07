@@ -1,0 +1,63 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/{{version}}/maintenance/start" class="govuk-back-link">Back</a>
+
+
+
+
+    <form method="POST">
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="keep-licence-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <span class="govuk-caption-l">Renew your licence</span>
+            <h1 class="govuk-fieldset__heading">
+              Do you still need your licence?
+            </h1>
+          </legend>
+
+          <p class="govuk-body">If you no longer have a need to hold a {{accountData.type}}, you can surrender it.</p>
+   
+          <div class="govuk-radios  govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="keep-licence-conditional-1" name="keep-licence" type="radio" value="yes"
+                data-aria-controls="conditional-keep-licence-conditional-1" {{ checked('keep-licence', 'yes') }}>
+              <label class="govuk-label govuk-radios__label" for="keep-licence-conditional-1">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="keep-licence-conditional-2" name="keep-licence" type="radio" value="no"
+                data-aria-controls="conditional-keep-licence-conditional-2" {{ checked('keep-licence', 'no') }}>
+              <label class="govuk-label govuk-radios__label" for="keep-licence-conditional-2">
+                No
+              </label>
+            </div>
+
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Save and continue
+      </button>
+    </form>
+
+
+  </div>
+
+</div>
+
+{% endblock %}
