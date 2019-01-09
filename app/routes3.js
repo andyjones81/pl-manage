@@ -5,6 +5,7 @@ const version = "version-3"
 // Add your routes here - above the module.exports line
 
 router.get('/' + version + '/security/signin', (req, res) => {
+    req.session.data = {}
     res.render(version + '/security/signin', {
         version
     });
@@ -52,6 +53,7 @@ router.post('/' + version + '/security/signin', (req, res) => {
 })
 
 router.get('/' + version + '/account/hub', (req, res) => {
+    req.session.data = {}
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
