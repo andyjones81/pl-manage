@@ -1045,6 +1045,13 @@ $govuk-global-styles: true;
   .gc-button-secondary{background: $grey-2; color: $black !important; } 
   .gc-button-secondary:hover{background: $grey-1; color: $white !important; } 
   
+  .govuk-panel {
+    color: black;
+    background-color: white;
+    border: 5px solid #008A3C;
+    text-align: left;
+}
+
     
   // @import url('https://fonts.googleapis.com/css?family=Oxygen:400,700');
   

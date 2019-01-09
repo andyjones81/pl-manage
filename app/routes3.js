@@ -823,6 +823,20 @@ router.get('/' + version + '/reportevent/list', (req, res) => {
     });
 })
 
+router.get('/' + version + '/guidance/start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/guidance/start', {
+        version,
+        accountData
+    });
+})
+
 
 router.get('/' + version + '/reportevent/detail', (req, res) => {
     var d = require('./data/data.json')
@@ -1622,6 +1636,34 @@ router.get('/' + version + '/maintenance/app/currentname', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/pay', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/pay', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/complete', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/complete', {
+        version,
+        accountData
+    });
+})
+
 
 
 router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
@@ -1741,4 +1783,22 @@ router.post('/' + version + '/maintenance/app/personal-financial', (req, res) =>
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
+router.post('/' + version + '/maintenance/app/personal-financial', (req, res) => {
+    req.session.data["personal-financialcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+router.post('/' + version + '/maintenance/app/thirdparty', (req, res) => {
+    req.session.data["thirdpartycomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/declaration');
+})
+
+router.post('/' + version + '/maintenance/app/declaration', (req, res) => {
+    req.session.data["declarationcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+router.post('/' + version + '/maintenance/app/pay', (req, res) => {   
+    res.redirect('/' + version + '/maintenance/app/complete');
+})
 module.exports = router

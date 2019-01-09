@@ -273,14 +273,20 @@ Tasks
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/thirdparty">
                             Third party permission
                         </a>
+                        {% if data['thirdpartycomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
                     </li>
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/declaration">
                             Declaration
                         </a>
+                        {% if data['declarationcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
                     </li>
                     <li class="app-task-list__item">
-                        <a class="app-task-list__task-name" href="#">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/pay">
                             Submit and pay
                         </a>
                     </li>
