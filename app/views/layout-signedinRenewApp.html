@@ -86,24 +86,43 @@
  
 {% endblock %}
 
-{% if useAutoStoreData %}
-  {% block footer %}
-    {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          }
-        ]
-      }
-    }) }}
-  {% endblock %}
-{% endif %}
+{% block footer %}
+<footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container ">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <div class="footer-meta-inner">
+          <ul class="govuk-footer__inline-list">
+
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/http://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx"
+                target="_Blank">Privacy Policy</a>
+            </li>
+            
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">Accessibility statement</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">Feedback</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/prototype-admin/clear-data">Clear prototype data</a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-footer__meta-item">
+          <div style="float: right;">
+            <a class="govuk-footer__link" href="#"><img style="width: 200px; right: 0px;" src="/public/images/logo.png"></a>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+{% endblock %}
 
 {% block bodyEnd %}
   {% block scripts %}

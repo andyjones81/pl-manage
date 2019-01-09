@@ -1,0 +1,82 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/maintenance/app/personal-disqualifications" class="govuk-back-link">Back</a>
+
+
+
+
+        <form action="" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="ke-financial-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            <span class="govuk-caption-l">Renew your licence</span>
+                            In the last 5 years, have you had a petition for your bankruptcy or sequestration or entered into an individual voluntary arrangement (IVA)? 
+                        </h1>
+                    </legend>
+                    
+                    <details class="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                What does sequestration mean?
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                               The action by a court to take legal possession of (assets) until a debt has been paid or other claims have been met, or be declared bankrupt.
+                            </div>
+                          </details>
+
+            
+                    <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="ke-financial-1" name="financial" type="radio"
+                                    value="yes" data-aria-controls="conditional-ke-financial-1"
+                                    {{ checked('financial','yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="ke-financial-1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-ke-financial-1">
+    
+                                <p class="govuk-body">
+                                    <a href="personal-financial-add">Add details</a>
+                                </p>
+    
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="ke-financial-2" name="financial" type="radio"
+                                    value="no" data-aria-controls="conditional-ke-financial-2"
+                                    {{ checked('financial','no') }}>
+                                <label class="govuk-label govuk-radios__label" for="ke-financial-2">
+                                    No
+                                </label>
+                            </div>
+    
+    
+                        </div>
+                  
+               
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

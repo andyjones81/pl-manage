@@ -34,14 +34,19 @@ Renew your licence
                             {{accountData.firstName}} {{accountData.middleName}} {{accountData.lastName}}</th>
                         <td class="govuk-table__cell">
 
-                            {% if(data['same-name'] === 'no') %}
+                            {% if(data['same-name'] === 'yes') %}
 
                             {% set vdate %}
                             {{data['name-changed-day']}}/{{data['name-changed-month']}}/{{data['name-changed-year']}}
                             {%
                             endset %}
 
-                            Until {{vdate | date('MMM YYYY')}}
+                            {% set sdate %}
+                            {{data['name-start-day']}}/{{data['name-start-month']}}/{{data['name-start-year']}}
+                            {%
+                            endset %}
+
+                            {{sdate | date('DD MMM YYYY')}} to {{vdate | date('DD MMM YYYY')}}
                             {%else%}
 
                             Current name
@@ -50,13 +55,9 @@ Renew your licence
 
                         </td>
                         <td class="govuk-table__cell">
-                            {% if(data['same-name'] === 'no') %}
-                            <a href="/{{version}}/maintenance/app/manage-name">Manage</a> <span class="govuk-visually-hidden">
-                                {{accountData.firstName}} {{accountData.middleName}} {{accountData.lastName}}</span>
-                            {%else%}
+                           
                             <a href="/{{version}}/maintenance/app/currentname">Manage</a> <span class="govuk-visually-hidden"> 
-                                {{accountData.firstName}} {{accountData.middleName}} {{accountData.lastName}}</span>
-                            {% endif %}
+                               
                         </td>
                     </tr>
 

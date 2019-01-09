@@ -1,4 +1,4 @@
-{% extends "layout-signedinRenewApp.html" %}
+{% extends "layout-signedinRenewAppComplete.html" %}
 
 {% block pageTitle %}
 Renew your licence
@@ -28,13 +28,8 @@ Renew your licence
                         <p class="govuk-body">
                             We have sent you an email confirming the submission of your application.
                         </p>
-
-                        <ul class="govuk-list">
-                            <li>
-                                <a class="govuk-link" href="#" target="_Blank">Print application</a>
-                            </li>
-
-                        </ul>
+                        <p class="govuk-body">
+                        <a href="/{{version}}/account/hub2">Return to your account hub</a>  </p>
 
                         <h2 class="govuk-heading-m">Tell us what you think of this service</h2>
                         <p class="govuk-body govuk-!-margin-bottom-0">
@@ -57,12 +52,6 @@ Renew your licence
                     </p>
 
 
-
-                    <h3 class="govuk-heading-m">Need to tell us something not included in your application?</h3>
-                    <p class="govuk-body">
-                        <a href="#">Provide additional information</a> regarding your application or a change in any of
-                        the details you have provided.
-                    </p>
 
 
                 </div>

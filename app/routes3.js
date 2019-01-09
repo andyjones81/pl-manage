@@ -66,6 +66,20 @@ router.get('/' + version + '/account/hub', (req, res) => {
     });
 })
 
+router.get('/' + version + '/account/hub2', (req, res) => {
+    req.session.data = {}
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    res.render(version + '/account/hub2', {
+        version,
+        accountData
+    });
+})
+
 router.get('/' + version + '/account/manage', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
@@ -318,8 +332,21 @@ router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
     });
 })
 
-router.post('/' + version + '/maintenance/assessment/new-name', (req, res) => {
-    res.redirect('/' + version + '/maintenance/assessment/name-changed-date');
+
+
+router.post('/' + version + '/maintenance/app/new-name', (req, res) => {
+  
+    res.redirect('/' + version + '/maintenance/app/name-changed-date');
+})
+
+router.post('/' + version + '/maintenance/app/name-changed-date', (req, res) => {
+  
+    res.redirect('/' + version + '/maintenance/app/name-start-date');
+})
+
+router.post('/' + version + '/maintenance/app/name-start-date', (req, res) => {
+  
+    res.redirect('/' + version + '/maintenance/app/name-changed-evidence');
 })
 
 router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
@@ -417,7 +444,7 @@ router.get('/' + version + '/maintenance/assessment/name-changed', (req, res) =>
 })
 
 router.post('/' + version + '/maintenance/app/currentname', (req, res) => {
-    if (req.session.data['same-name'] == "no") {
+    if (req.session.data['same-name'] == "yes") {
         res.redirect('/' + version + '/maintenance/app/new-name');
     }
 
@@ -440,12 +467,9 @@ router.get('/' + version + '/maintenance/app/new-name', (req, res) => {
     });
 })
 
-router.post('/' + version + '/maintenance/app/new-name', (req, res) => {
-    res.redirect('/' + version + '/maintenance/app/name-changed-date');
-})
 
 
-router.get('/' + version + '/maintenance/app/name-changed-date', (req, res) => {
+router.get('/' + version + '/maintenance/app/name-start-date', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -453,15 +477,13 @@ router.get('/' + version + '/maintenance/app/name-changed-date', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/maintenance/app/name-changed-date', {
+    res.render(version + '/maintenance/app/name-start-date', {
         version,
         accountData
     });
 })
 
-router.post('/' + version + '/maintenance/app/name-changed-date', (req, res) => {
-    res.redirect('/' + version + '/maintenance/app/name-changed-evidence');
-})
+
 
 router.get('/' + version + '/maintenance/app/name-changed-evidence', (req, res) => {
     var d = require('./data/data.json')
@@ -1148,6 +1170,24 @@ router.get('/' + version + '/maintenance/personal/name-changed-date', (req, res)
 })
 
 router.post('/' + version + '/maintenance/personal/name-changed-date', (req, res) => {
+    res.redirect('/' + version + '/maintenance/personal/name-start-date');
+})
+
+router.get('/' + version + '/maintenance/personal/name-start-date', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/personal/name-start-date', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/personal/name-start-date', (req, res) => {
     res.redirect('/' + version + '/maintenance/personal/name-change-evidence');
 })
 
@@ -1666,6 +1706,8 @@ router.get('/' + version + '/maintenance/app/complete', (req, res) => {
 
 
 
+
+
 router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
     req.session.data["adressscomplete"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
@@ -1754,7 +1796,7 @@ router.post('/' + version + '/maintenance/app/verify-thirdparty-file-add', (req,
 })
 
 router.post('/' + version + '/maintenance/app/personal-criminal', (req, res) => {
-    req.session.data["personal-criminalcomplete"] = 1
+    req.session.data["personal-criminalitycomplete"] = 1
     res.redirect('/' + version + '/maintenance/app/personal-investigations');
 })
 

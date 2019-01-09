@@ -190,48 +190,66 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
-                    <span class="app-task-list__section-number">6. </span> Personal events
+                    <span class="app-task-list__section-number">6. </span> Events
                     {%else%}
-                    <span class="app-task-list__section-number">4. </span> Personal events
+                    <span class="app-task-list__section-number">4. </span> Events
                     {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-criminal"
                             aria-describedby="company-information-completed">
-                            Criminal activity (LCCP Part 3 - 3 a, b)
+                            Criminal activity <span class="govuk-visually-hidden">(LCCP Part 3 - 3 a, b)</span>
                         </a>
+                        {% if data['personal-criminalitycomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
                     </li>
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-investigations"
                             aria-describedby="company-information-completed">
-                            Investigations (LCCP Part 3 - 3 c)
-                        </a>
+                            Investigations <span class="govuk-visually-hidden">(LCCP Part 3 - 3 c)</span>
+                        </a>  
+                         {% if data['personal-investigationscomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
                     </li>
 
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-sanctions"
                             aria-describedby="company-information-completed">
-                            Sanctions (LCCP Part 3 - 3 d)
+                            Sanctions <span class="govuk-visually-hidden">(LCCP Part 3 - 3 d)</span>
                         </a>
+                        {% if data['personal-sanctionscomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
                     </li>
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-disciplinary"
                             aria-describedby="company-information-completed">
-                            Disciplinary (LCCP Part 3 - 3 e,f)
+                            Disciplinary <span class="govuk-visually-hidden">(LCCP Part 3 - 3 e,f)</span>
                         </a>
+                        {% if data['personal-disciplinarycomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
                     </li>
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-disqualifications"
                             aria-describedby="company-information-completed">
-                            Disqualifications (LCCP Part 3 - 3 g)
+                            Disqualifications <span class="govuk-visually-hidden">(LCCP Part 3 - 3 g)</span>
                         </a>
+                        {% if data['personal-disqualificationscomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
                     </li>
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-financial"
                             aria-describedby="company-information-completed">
-                            Financial (LCCP Part 3 - 3 h)
+                            Financial <span class="govuk-visually-hidden">(LCCP Part 3 - 3 h)</span>
                         </a>
+                        {% if data['personal-financialcomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
                     </li>
                 </ul>
             </li>
