@@ -1482,6 +1482,21 @@ router.get('/' + version + '/maintenance/app/previousnames', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/add-new-name', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/add-new-name', {
+        version,
+        accountData
+    });
+})
+
+
 
 router.get('/' + version + '/maintenance/app/sex', (req, res) => {
     var d = require('./data/data.json')
