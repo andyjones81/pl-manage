@@ -1030,6 +1030,20 @@ router.get('/' + version + '/account/email-alt', (req, res) => {
     });
 })
 
+router.get('/' + version + '/account/email-alt-done', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/email-alt-done', {
+        version,
+        accountData
+    });
+})
+
 
 router.get('/' + version + '/account/password', (req, res) => {
     var d = require('./data/data.json')
@@ -1045,6 +1059,34 @@ router.get('/' + version + '/account/password', (req, res) => {
     });
 })
 
+router.get('/' + version + '/account/password-done', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/password-done', {
+        version,
+        accountData
+    });
+})
+
+
+router.post('/' + version + '/account/password', (req, res) => {
+
+
+
+    res.redirect('/' + version + '/account/password-done');
+})
+
+router.post('/' + version + '/account/email-alt', (req, res) => {
+
+
+
+    res.redirect('/' + version + '/account/email-alt-done');
+})
 
 router.get('/' + version + '/account/mobile', (req, res) => {
     var d = require('./data/data.json')
@@ -1110,6 +1152,28 @@ router.post('/' + version + '/reportevent/add/step7', (req, res) => {
     res.redirect('/' + version + '/reportevent/add/step8');
 })
 
+
+router.post('/' + version + '/maintenance/app/event-add/step1', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/event-add/step2');
+})
+router.post('/' + version + '/maintenance/app/event-add/step2', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/event-add/step3');
+})
+router.post('/' + version + '/maintenance/app/event-add/step3', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/event-add/step4');
+})
+router.post('/' + version + '/maintenance/app/event-add/step4', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/event-add/step7');
+})
+router.post('/' + version + '/maintenance/app/event-add/step5', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/event-add/step6');
+})
+router.post('/' + version + '/maintenance/app/event-add/step6', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/event-add/step7');
+})
+router.post('/' + version + '/maintenance/app/event-add/step7', (req, res) => {
+    res.redirect('/' + version + '/maintenance/app/personal-criminal-list');
+})
 
 //Renew
 
@@ -1578,6 +1642,20 @@ router.get('/' + version + '/maintenance/app/personal-criminal', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/personal-criminal-list', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/personal-criminal-list', {
+        version,
+        accountData
+    });
+})
+
 router.get('/' + version + '/maintenance/app/personal-disciplinary', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
@@ -1648,7 +1726,7 @@ router.get('/' + version + '/maintenance/app/personal-sanctions', (req, res) => 
     });
 })
 
-router.get('/' + version + '/maintenance/app/personal-criminal-add', (req, res) => {
+router.get('/' + version + '/maintenance/app/event-add/step2', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -1656,7 +1734,91 @@ router.get('/' + version + '/maintenance/app/personal-criminal-add', (req, res) 
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/maintenance/app/personal-criminal-add', {
+    res.render(version + '/maintenance/app/event-add/step2', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/event-add/step3', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/event-add/step3', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/event-add/step4', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/event-add/step4', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/event-add/step5', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/event-add/step5', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/event-add/step6', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/event-add/step6', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/event-add/step7', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/event-add/step7', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/event-add/step8', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/event-add/step8', {
         version,
         accountData
     });
@@ -1800,6 +1962,10 @@ router.post('/' + version + '/maintenance/app/personal-criminal', (req, res) => 
     res.redirect('/' + version + '/maintenance/app/personal-investigations');
 })
 
+router.post('/' + version + '/maintenance/app/personal-criminal-list', (req, res) => {
+    req.session.data["personal-criminalitycomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/personal-investigations');
+})
 router.post('/' + version + '/maintenance/app/personal-investigations', (req, res) => {
     req.session.data["personal-investigationscomplete"] = 1
     res.redirect('/' + version + '/maintenance/app/personal-sanctions');

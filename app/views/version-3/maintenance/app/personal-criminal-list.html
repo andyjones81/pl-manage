@@ -36,16 +36,36 @@ Renew your licence
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="ke-criminal-1" name="how-contacted" type="radio"
                                 value="yes" data-aria-controls="conditional-ke-criminal-1"
-                                {{ checked('how-contacted','yes') }}>
+                                checked>
                             <label class="govuk-label govuk-radios__label" for="ke-criminal-1">
                                 Yes
                             </label>
                         </div>
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-ke-criminal-1">
 
-                            <p class="govuk-body">
-                                <a href="/{{version}}/maintenance/app/event-add/step2">Add details</a>
-                            </p>
+                                <div class="govuk-form-group">
+                                        <table class="govuk-table">
+                        
+                                            <thead class="govuk-table__head">
+                                                <tr class="govuk-table__row">
+                                                    <th class="govuk-table__header" scope="col">Details</th>
+                                                    <th class="govuk-table__header" scope="col">Date</th>
+                                                    <th class="govuk-table__header" scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="govuk-table__body">
+                                                <tr class="govuk-table__row">
+                                                    <td class="govuk-table__cell">I committed a crime...</td>
+                                                    <td class="govuk-table__cell">22 Jul 2017</td>
+                                                    <td class="govuk-table__cell "><a href="/{{version}}/maintenance/app/personal-criminal">Remove</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <p class="govuk-body">
+                                            <a href="/{{version}}/maintenance/app/event-add/step2">Add another</a>
+                                        </p>
 
                         </div>
                         <div class="govuk-radios__item">
