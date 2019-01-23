@@ -1894,7 +1894,7 @@ router.get('/' + version + '/maintenance/app/pay-other-emailsent', (req, res) =>
 
     res.render(version + '/maintenance/app/pay-other-emailsent', {
         version,
-        accountData,        
+        accountData,
         HerokuServiceName
     });
 })
@@ -1909,7 +1909,7 @@ router.get('/' + version + '/maintenance/app/pay-other-emailsent-other', (req, r
 
     res.render(version + '/maintenance/app/pay-other-emailsent-other', {
         version,
-        accountData,        
+        accountData,
         HerokuServiceName
     });
 })
@@ -1940,69 +1940,68 @@ router.get('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
+
+
+
     res.render(version + '/thirdpartypay/pay', {
         version,
         accountData
     });
 })
 
+router.get('/' + version + '/thirdpartypay/result', (req, res) => {
 
-router.post('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
-
-
-
-var returnUrl = 'https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/result';
-console.log(returnUrl)
- var d = require('./data/data.json')
+    var d = require('./data/data.json')
     var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
 
+
+    res.render(version + '/thirdpartypay/result', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
+
+    var returnUrl = 'https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/result';
+
     const fetch = require('node-fetch');
     const inputBody = {
-        "amount": accountData.payfee,
-        "reference": accountData.feeref,
-        "return_url": returnUrl,
-        "description": accountData.type + " renewal"
+        "amount": 14500,
+        "reference": "999101",
+        "return_url": "https://localhost:3000/version-4/thirdpartypay/result",
+        "description": "Personal functional licence renewal"
     };
     const headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Authorization': 'Bearer ' + process.env.PayKey
     };
-   
-console.log("*********************************************************************************************************************")
-console.log(inputBody)
-console.log("*********************************************************************************************************************")
 
-    fetch('https://publicapi.payments.service.gov.uk/v1/payments',
-    {
-      method: 'POST',
-      body: inputBody,
-      headers: headers
-    })
-    .then(function(res) {
-        return res.json();
-    }).then(function(body) {
-        console.log(body);
-    });
- 
+    var payPageURL = "";
 
-    //Redirect to GOV Pay
-    //Payment page URL to redirect to
+    fetch('https://publicapi.payments.service.gov.uk/v1/payments', {
+            method: 'POST',
+            body: JSON.stringify(inputBody),
+            headers: headers
+        })
+        .then(function (res) {
+            return res.json();
+        }).then(function (body) {
+            payPageURL = body._links.next_url.href
+            console.log(payPageURL);
+res.redirect(payPageURL);
+        });
 
 
-
-    //Redirect to self for test
-
-    res.render(version + '/thirdpartypay/pay', {
-        version,
-        accountData
-    });
 
 })
+
+
 
 router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
     req.session.data["adressscomplete"] = 1
