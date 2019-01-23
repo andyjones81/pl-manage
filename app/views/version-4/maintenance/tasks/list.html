@@ -280,9 +280,9 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
-                    <span class="app-task-list__section-number">7. </span> Apply
+                    <span class="app-task-list__section-number">7. </span> Declarations
                     {%else%}
-                    <span class="app-task-list__section-number">6. </span> Apply
+                    <span class="app-task-list__section-number">6. </span> Declarations
                     {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
@@ -302,13 +302,28 @@ Tasks
                         <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
                         {% endif %}
                     </li>
-                    <li class="app-task-list__item">
-                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/pay">
-                            Submit and pay
-                        </a>
-                    </li>
+                   
                 </ul>
             </li>
+
+            <li>
+                    <h2 class="app-task-list__section">
+                        {%if accountData.homeAddress.country === 'United Kingdom'%}
+                        <span class="app-task-list__section-number">8. </span> Pay and submit
+                        {%else%}
+                        <span class="app-task-list__section-number">7. </span> Pay and submit
+                        {%endif%}
+                    </h2>
+                    <ul class="app-task-list__items">
+                      
+                       
+                        <li class="app-task-list__item">
+                            <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/pay">
+                                Pay and submit renewal application
+                            </a>
+                        </li>
+                    </ul>
+                </li>
         </ol>
 
     </div>

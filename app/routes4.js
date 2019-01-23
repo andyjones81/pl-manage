@@ -1899,6 +1899,19 @@ router.get('/' + version + '/maintenance/app/pay-other-emailsent', (req, res) =>
     });
 })
 
+router.get('/' + version + '/maintenance/app/feepaid', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+  
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/feepaid', {
+        version,
+        accountData
+    });
+})
 router.get('/' + version + '/maintenance/app/pay-other-emailsent-other', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'

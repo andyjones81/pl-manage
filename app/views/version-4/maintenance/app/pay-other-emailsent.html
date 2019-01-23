@@ -18,7 +18,7 @@ Renew your licence
         <div class="app-panel app-panel--success">
                 <h2 class="govuk-heading-l">Email sent</h2>
                 <p class="govuk-!-font-size-24">
-                   We have sent you an email with the link for someone else to pay your renewal fee.
+                   We have sent an email with the link for someone else to pay your renewal fee.
                 </p>                 
               </div>
         <p class="govuk-body">
@@ -28,33 +28,32 @@ Renew your licence
 
     </div>
     <div class="govuk-grid-column-full">
-        <p class="govuk-inset-text">
-                https://{{process.env.HerokuServiceName}}/version-4/thirdpartypay/pay/{{accountData.feeref}}
-        </p>
-
-        <h2 class="govuk-heading-m">
-            Send me an email with this link
-        </h2>
-        <p class="govuk-body">
-            We can send you an email containing this link, which you can forward to someone else.
-
-            <form>
-                <button type="submit" class="govuk-button">
-                    Email me this link
-                </button>
-            </form>
-        </p>
-
-    </div>
-    <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-m">
-            Send someone else an email with this link
-        </h2>
-        <p class="govuk-body">
-            If you know the email address of someone who will pay the fee on your behalf, we can send them an email directly.
-
-          
-            <form method="P">
+            <p class="govuk-inset-text">
+                {{HerokuServiceName}}/version-4/thirdpartypay/pay/{{accountData.feeref}}
+            </p>
+    
+            <h2 class="govuk-heading-m">
+                Send me an email with this link
+            </h2>
+            <p class="govuk-body">
+                We can send you an email containing this link, which you can forward to someone else.
+    
+                <form method="POST">
+                    <button type="submit" class="govuk-button">
+                        Email me this link
+                    </button>
+                </form>
+            </p>
+    
+        </div>
+        <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m">
+                Send someone else an email with this link
+            </h2>
+            <p class="govuk-body">
+                    If you know the email address of someone who will pay the fee on your behalf, we can send them an email directly.
+          </p>
+                <form method="POST">
                     <div class="govuk-form-group">
                         <label class="govuk-label" for="payemail">
                             Email address
@@ -62,14 +61,18 @@ Renew your licence
     
                         <input class="govuk-input" id="payemail" name="payemail" type="payemail" aria-describedby="email-hint">
                     </div>
-                    <a href="/{{version}}/maintenance/app/pay-other-emailsent-other" type="submit" class="govuk-button">
-                        Send email with link
-                    </a>
+                    <button type="submit" class="govuk-button">
+                            Send email with link
+                        </button>
                 </form>
-            
-        </p>
+    
+      
 
-    </div>
+            <a href="/{{version}}/maintenance/tasks/list" type="submit" class="govuk-button">
+                Return to the task list
+         </a>
+           <p class="govuk-body"><a href="/{{version}}/maintenance/app/feepaid">Fee paid</a></p>
+        </div>
 </div>
 
 {% endblock %}
