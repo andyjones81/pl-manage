@@ -1,0 +1,92 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Surrender your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/{{version}}/surrenderlicence/form" class="govuk-back-link">Back</a>
+    <span class="govuk-caption-l">Your licence</span>
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+    <p class="govuk-body">
+      Check the details you have provided before submitting the request to surrender your licence.
+    </p>
+
+
+    <form method="post">
+
+      <dl class="app-check-your-answers app-check-your-answers--short">
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Ongoing investigations
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ data['action'] | title }}
+
+            {% if data['action'] === 'yes' %}
+            <br/>{{ data['actiondetail'] }}
+            {% endif %}
+
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="form1">
+              Change<span class="govuk-visually-hidden"> investigations</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Reason for surrender
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{data['more-detail']}}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="form2">
+              Change<span class="govuk-visually-hidden"> reason</span>
+            </a>
+          </dd>
+        </div>
+
+        
+
+      </dl>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Confirmation
+            </h1>
+          </legend>
+
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                I <span class="govuk-!-font-weight-bold">{{accountData.accountName}}</span> confirm I want to surrender
+                my {{accountData.type | lower}} with the number {{accountData.licenceNumber}}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">
+        Send your surrender request
+      </button>
+    </form>
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}

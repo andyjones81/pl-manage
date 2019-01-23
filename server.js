@@ -21,6 +21,7 @@ const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const routes2 = require('./app/routes2.js')
 const routes3 = require('./app/routes3.js')
+const routes4 = require('./app/routes4.js')
 const utils = require('./lib/utils.js')
 
 // Variables for v6 backwards compatibility
@@ -288,6 +289,13 @@ if (typeof (routes3) !== 'function') {
   app.use('/', routes3)
 }
 
+if (typeof (routes4) !== 'function') {
+  console.log(routes4.bind)
+  console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
+  routes4.bind(app)
+} else {
+  app.use('/', routes4)
+}
 
 if (useDocumentation) {
   // Clone app locals to documentation app locals

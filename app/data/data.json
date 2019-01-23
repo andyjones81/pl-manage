@@ -4,34 +4,36 @@
             "accountNumber": "999101",
             "type": "Personal functional licence",
             "fee": "145",
+            "feeref": "j8r4c934fj3",
+            "feePurpose": "a personal licence renewal",
             "licenceNumber": "999101-F-123456-001",
-            "accountStart": "2014-02-12T00:00:00",
-            "renewalDate": "2019-02-12T00:00:00",
+            "accountStart": "2014-03-12T00:00:00",
+            "renewalDate": "2019-03-12T00:00:00",
             "renewalDue": "yes",
             "surrender": "no",
-            "accountName": "Wade Winston Wilson",
-            "title": "Mr",
-            "firstName": "Wade",
-            "middleName": "Winston",
-            "lastName": "Wilson",
+            "accountName": "Sarah Marie Jacobs",
+            "title": "Miss",
+            "firstName": "Sara",
+            "middleName": "Marie",
+            "lastName": "Jacobs",
             "dateOfBirth": "1973-11-22T00:00:00",
             "homeAddress": {
-                "street": "15 Electric Avenue",
-                "city": "Nottingham",
-                "postcode": "NG2 8JU",
+                "street": "75 River Street",
+                "city": "Manchester",
+                "postcode": "M12 9NA",
                 "country": "United Kingdom",
                 "since":  "2013-07-01T00:00:00"
             },
             "correspondenceAddress": {
-                "street": "13 Some Street",
-                "city": "London",
-                "postcode": "E16 1SD",
+                "street": "75 River Street",
+                "city": "Manchester",
+                "postcode": "M12 9NA",
                 "country": "United Kingdom"
             },
             "contactDetails": {
-                "mobile": "07940720925",
-                "home": "01212306511",
-                "emailAddress": "wade.wilson@example.com"
+                "mobile": "07123456789",
+                "home": "01711123456",
+                "emailAddress": "sara.jacobs@example.com"
             }
         }]
 }

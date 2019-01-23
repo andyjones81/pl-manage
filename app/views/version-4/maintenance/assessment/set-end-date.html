@@ -1,0 +1,62 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/assessment/current-home-address" class="govuk-back-link">Back</a>
+
+
+
+        <form method="POST">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="address-end-hint" role="group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                        <h1 class="govuk-fieldset__heading">
+                            When did this stop being your home address?
+                        </h1>
+                       
+                    </legend>
+                    <span id="address-end-hint" class="govuk-hint">
+                        For example, 3 2018
+                    </span>
+                    <div class="govuk-date-input" id="dob">
+                        
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="address-end-month">
+                                    Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="address-end-month"
+                                    name="address-end-month" type="number" pattern="[0-9]*" value="{{data['address-end-month']}}">
+                            </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="address-end-year">
+                                    Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="address-end-year"
+                                    name="address-end-year" type="number" pattern="[0-9]*" value="{{data['address-end-year']}}">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

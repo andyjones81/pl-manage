@@ -1,0 +1,78 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/maintenance/app/verification" class="govuk-back-link">Back</a>
+
+        <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl">Renew your licence</span>You have chosen to have your ID documents verified by the
+            your employer or prospective employer
+        </h1>
+      
+       
+            <p class="govuk-body">
+                Your current or prospective employer needs to verify three forms of ID and complete an <a href="https://secure.gamblingcommission.gov.uk/pflapply/home/idform" target="_Blank">ID verification form</a>.
+            </p>
+            <p class="govuk-body">
+                You will need to upload the ID verification form on the next page. You can upload the ID Verification form by taking a picture of it using a mobile or tablet device. </p>
+            <p class="govuk-body">We do not require verified copies of the ID documents.</p>
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Criteria for ID documents
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p class="govuk-body">
+                        You must have at least 3 documents verified.
+                    </p>
+    
+                    <p class="govuk-body">
+                        The documents must:.
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>be in your name (except your birth certificate, which is also acceptable in a different name)</li>
+                        <li>be in your current address (where an address is included, at least 1 document should include
+                            this)</li>
+                        <li>include your date of birth (at least 1 document should include this)</li>
+                        <li>be original documents (you cannot use photocopies)</li>
+                    </ul>
+                </div>
+            </details>
+            <h1 class="govuk-heading-m">
+                ID documents you can have verified
+            </h1>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Driving licence (any current photocard or paper, provisional or full)</li>
+                <li>Passport (any current and valid)</li>
+                <li>Bank or building society statement (UK or EEA - issued in last 3 months)</li>
+                <li>Birth certificate (UK, Isle of Man and Channel Islands)</li>
+                <li>Utility bill, for example, water, gas or electricity, you cannot use mobile phone bills (UK - issued in
+                    last 3 months)</li>
+                <li>Credit card statement (UK or EEA - issued in last 3 months)</li>
+                <li>Council tax statement (UK - issued in last 12 months)</li>
+                <li>EU National ID card (Current and valid)</li>
+                <li>P45 (UK - issued in last 12 months)</li>
+                <li>Bank or building society account opening letter (UK - issued in last 3 months)</li>
+                <li>Financial statement, for example pension or endowment (UK - issued in last 12 months)</li>
+                <li>Benefit statement, for example pension or endowment (UK - issued in last 3 months)</li>
+                <li>Mortgage statement (UK or EEA - issued in last 12 months)</li>
+            </ul>
+        <form action="" method="post">
+            <div class="govuk-form-group">
+                <button type="submit" class="govuk-button">
+                    Continue
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/app/pay-other" class="govuk-back-link">Back</a>
+
+        <span class="govuk-caption-xl">Apply</span>
+        <h1 class="govuk-heading-xl">
+            Getting someone else to pay your renewal fee of &pound;{{accountData.fee}}
+        </h1>
+
+        <div class="app-panel app-panel--success">
+            <h2 class="govuk-heading-l">Email sent</h2>
+            <p class="govuk-!-font-size-24">
+                We have sent an email with the details of how to pay your renewal fee.
+            </p>
+        </div>
+        <p class="govuk-body">
+            You can copy this link and send it to someone else to pay the fee for you. This could be your
+            employer, a friend or relative.
+        </p>
+
+    </div>
+    <div class="govuk-grid-column-full">
+        <p class="govuk-inset-text">
+            https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/pay/{{accountData.feeref}}
+        </p>
+
+        <h2 class="govuk-heading-m">
+            Send me an email with this link
+        </h2>
+        <p class="govuk-body">
+            We can send you an email containing this link, which you can forward to someone else.
+
+            <form>
+                <button type="submit" class="govuk-button">
+                    Email me this link
+                </button>
+            </form>
+        </p>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-m">
+            Send someone else an email with this link
+        </h2>
+        <p class="govuk-body">
+            If you know the email address of someone who will pay the fee on your behalf, we can send them an email
+            directly.
+
+            <form>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="email">
+                        Email address
+                    </label>
+
+                    <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+                </div>
+                <button type="submit" class="govuk-button">
+                    Email me this link
+                </button>
+            </form>
+
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

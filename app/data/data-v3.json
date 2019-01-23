@@ -1,0 +1,37 @@
+{
+    "accounts": 
+        [{
+            "accountNumber": "999101",
+            "type": "Personal functional licence",
+            "fee": "145",
+            "licenceNumber": "999101-F-123456-001",
+            "accountStart": "2014-02-12T00:00:00",
+            "renewalDate": "2019-02-12T00:00:00",
+            "renewalDue": "yes",
+            "surrender": "no",
+            "accountName": "Wade Winston Wilson",
+            "title": "Mr",
+            "firstName": "Wade",
+            "middleName": "Winston",
+            "lastName": "Wilson",
+            "dateOfBirth": "1973-11-22T00:00:00",
+            "homeAddress": {
+                "street": "15 Electric Avenue",
+                "city": "Nottingham",
+                "postcode": "NG2 8JU",
+                "country": "United Kingdom",
+                "since":  "2013-07-01T00:00:00"
+            },
+            "correspondenceAddress": {
+                "street": "13 Some Street",
+                "city": "London",
+                "postcode": "E16 1SD",
+                "country": "United Kingdom"
+            },
+            "contactDetails": {
+                "mobile": "07940720925",
+                "home": "01212306511",
+                "emailAddress": "wade.wilson@example.com"
+            }
+        }]
+}
