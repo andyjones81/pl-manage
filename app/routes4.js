@@ -43,7 +43,7 @@ router.get('/' + version + '/security/setpassword', (req, res) => {
     });
 })
 
-router.post('/' + version + '/security/createaccount', (req, res) => {   
+router.post('/' + version + '/security/createaccount', (req, res) => {
     res.redirect('/' + version + '/security/found');
 })
 
@@ -210,10 +210,10 @@ router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (re
 
 router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
     res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-details');
- })
+})
 
 
- router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
+router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -229,10 +229,10 @@ router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res)
 
 router.post('/' + version + '/maintenance/assessment/outcome/refuse-details', (req, res) => {
     res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-check');
- })
+})
 
- 
- router.get('/' + version + '/maintenance/assessment/outcome/refuse-check', (req, res) => {
+
+router.get('/' + version + '/maintenance/assessment/outcome/refuse-check', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -248,10 +248,10 @@ router.post('/' + version + '/maintenance/assessment/outcome/refuse-details', (r
 
 router.post('/' + version + '/maintenance/assessment/outcome/refuse-check', (req, res) => {
     res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-complete');
- })
+})
 
 
- router.get('/' + version + '/maintenance/assessment/outcome/refuse-complete', (req, res) => {
+router.get('/' + version + '/maintenance/assessment/outcome/refuse-complete', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -280,7 +280,7 @@ router.get('/' + version + '/maintenance/assessment/outcome/surrender', (req, re
 })
 
 router.post('/' + version + '/maintenance/assessment/outcome/surrender', (req, res) => {
-   res.redirect('/' + version + '/maintenance/assessment/outcome/surrender-submitted');
+    res.redirect('/' + version + '/maintenance/assessment/outcome/surrender-submitted');
 })
 
 
@@ -300,7 +300,7 @@ router.get('/' + version + '/account/surrender', (req, res) => {
 })
 
 router.post('/' + version + '/account/surrender', (req, res) => {
-   res.redirect('/' + version + '/account/surrender-submitted');
+    res.redirect('/' + version + '/account/surrender-submitted');
 })
 
 
@@ -335,17 +335,17 @@ router.get('/' + version + '/maintenance/assessment/new-name', (req, res) => {
 
 
 router.post('/' + version + '/maintenance/app/new-name', (req, res) => {
-  
+
     res.redirect('/' + version + '/maintenance/app/name-changed-date');
 })
 
 router.post('/' + version + '/maintenance/app/name-changed-date', (req, res) => {
-  
+
     res.redirect('/' + version + '/maintenance/app/name-start-date');
 })
 
 router.post('/' + version + '/maintenance/app/name-start-date', (req, res) => {
-  
+
     res.redirect('/' + version + '/maintenance/app/name-changed-evidence');
 })
 
@@ -449,7 +449,7 @@ router.post('/' + version + '/maintenance/app/currentname', (req, res) => {
     }
 
     req.session.data["currentnamescomplete"] = 1
-    
+
     res.redirect('/' + version + '/maintenance/app/previousnames');
 })
 
@@ -520,7 +520,7 @@ router.get('/' + version + '/maintenance/app/dob', (req, res) => {
 
 router.post('/' + version + '/maintenance/app/dob', (req, res) => {
 
-   
+
 
     if (req.session.data['dob-correct'] == "no") {
         res.redirect('/' + version + '/maintenance/app/new-dob');
@@ -1872,42 +1872,45 @@ router.get('/' + version + '/maintenance/app/pay', (req, res) => {
 router.get('/' + version + '/maintenance/app/pay-other', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
-
+    var HerokuServiceName = process.env.HerokuServiceName
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
 
     res.render(version + '/maintenance/app/pay-other', {
         version,
-        accountData
+        accountData,
+        HerokuServiceName
     });
 })
 
 router.get('/' + version + '/maintenance/app/pay-other-emailsent', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
-
+    var HerokuServiceName = process.env.HerokuServiceName
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
 
     res.render(version + '/maintenance/app/pay-other-emailsent', {
         version,
-        accountData
+        accountData,        
+        HerokuServiceName
     });
 })
 
 router.get('/' + version + '/maintenance/app/pay-other-emailsent-other', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
-
+    var HerokuServiceName = process.env.HerokuServiceName
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
 
     res.render(version + '/maintenance/app/pay-other-emailsent-other', {
         version,
-        accountData
+        accountData,        
+        HerokuServiceName
     });
 })
 
@@ -1944,6 +1947,62 @@ router.get('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
 })
 
 
+router.post('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
+
+
+
+var returnUrl = 'https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/result';
+console.log(returnUrl)
+ var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    const fetch = require('node-fetch');
+    const inputBody = {
+        "amount": accountData.payfee,
+        "reference": accountData.feeref,
+        "return_url": returnUrl,
+        "description": accountData.type + " renewal"
+    };
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + process.env.PayKey
+    };
+   
+console.log("*********************************************************************************************************************")
+console.log(inputBody)
+console.log("*********************************************************************************************************************")
+
+    fetch('https://publicapi.payments.service.gov.uk/v1/payments',
+    {
+      method: 'POST',
+      body: inputBody,
+      headers: headers
+    })
+    .then(function(res) {
+        return res.json();
+    }).then(function(body) {
+        console.log(body);
+    });
+ 
+
+    //Redirect to GOV Pay
+    //Payment page URL to redirect to
+
+
+
+    //Redirect to self for test
+
+    res.render(version + '/thirdpartypay/pay', {
+        version,
+        accountData
+    });
+
+})
 
 router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => {
     req.session.data["adressscomplete"] = 1
@@ -1952,7 +2011,7 @@ router.post('/' + version + '/maintenance/app/previousaddresses', (req, res) => 
 
 
 router.post('/' + version + '/maintenance/app/pay-other', (req, res) => {
-    
+
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -1960,7 +2019,7 @@ router.post('/' + version + '/maintenance/app/pay-other', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-var link = 'https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/pay/' + accountData.feeref;
+    var link = 'https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/pay/' + accountData.feeref;
 
     var NotifyClient = require('notifications-node-client').NotifyClient,
         notifyClient = new NotifyClient(process.env.V4NotifyKey);
@@ -2010,54 +2069,54 @@ router.post('/' + version + '/maintenance/app/certaddress', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/app/verification', (req, res) => {
-   
-    if(req.session.data['verify-method'] === 'employer')
-    {req.session.data["verificationcomplete"] = 1
+
+    if (req.session.data['verify-method'] === 'employer') {
+        req.session.data["verificationcomplete"] = 1
         res.redirect('/' + version + '/maintenance/app/verify-employer');
     }
 
-    if(req.session.data['verify-method'] === 'thirdparty')
-    {req.session.data["verificationcomplete"] = 1
+    if (req.session.data['verify-method'] === 'thirdparty') {
+        req.session.data["verificationcomplete"] = 1
         res.redirect('/' + version + '/maintenance/app/verify-thirdparty');
     }
 
-    if(req.session.data['verify-method'] === 'gc')
-    {req.session.data["verificationcomplete"] = 1
-        res.redirect('/' + version + '/maintenance/app/verify-gc');        
+    if (req.session.data['verify-method'] === 'gc') {
+        req.session.data["verificationcomplete"] = 1
+        res.redirect('/' + version + '/maintenance/app/verify-gc');
     }
-    
+
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
 
-router.post('/' + version + '/maintenance/app/verify-employer', (req, res) => {    
+router.post('/' + version + '/maintenance/app/verify-employer', (req, res) => {
     res.redirect('/' + version + '/maintenance/app/verify-employer-file');
 })
 
-router.post('/' + version + '/maintenance/app/verify-employer-file', (req, res) => {    
+router.post('/' + version + '/maintenance/app/verify-employer-file', (req, res) => {
     req.session.data["verifyemployerfilecomplete"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
-router.post('/' + version + '/maintenance/app/verify-thirdparty', (req, res) => {    
+router.post('/' + version + '/maintenance/app/verify-thirdparty', (req, res) => {
     req.session.data["verifythirdpartyfilecomplete"] = 1
     res.redirect('/' + version + '/maintenance/app/verify-thirdparty-file');
 })
 
-router.post('/' + version + '/maintenance/app/verify-gc', (req, res) => {  
-    req.session.data["verifygccomplete"] = 1  
+router.post('/' + version + '/maintenance/app/verify-gc', (req, res) => {
+    req.session.data["verifygccomplete"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
 
-router.post('/' + version + '/maintenance/app/verify-thirdparty-file', (req, res) => {    
+router.post('/' + version + '/maintenance/app/verify-thirdparty-file', (req, res) => {
     req.session.data["verifythirdpartyfilecomplete"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
 
 
-router.post('/' + version + '/maintenance/app/verify-thirdparty-file-add', (req, res) => {    
+router.post('/' + version + '/maintenance/app/verify-thirdparty-file-add', (req, res) => {
     req.session.data["verifythirdpartyfilecomplete"] = 1
     res.redirect('/' + version + '/maintenance/app/verify-thirdparty-file-list');
 })
@@ -2111,10 +2170,9 @@ router.post('/' + version + '/maintenance/app/declaration', (req, res) => {
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
-router.post('/' + version + '/maintenance/app/pay', (req, res) => {   
+router.post('/' + version + '/maintenance/app/pay', (req, res) => {
 
-    if(req.session.data['how-pay'] === 'other')
-    {
+    if (req.session.data['how-pay'] === 'other') {
         res.redirect('/' + version + '/maintenance/app/pay-other');
     }
 
@@ -2122,7 +2180,7 @@ router.post('/' + version + '/maintenance/app/pay', (req, res) => {
 })
 
 
-router.post('/' + version + '/maintenance/app/pay-other', (req, res) => {   
+router.post('/' + version + '/maintenance/app/pay-other', (req, res) => {
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 module.exports = router

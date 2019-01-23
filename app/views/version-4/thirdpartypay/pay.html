@@ -9,7 +9,29 @@ Pay a fee
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       Redirect to gov pay
+        <h1 class="govuk-heading-xl">Pay a fee</h1>
+
+        <p class="govuk-inset-text">
+            <span class="govuk-!-font-weight-bold">Fee: &pound;{{accountData.fee}}</span> <br />
+            Purpose: {{accountData.feePurpose}} <br />
+            Licence number: {{accountData.licenceNumber}}<br />
+            Licence holder: {{accountData.firstName}} {{accountData.lastName}}
+        </p>
+
+
+        <p class="govuk-body">
+            The fee is not refundable and must be paid by credit or debit card. We will send an email to the applicant
+            once the payment has been made.
+        </p>
+
+        <h2 class="govuk-heading-m">How to pay</h2>
+
+        <form method="POST">
+
+            <button type="submit" class="govuk-button">
+                Pay using GOV Pay
+            </button>
+        </form>
 
     </div>
 
