@@ -17,18 +17,21 @@ Renew your licence
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                                 <span class="govuk-caption-xl">Renew your licence</span>
                                 <h1 class="govuk-heading-xl">
-                                        Who do you want to verify your identity? 
+                                        Who do you want your identity documents checked by?
                                 </h1>
-                                <p class="govuk-body">You can choose to have your identity verified in one of three ways.</p>
+
+                                <p class="govuk-inset-text">If you're employed in the gambling industry, the quickest way to get your ID documents checked is with your employer.</p>
+                               
                                 <p class="govuk-body">We'll let you know which documents you can have verified in the next step. </p>
                           </legend>
                           <div class="govuk-radios">
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="verify-method-1" name="verify-method" type="radio" value="employer" {{checked('verify-method','employer') }}>
                               <label class="govuk-label govuk-radios__label" for="verify-method-1">
-                                Your employer or prospective employer
+                                Your employer
                               </label>
                             </div>
+                            <div class="govuk-radios__divider">or</div>
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="verify-method-2" name="verify-method" type="radio" value="thirdparty" {{checked('verify-method','thirdparty') }}>
                               <label class="govuk-label govuk-radios__label" for="verify-method-2">
