@@ -1980,13 +1980,13 @@ router.get('/' + version + '/thirdpartypay/result', (req, res) => {
 
 router.post('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
 
-    var returnUrl = 'https://gc-plmanage.herokuapp.com/version-4/thirdpartypay/result';
+    var returnUrl = process.env.HerokuServiceName + '/thirdpartypay/result';
 
     const fetch = require('node-fetch');
     const inputBody = {
         "amount": 14500,
         "reference": "999101",
-        "return_url": "https://localhost:3000/version-4/thirdpartypay/result",
+        "return_url": returnUrl,
         "description": "Personal functional licence renewal"
     };
     const headers = {
