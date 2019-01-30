@@ -1,0 +1,46 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Change your mobile number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/account/manage" class="govuk-back-link">Back</a>
+            <span class="govuk-caption-l">Manage your details</span>
+            <h1 class="govuk-heading-l">
+                Update your phone number
+            </h1>
+            <div class="app-panel app-panel--success">
+                    <h2 class="govuk-heading-l">Phone number updated</h2>
+                   
+                    <p class="govuk-body">Return to <a href="/{{version}}/account/manage">manage your details</a></p>
+                    
+                  </div>
+           <form method="POST">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="mobile">
+                        Phone number
+                    </label>
+                    <input class="govuk-input" id="mobile" name="mobile" type="text" value="{{accountData.contactDetails.mobile}}">
+                </div>
+    
+                <button type="submit" class="govuk-button">
+                    Save 
+                </button>
+                <a href="/{{version}}/account/manage" role="button" type="submit" class="govuk-button gc-button-secondary">
+                        Return to manage your details
+                </a>
+    
+               
+            </form>
+           
+        </div>
+    
+    </div>
+
+
+{% endblock %}

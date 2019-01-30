@@ -1,0 +1,339 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Tasks
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Renew your personal licence
+        </h1>
+        <p class="govuk-body">The following tasks need to be completed before you can submit your application.</p>
+
+        <ol class="app-task-list">
+            <li>
+                <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">1. </span>Assessment
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/assessment/check"
+                            aria-describedby="eligibility-completed">
+                            Check eligibility
+                        </a>
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                    <h2 class="app-task-list__section">
+                        <span class="app-task-list__section-number">2. </span> Personal details
+                    </h2>
+                    <ul class="app-task-list__items">
+                            <li class="app-task-list__item">
+                                    <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/currentname"
+                                        aria-describedby="contact-details-completed">
+                                       Current name
+                                    </a>
+                                    {% if data['currentnamescomplete'] === 1 %}
+                                    <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                                    {% endif %}
+                                </li>
+                        <li class="app-task-list__item">
+                            <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/previousnames"
+                                aria-describedby="contact-details-completed">
+                                Previous names
+                            </a>
+                            {% if data['previousnamescomplete'] === 1 %}
+                            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                            {% endif %}
+                        </li> <li class="app-task-list__item">
+                                <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/dob"
+                                    aria-describedby="contact-details-completed">
+                                   Date of birth
+                                </a>
+                                {% if data['dobcomplete'] === 1 %}
+                                <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                                {% endif %}
+                            </li>
+                        <li class="app-task-list__item">
+                            <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/sex" aria-describedby="company-information-completed">
+                                Sex
+                            </a>
+                            {% if data['sexcomplete'] === 1 %}
+                            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                            {% endif %}
+                        </li>
+                       
+                        <li class="app-task-list__item">
+                            <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/placeofbirth">
+                                Place of birth
+                            </a>
+                            {% if data['placeofbirthcomplete'] === 1 %}
+                            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                            {% endif %}
+                        </li>
+    
+                    </ul>
+                </li>
+            <li>
+                <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">3. </span> Check your address history
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/previousaddresses"
+                            aria-describedby="company-information-completed">
+                            Addresses
+                        </a>
+                        {% if data['adressscomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+
+
+                </ul>
+            </li>
+            {%if accountData.homeAddress.country === 'United Kingdom'%}
+          
+
+
+            <li>
+                <h2 class="app-task-list__section">
+                    <span class="app-task-list__section-number">4. </span> Disclosure and Barring Service
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/dbsconsent"
+                            aria-describedby="company-information-completed">
+                            Consent and declaration
+                        </a>
+                        {% if data['dbsconsentcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/certaddress"
+                            aria-describedby="company-information-completed">
+                            Certificate address
+                        </a>
+                        {% if data['certcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                </ul>
+            </li>
+            {%endif%}
+            <li>
+                <h2 class="app-task-list__section">
+                    {%if accountData.homeAddress.country === 'United Kingdom'%}
+                    <span class="app-task-list__section-number">5. </span> Identity verification
+                    {%else%}
+                    <span class="app-task-list__section-number">3. </span> Identity verification
+                    {%endif%}
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verification"
+                            aria-describedby="company-information-completed">
+                            Verification method
+                        </a>
+                        {% if data['verificationcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%if data['verify-method'] === 'employer'%}
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verify-employer"
+                            aria-describedby="company-information-completed">
+                            Employer or prospective employer verification
+                        </a>
+                        {% if data['verifyemployerfilecomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%endif%}
+                    {%if data['verify-method'] === 'thirdparty'%}
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verify-thirdparty"
+                            aria-describedby="company-information-completed">
+                            Third party
+                        </a>
+                        {% if data['verifythirdpartyfilecomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%endif%}
+
+                    {%if data['verify-method'] === 'gc'%}
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/verify-gc"
+                            aria-describedby="company-information-completed">
+                            Third party
+                        </a>
+                        {% if data['verifygccomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    {%endif%}
+
+                </ul>
+            </li>
+
+            <li>
+                <h2 class="app-task-list__section">
+                    {%if accountData.homeAddress.country === 'United Kingdom'%}
+                    <span class="app-task-list__section-number">6. </span> Events
+                    {%else%}
+                    <span class="app-task-list__section-number">4. </span> Events
+                    {%endif%}
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-criminal"
+                            aria-describedby="company-information-completed">
+                            Criminal activity <span class="govuk-visually-hidden">(LCCP Part 3 - 3 a, b)</span>
+                        </a>
+                        {% if data['personal-criminalitycomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-investigations"
+                            aria-describedby="company-information-completed">
+                            Investigations <span class="govuk-visually-hidden">(LCCP Part 3 - 3 c)</span>
+                        </a>  
+                         {% if data['personal-investigationscomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-sanctions"
+                            aria-describedby="company-information-completed">
+                            Sanctions <span class="govuk-visually-hidden">(LCCP Part 3 - 3 d)</span>
+                        </a>
+                        {% if data['personal-sanctionscomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
+                    </li>
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-disciplinary"
+                            aria-describedby="company-information-completed">
+                            Disciplinary <span class="govuk-visually-hidden">(LCCP Part 3 - 3 e,f)</span>
+                        </a>
+                        {% if data['personal-disciplinarycomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
+                    </li>
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-disqualifications"
+                            aria-describedby="company-information-completed">
+                            Disqualifications <span class="govuk-visually-hidden">(LCCP Part 3 - 3 g)</span>
+                        </a>
+                        {% if data['personal-disqualificationscomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
+                    </li>
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/personal-financial"
+                            aria-describedby="company-information-completed">
+                            Financial <span class="govuk-visually-hidden">(LCCP Part 3 - 3 h)</span>
+                        </a>
+                        {% if data['personal-financialcomplete'] === 1 %}
+                       <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                       {% endif %}
+                    </li>
+                </ul>
+            </li>
+
+            {%if accountData.homeAddress.country != 'United Kingdom'%}
+            <li>
+                <h2 class="app-task-list__section">
+
+                    <span class="app-task-list__section-number">5. </span> Police reports
+
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/overseas"
+                            aria-describedby="contact-details-completed">
+                            Overseas police reports
+                        </a>
+
+                    </li>
+
+
+                </ul>
+            </li>
+
+
+
+            {%endif%}
+
+            <li>
+                <h2 class="app-task-list__section">
+                    {%if accountData.homeAddress.country === 'United Kingdom'%}
+                    <span class="app-task-list__section-number">7. </span> Declarations
+                    {%else%}
+                    <span class="app-task-list__section-number">6. </span> Declarations
+                    {%endif%}
+                </h2>
+                <ul class="app-task-list__items">
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/thirdparty">
+                            Third party permission
+                        </a>
+                        {% if data['thirdpartycomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/declaration">
+                            Declaration
+                        </a>
+                        {% if data['declarationcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+                   
+                </ul>
+            </li>
+
+            <li>
+                    <h2 class="app-task-list__section">
+                        {%if accountData.homeAddress.country === 'United Kingdom'%}
+                        <span class="app-task-list__section-number">8. </span> Pay and submit
+                        {%else%}
+                        <span class="app-task-list__section-number">7. </span> Pay and submit
+                        {%endif%}
+                    </h2>
+                    <ul class="app-task-list__items">
+                      
+                       
+                        <li class="app-task-list__item">
+                            <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/pay">
+                                Pay and submit renewal application
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        </ol>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+    </div>
+
+</div>
+
+
+{% endblock %}

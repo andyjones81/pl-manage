@@ -1980,7 +1980,7 @@ router.get('/' + version + '/thirdpartypay/result', (req, res) => {
 
 router.post('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
 
-    var returnUrl = process.env.HerokuServiceName + '/thirdpartypay/result';
+    var returnUrl = process.env.HerokuServiceName + '/' + version + '/thirdpartypay/result';
 
     const fetch = require('node-fetch');
     const inputBody = {

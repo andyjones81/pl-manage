@@ -1,0 +1,56 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+            <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+        <form class="form" method="post">
+
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="how-pay-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+
+                        <span class="govuk-caption-xl">Apply</span>
+                        <h1 class="govuk-fieldset__heading">
+                            Your application fee has been paid
+                        </h1>
+                    </legend>
+                   
+                    <p class="govuk-body">
+                      You can now submit your renewal application.
+                    </p>
+                   
+                                             
+                            <div class="govuk-form-group">
+                                <a href="/{{version}}/maintenance/app/complete" class="govuk-button" type="submit"  name="submitAction">
+                             Submit renewal application   </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+
+
+
+
+
+
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

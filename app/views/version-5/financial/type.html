@@ -1,0 +1,65 @@
+{% extends "layoutpfl.html" %}
+
+{% block pageTitle %}
+Gambling Commission Prototypes
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/financial/financial" class="govuk-back-link">Back</a>
+    <form method="POST">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <span class="govuk-caption-l">Financial</span>
+            <h1 class="govuk-fieldset__heading">
+             What financial action has happened?
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where-do-you-live-1" name="where-do-you-live" type="radio" value="bankruptcy">
+              <label class="govuk-label govuk-radios__label" for="where-do-you-live-1">
+                Declared bankrupt
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="sequestration">
+              <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                Sequestrated
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="informal agreement">
+              <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                Informal agreement with creditors
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="IVA">
+              <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                Individual Voluntary arrangement (IVA)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-5" name="where-do-you-live" type="radio" value="protected trust deed">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-5">
+                  Protected trust deed
+                </label>
+              </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

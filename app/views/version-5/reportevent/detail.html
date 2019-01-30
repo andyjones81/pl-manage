@@ -1,0 +1,61 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/reportevent/list" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Report something that may affect your licence</span>
+        <h1 class="govuk-heading-l">
+            Submitted event
+        </h1>
+
+        <dl class="app-check-your-answers app-check-your-answers--short">
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Reference
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    1-45678223
+                </dd>
+            </div>
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Type
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    Change of name or address
+                </dd>
+            </div>
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Date
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    10 July 2018
+                </dd>
+            </div>
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Details
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    Changed name from James Jones to {{accountData.accountName}}
+                </dd>
+            </div>
+        </dl>
+        <p class="govuk-body">
+            <a class="govuk-link" href="/{{version}}/reportevent/list">
+                Return to list of events
+            </a>
+        </p>
+
+    </div>
+
+</div>
+{% endblock %}

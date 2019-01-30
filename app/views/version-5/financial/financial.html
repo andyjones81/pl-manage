@@ -1,0 +1,72 @@
+{% extends "layoutpfl.html" %}
+
+{% block pageTitle %}
+Gambling Commission Prototypes
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="POST">
+    <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <span class="govuk-caption-l">Financial</span>
+            <h1 class="govuk-fieldset__heading">
+             In the last 5 years have you ever:
+            </h1>
+          </legend>
+
+          <div class="govuk-body">
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>been declared bankrupt</li>
+                    <li>been sequestrated</li>
+                    <li>entered into an agreement with creditors</li>
+                    <li>entered into an Individual Voluntary Agreement (IVA)</li>
+                    <li>entered into a protected trust deed</li>
+                </ul>
+            </div>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="ke-criminal-1" name="how-contacted" type="radio"
+                            value="yes" data-aria-controls="conditional-ke-criminal-1"
+                            {{ checked('how-contacted','yes') }}>
+                        <label class="govuk-label govuk-radios__label" for="ke-criminal-1">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-ke-criminal-1">
+
+                        <p class="govuk-body">
+                            <a href="/{{version}}/financial/type">Add details</a>
+                        </p>
+
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="ke-criminal-2" name="how-contacted" type="radio"
+                            value="no" data-aria-controls="conditional-ke-criminal-2"
+                            {{ checked('how-contacted','no') }}>
+                        <label class="govuk-label govuk-radios__label" for="ke-criminal-2">
+                            No
+                        </label>
+                    </div>
+
+
+                </div>
+              
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

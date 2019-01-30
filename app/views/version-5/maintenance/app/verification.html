@@ -1,0 +1,61 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+      
+        <form method="POST">
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                                <span class="govuk-caption-xl">Renew your licence</span>
+                                <h1 class="govuk-heading-xl">
+                                        Who do you want your identity documents checked by?
+                                </h1>
+
+                                <p class="govuk-inset-text">If you're employed in the gambling industry, the quickest way to get your ID documents checked is with your employer.</p>
+                               
+                                <p class="govuk-body">We'll let you know which documents you can have verified in the next step. </p>
+                          </legend>
+                          <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="verify-method-1" name="verify-method" type="radio" value="employer" {{checked('verify-method','employer') }}>
+                              <label class="govuk-label govuk-radios__label" for="verify-method-1">
+                                Your employer
+                              </label>
+                            </div>
+                            <div class="govuk-radios__divider">or</div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="verify-method-2" name="verify-method" type="radio" value="thirdparty" {{checked('verify-method','thirdparty') }}>
+                              <label class="govuk-label govuk-radios__label" for="verify-method-2">
+                                A third party such as a solicitor or the post office
+                              </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="verify-method-3" name="verify-method" type="radio" value="gc" {{checked('verify-method','gc') }}>
+                              <label class="govuk-label govuk-radios__label" for="verify-method-3">
+                                The Gambling Commission
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

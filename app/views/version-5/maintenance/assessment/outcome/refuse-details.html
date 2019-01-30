@@ -1,0 +1,42 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Provide some additional details about this action
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+       
+        <a href="/{{version}}/maintenance/assessment/outcome/refuse" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Renew your licence</span>
+        <h1 class="govuk-heading-xl">
+                Provide some additional details about this action
+        </h1>
+
+        <form method="POST"> 
+                 
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="bankrupcy-detail">
+                  Details
+                </label>
+                <span id="bankrupcy-detail-hint" class="govuk-hint">
+                 Tell us the circumstances about this action and the name of the court taking action. Also include any reference numbers relating to this action.
+                </span>
+                <textarea class="govuk-textarea" id="bankrupcy-detail" name="bankrupcy-detail" rows="5" aria-describedby="bankrupcy-detail-hint">{{data['bankrupcy-detail']}}</textarea>
+              </div>
+                  <button type="submit" class="govuk-button">
+                      Save and continue
+                  </button>
+              </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

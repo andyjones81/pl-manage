@@ -1,0 +1,98 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Your personal licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <span class="govuk-caption-l">{{accountData.type}}</span>
+        <h1 class="govuk-heading-l">
+            {{ accountData.accountName}}
+        </h1>
+        <span class="govuk-caption-m"></span>
+
+    </div>
+
+    {% if accountData.renewalDue === "yes" %}
+    <div class="govuk-grid-column-full">
+        <section id="maintenancePanel">
+            <div class="gc-alert gc-alert-important">
+                <h2 class="govuk-heading-m">We're processing your licence renewal</h2>
+                <p class="govuk-body">Your application reference is MAINT-24523</p>
+                <p class="govuk-body">We will keep you up to date by email on the progress of your application.</p>
+            </div>
+        </section>
+    </div>
+
+    {% endif %}
+
+
+</div>
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="govuk-heading-s">Event reporting</h3>
+                        <h3 class="govuk-heading-l govuk-!-margin-bottom-1">1</h3>
+                        <p class="govuk-body-s govuk-!-margin-bottom-1">event reported</p>
+                    </div>
+                    <div class="card-action">
+                        <ul class="govuk-list">
+                            <li><a class="govuk-link" href="/{{version}}/reportevent/list">View submitted events
+                                </a></li>
+                            <li><a class="govuk-link" href="/{{version}}/reportevent/start">Report an event
+                                </a></li>
+                            <li><a class="govuk-link" href="/{{version}}/guidance/start">What you must report</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    <div class="govuk-grid-column-one-third">
+        <div class="card">
+            <div class="card-body">
+                <span class="govuk-caption-s">Licence number</span>
+                <h3 class="govuk-heading-s">{{accountData.licenceNumber}}</h3>
+                <ul class="govuk-list govuk-body-s govuk-!-margin-bottom-0">
+                    <li><span class="govuk-!-font-weight-bold">Start date</span> {{accountData.licenceStart | date('DD
+                        MMMM YYYY')}}</li>
+                    <li><span class="govuk-!-font-weight-bold">Renewal date</span> {{accountData.renewalDate | date('DD
+                        MMMM YYYY')}}</li>
+                </ul>
+            </div>
+            <div class="card-action">
+                <ul class="govuk-list">
+                    <li><a class="govuk-link" href="/{{version}}/downloadlicence/start">Download your licence</a></li>
+
+                    <li><a class="govuk-link" href="/{{version}}/account/surrender">Surrender your licence</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="govuk-grid-column-one-third">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="govuk-heading-s">{{accountData.title}} {{accountData.firstName}} {{accountData.middleName}}
+                    {{accountData.lastName}}</h3>
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li>{{accountData.contactDetails.emailAddress}}</li>
+                    <li>{{accountData.contactDetails.mobile}}</li>
+                </ul>
+
+            </div>
+            <div class="card-action">
+                <ul class="govuk-list">
+                    <li><a class="govuk-link" href="/{{version}}/account/manage">Manage your details</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div> {% endblock %}
