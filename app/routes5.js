@@ -796,7 +796,29 @@ router.get('/' + version + '/maintenance/assessment/events', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/events', (req, res) => {
-      res.redirect('/' + version + '/maintenance/assessment/check');
+    if (req.session.data['key-event'] == "yes") {
+        res.redirect('/' + version + '/maintenance/assessment/outcome/key-event-required');
+    }
+    
+    res.redirect('/' + version + '/maintenance/assessment/check');
+})
+
+router.get('/' + version + '/maintenance/assessment/outcome/key-event-required', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/key-event-required', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/key-event-required', (req, res) => {      
+    res.redirect('/' + version + '/reportevent/start');
 })
 
 router.get('/' + version + '/account/change-home-address-start', (req, res) => {
