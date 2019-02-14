@@ -32,6 +32,8 @@ module.exports = {
   // Enable or disable Browser Sync
   useBrowserSync: 'true',
   
-  tracking: false
+  tracking: false,
+
+  useNewStyle: 'true'
 
 }

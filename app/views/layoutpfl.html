@@ -35,19 +35,14 @@
 {% block header %}
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
-
+  {% block phase %}
+{% endblock %}
   <header class="govuk-header " role="banner" data-module="header">
       <div class="govuk-header__container govuk-width-container">
     
         <div class="govuk-header__logo">
           <a class="govuk-header__link govuk-header__link--homepage" href="/">
-            <span class="govuk-header__logotype">
-    
-              <span class="govuk-header__logotype-text">
-                Gambling Commission
-              </span>
-            </span>
-    
+            <img src="/public/images/logo.png" alt="Gambling Commission Logo" class="gc-logo-image">
           </a>
         </div>
         <div class="govuk-header__content">
@@ -55,8 +50,7 @@
     
           <a class="govuk-header__link govuk-header__link--service-name" href="/">
             Service name
-          </a>
-    
+          </a> 
     
     
     
@@ -93,11 +87,7 @@
             </li>
           </ul>
         </div>
-        <div class="govuk-footer__meta-item">
-          <div style="float: right;">
-            <a class="govuk-footer__link" href="#"><img style="width: 200px; right: 0px;" src="/public/images/logo.png"></a>
-          </div>  
-        </div>
+      
       </div>
     </div>
   </div>

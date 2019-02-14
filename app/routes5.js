@@ -107,6 +107,139 @@ router.get('/' + version + '/account/notyet', (req, res) => {
     });
 })
 
+router.get('/' + version + '/account/change-name-start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-name-start', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/account/change-name-new-name', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+
+    res.render(version + '/account/change-name-new-name', {
+        version,
+        accountData
+    });
+
+})
+
+
+router.post('/' + version + '/account/change-name-new-name', (req, res) => {
+    if (req.session.data['cya-name'] === 'yes') {
+        res.redirect('/' + version + '/account/change-name-cya');
+    }
+
+    res.redirect('/' + version + '/account/change-name-date');
+})
+
+router.get('/' + version + '/account/change-name-date', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-name-date', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-name-date', (req, res) => {
+    if (req.session.data['cya-name'] === 'yes') {
+        res.redirect('/' + version + '/account/change-name-cya');
+    }
+
+    res.redirect('/' + version + '/account/change-name-evidence');
+})
+
+router.get('/' + version + '/account/change-name-evidence', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-name-evidence', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-name-evidence', (req, res) => {
+    res.redirect('/' + version + '/account/change-name-cya');
+})
+
+router.post('/' + version + '/account/change-name-evidence-file', (req, res) => {
+    res.redirect('/' + version + '/account/change-name-cya');
+})
+
+router.get('/' + version + '/account/change-name-cya', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    req.session.data['cya-name'] = 'yes'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-name-cya', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-name-evidence-file', (req, res) => {
+    res.redirect('/' + version + '/account/change-name-evidence');
+})
+
+
+router.post('/' + version + '/account/change-name-cya', (req, res) => {
+    res.redirect('/' + version + '/account/change-name-complete');
+})
+
+router.get('/' + version + '/account/change-name-complete', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    //If from maintenance show a different result
+
+    if (req.session.data['frommaint'] === 'yes') {
+        res.render(version + '/account/change-name-complete', {
+            version,
+            accountData
+        });
+    } else {
+        res.render(version + '/account/change-name-complete-hub', {
+            version,
+            accountData
+        });
+    }
+
+})
+
+
 
 router.get('/' + version + '/surrenderlicence/start', (req, res) => {
     var d = require('./data/data.json')
@@ -125,7 +258,7 @@ router.get('/' + version + '/surrenderlicence/start', (req, res) => {
 router.get('/' + version + '/maintenance/start', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
-
+    req.session.data['frommaint'] = 'yes'
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
@@ -151,9 +284,13 @@ router.get('/' + version + '/maintenance/assessment/keep', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
+    
+    
     if (req.session.data['keep-licence'] === 'no') {
         res.redirect('/' + version + '/maintenance/assessment/outcome/surrender');
     }
+
+    
 
     res.redirect('/' + version + '/maintenance/assessment/financial');
 })
@@ -174,10 +311,66 @@ router.get('/' + version + '/maintenance/assessment/financial', (req, res) => {
 
 router.post('/' + version + '/maintenance/assessment/financial', (req, res) => {
     if (req.session.data['changed-financial'] === 'no') {
-        res.redirect('/' + version + '/maintenance/assessment/check');
+        res.redirect('/' + version + '/maintenance/assessment/name-changed');
     }
 
     res.redirect('/' + version + '/maintenance/assessment/outcome/refuse');
+})
+
+router.get('/' + version + '/maintenance/assessment/name-changed', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/name-changed', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/assessment/outcome/name-change-required', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/name-change-required', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/name-changed', (req, res) => {
+    if (req.session.data['same-name'] === 'no') {
+        res.redirect('/' + version + '/maintenance/assessment/outcome/name-change-required');
+    }
+
+    res.redirect('/' + version + '/maintenance/assessment/dob');
+})
+
+
+router.post('/' + version + '/maintenance/assessment/outcome/name-change-required', (req, res) => {
+  
+    res.redirect('/' + version + '/account/change-name-start');
+})
+
+router.get('/' + version + '/maintenance/assessment/dob', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/dob', {
+        version,
+        accountData
+    });
 })
 
 router.get('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
@@ -518,19 +711,19 @@ router.get('/' + version + '/maintenance/app/dob', (req, res) => {
     });
 })
 
-router.post('/' + version + '/maintenance/app/dob', (req, res) => {
+router.post('/' + version + '/maintenance/assessment/dob', (req, res) => {
 
 
 
     if (req.session.data['dob-correct'] == "no") {
-        res.redirect('/' + version + '/maintenance/app/new-dob');
+        res.redirect('/' + version + '/maintenance/assessment/new-dob');
     }
 
-    req.session.data["dobcomplete"] = 1
-    res.redirect('/' + version + '/maintenance/app/sex');
+    
+    res.redirect('/' + version + '/maintenance/assessment/current-home-address');
 })
 
-router.get('/' + version + '/maintenance/app/new-dob', (req, res) => {
+router.get('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
@@ -538,15 +731,15 @@ router.get('/' + version + '/maintenance/app/new-dob', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-    res.render(version + '/maintenance/app/new-dob', {
+    res.render(version + '/maintenance/assessment/new-dob', {
         version,
         accountData
     });
 })
 
-router.post('/' + version + '/maintenance/app/new-dob', (req, res) => {
-    req.session.data["dobcomplete"] = 1
-    res.redirect('/' + version + '/maintenance/app/sex');
+router.post('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
+  
+    res.redirect('/' + version + '/maintenance/assessment/current-home-address');
 })
 
 router.get('/' + version + '/maintenance/assessment/current-home-address', (req, res) => {
@@ -565,10 +758,177 @@ router.get('/' + version + '/maintenance/assessment/current-home-address', (req,
 
 router.post('/' + version + '/maintenance/assessment/current-home-address', (req, res) => {
     if (req.session.data['current-home-address'] == "no") {
-        res.redirect('/' + version + '/maintenance/assessment/set-end-date');
+        res.redirect('/' + version + '/maintenance/assessment/outcome/home-address-required');
     }
-    res.redirect('/' + version + '/maintenance/assessment/check');
+    res.redirect('/' + version + '/maintenance/assessment/events');
 })
+
+router.get('/' + version + '/maintenance/assessment/outcome/home-address-required', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/outcome/home-address-required', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/home-address-required', (req, res) => {
+      res.redirect('/' + version + '/account/change-home-address-start');
+})
+
+router.get('/' + version + '/maintenance/assessment/events', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/events', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/events', (req, res) => {
+      res.redirect('/' + version + '/maintenance/assessment/check');
+})
+
+router.get('/' + version + '/account/change-home-address-start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-home-address-start', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/account/change-home-address-end-current', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-home-address-end-current', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-home-address-end-current', (req, res) => {
+    res.redirect('/' + version + '/account/change-home-new-address');
+})
+
+router.get('/' + version + '/account/change-home-new-address', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-home-new-address', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-home-new-address', (req, res) => {
+    res.redirect('/' + version + '/account/change-home-new-address-postcode');
+})
+
+router.get('/' + version + '/account/change-home-new-address-postcode', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-home-new-address-postcode', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-home-new-address-postcode', (req, res) => {
+    res.redirect('/' + version + '/account/change-home-new-address-date-from');
+})
+
+router.get('/' + version + '/account/change-home-new-address-date-from', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-home-new-address-date-from', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-home-new-address-date-from', (req, res) => {
+    res.redirect('/' + version + '/account/change-home-check');
+})
+
+router.get('/' + version + '/account/change-home-check', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-home-check', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-home-check', (req, res) => {
+   
+    res.redirect('/' + version + '/account/change-home-complete');
+})
+
+router.get('/' + version + '/account/change-home-complete', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    if (req.session.data['frommaint'] === 'yes') {
+        res.render(version + '/account/change-name-complete', {
+            version,
+            accountData
+        });
+    } else {
+        res.render(version + '/account/change-name-complete-hub', {
+            version,
+            accountData
+        });
+    }
+})
+
+router.post('/' + version + '/account/change-home-complete', (req, res) => {
+    res.redirect('/' + version + '/account/change-home-complete');
+})
+
 
 router.get('/' + version + '/maintenance/assessment/set-end-date', (req, res) => {
     var d = require('./data/data.json')
@@ -1902,7 +2262,7 @@ router.get('/' + version + '/maintenance/app/pay-other-emailsent', (req, res) =>
 router.get('/' + version + '/maintenance/app/feepaid', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
-  
+
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
@@ -2007,7 +2367,7 @@ router.post('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
         }).then(function (body) {
             payPageURL = body._links.next_url.href
             console.log(payPageURL);
-res.redirect(payPageURL);
+            res.redirect(payPageURL);
         });
 
 

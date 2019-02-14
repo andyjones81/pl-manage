@@ -1,0 +1,50 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Change your name
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/manage" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Manage your details</span>
+        <h1 class="govuk-heading-l">
+            Change your name
+        </h1>
+
+        <p class="govuk-body">
+            To change your name you'll need to tell us your new name, when you started using it and provide some
+            evidence.
+        </p>
+
+        <h2 class="govuk-heading-m">
+            Before you start
+        </h2>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>there is no fee payable to change your name</li>
+            <li>evidence can be a marriage certificate or deed poll</li>
+            <li>we will automatically create a key event for the change of name in accordance with <a href="">Part III of the LCCP</a></li>
+        </ul>
+
+        <p class="govuk-body">
+            You can upload evidence using a mobile phone or tablet by taking a picture of your evidence document. We do
+            not require originals to be posted to us.
+        </p>
+
+        <a href="/{{version}}/account/change-name-new-name" role="button" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-5">
+            Start
+        </a>
+
+        <h2 class="govuk-heading-m">
+            Get help to use this service
+        </h2>
+
+        <p class="govuk-body">
+            If you need support to use this service, call us on 0121 230 6666 (Option 2) or email <a href="mailto:licensing@gamblingcommission.gov.uk">licensing@gamblingcommission.gov.uk</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

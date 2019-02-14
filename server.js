@@ -64,11 +64,13 @@ var useCookieSessionStore = process.env.USE_COOKIE_SESSION_STORE || config.useCo
 var useHttps = process.env.USE_HTTPS || config.useHttps
 var useBrowserSync = config.useBrowserSync
 var gtmId = process.env.GOOGLE_TAG_MANAGER_TRACKING_ID
+var useNewStyle = config.useNewStyle
 
 env = env.toLowerCase()
 useAuth = useAuth.toLowerCase()
 useHttps = useHttps.toLowerCase()
 useBrowserSync = useBrowserSync.toLowerCase()
+useNewStyle = useNewStyle.toLowerCase()
 
 var useDocumentation = (config.useDocumentation === 'true')
 

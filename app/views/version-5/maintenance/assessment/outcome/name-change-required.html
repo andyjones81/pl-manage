@@ -1,0 +1,36 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Provide some additional details about this action
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+       
+        <a href="/{{version}}/maintenance/assessment/name-changed" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Renew your licence</span>
+        <h1 class="govuk-heading-l">
+               You need to update your name before continuing
+        </h1>
+
+        <form method="POST"> 
+                 
+<p class="govuk-body">
+    We have saved your progress so far. </p>
+    <p class="govuk-body">You can complete your name change online and return to this service when you have submitted the change.
+</p>
+                  <button type="submit" class="govuk-button">
+                      Continue to update your name
+                  </button>
+              </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

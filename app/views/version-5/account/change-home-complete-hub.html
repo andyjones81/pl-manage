@@ -1,0 +1,40 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Your name has been updated
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+            <div class="app-panel app-panel--success">
+                    <h1 class="govuk-heading-l">Your name has been updated</h1>                          
+                  
+                  </div>
+                  
+            
+                <h2 class="govuk-heading-m">We have:</h2>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>sent you an email confirming this change</li>      
+                    <li>changed the name on your account</li>                  
+                    <li>created a key event</li>         
+                </ul>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+             <p class="govuk-body">You will receive an email when your updated licence is ready to download.</p>
+                
+                
+
+               <h2 class="govuk-heading-m">What do you want to do now?</h2>
+                <p class="govuk-body">Return to <a href="/{{version}}/account/manage">manage your details.</a></p> 
+                <p class="govuk-body">Return to <a href="/{{version}}/account/hub/">your account hub</a></p> 
+
+    </div>
+
+</div>
+
+{% endblock %}
