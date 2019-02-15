@@ -37,7 +37,7 @@ Tasks
                         <span class="app-task-list__section-number">2. </span> Personal details
                     </h2>
                     <ul class="app-task-list__items">
-                            <li class="app-task-list__item">
+                            <!-- <li class="app-task-list__item">
                                     <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/currentname"
                                         aria-describedby="contact-details-completed">
                                        Current name
@@ -45,7 +45,7 @@ Tasks
                                     {% if data['currentnamescomplete'] === 1 %}
                                     <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
                                     {% endif %}
-                                </li>
+                                </li> -->
                         <li class="app-task-list__item">
                             <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/previousnames"
                                 aria-describedby="contact-details-completed">
@@ -54,7 +54,7 @@ Tasks
                             {% if data['previousnamescomplete'] === 1 %}
                             <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
                             {% endif %}
-                        </li> <li class="app-task-list__item">
+                        <!-- </li> <li class="app-task-list__item">
                                 <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/dob"
                                     aria-describedby="contact-details-completed">
                                    Date of birth
@@ -62,7 +62,7 @@ Tasks
                                 {% if data['dobcomplete'] === 1 %}
                                 <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
                                 {% endif %}
-                            </li>
+                            </li> -->
                         <li class="app-task-list__item">
                             <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/sex" aria-describedby="company-information-completed">
                                 Sex
@@ -187,7 +187,7 @@ Tasks
                 </ul>
             </li>
 
-            <li>
+            <!-- <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
                     <span class="app-task-list__section-number">6. </span> Events
@@ -252,7 +252,7 @@ Tasks
                        {% endif %}
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
             {%if accountData.homeAddress.country != 'United Kingdom'%}
             <li>
@@ -281,9 +281,9 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
-                    <span class="app-task-list__section-number">7. </span> Declarations
-                    {%else%}
                     <span class="app-task-list__section-number">6. </span> Declarations
+                    {%else%}
+                    <span class="app-task-list__section-number">5. </span> Declarations
                     {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
@@ -310,9 +310,9 @@ Tasks
             <li>
                     <h2 class="app-task-list__section">
                         {%if accountData.homeAddress.country === 'United Kingdom'%}
-                        <span class="app-task-list__section-number">8. </span> Pay and submit
-                        {%else%}
                         <span class="app-task-list__section-number">7. </span> Pay and submit
+                        {%else%}
+                        <span class="app-task-list__section-number">6. </span> Pay and submit
                         {%endif%}
                     </h2>
                     <ul class="app-task-list__items">

@@ -2436,7 +2436,7 @@ router.post('/' + version + '/maintenance/app/pay-other', (req, res) => {
 
 router.post('/' + version + '/maintenance/app/previousnames', (req, res) => {
     req.session.data["previousnamescomplete"] = 1
-    res.redirect('/' + version + '/maintenance/app/dob');
+    res.redirect('/' + version + '/maintenance/app/sex');
 })
 
 
