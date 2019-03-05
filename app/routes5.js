@@ -283,6 +283,8 @@ router.get('/' + version + '/maintenance/assessment/keep', (req, res) => {
     });
 })
 
+
+
 router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
     
     
@@ -291,6 +293,51 @@ router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
     }
 
     
+
+    res.redirect('/' + version + '/maintenance/assessment/employed');
+})
+
+router.get('/' + version + '/maintenance/assessment/employed', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/employed', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/employed', (req, res) => {
+    
+    if (req.session.data['employed'] === 'no') {
+        res.redirect('/' + version + '/maintenance/assessment/financial');
+    }
+
+
+    res.redirect('/' + version + '/maintenance/assessment/employer');
+})
+
+router.get('/' + version + '/maintenance/assessment/employer', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/employer', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/employer', (req, res) => {
+    
+     
 
     res.redirect('/' + version + '/maintenance/assessment/financial');
 })
