@@ -2373,17 +2373,12 @@ router.get('/' + version + '/maintenance/app/complete', (req, res) => {
 
 router.get('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
 
-
-
     var d = require('./data/data.json')
     var accountNumber = '999101'
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
-
-
-
 
     res.render(version + '/thirdpartypay/pay', {
         version,
