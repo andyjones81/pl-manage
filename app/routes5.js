@@ -2608,11 +2608,36 @@ router.post('/' + version + '/maintenance/app/declaration', (req, res) => {
 
 router.post('/' + version + '/maintenance/app/pay', (req, res) => {
 
-    if (req.session.data['how-pay'] === 'other') {
-        res.redirect('/' + version + '/maintenance/app/pay-other');
-    }
+    var returnUrl = process.env.HerokuServiceName + '/' + version + '/maintenance/app/complete';
 
-    res.redirect('/' + version + '/maintenance/app/complete');
+    const fetch = require('node-fetch');
+    const inputBody = {
+        "amount": 14500,
+        "reference": "999101",
+        "return_url": returnUrl,
+        "description": "Personal functional licence renewal"
+    };
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + process.env.PayKey
+    };
+
+    var payPageURL = "";
+
+    fetch('https://publicapi.payments.service.gov.uk/v1/payments', {
+            method: 'POST',
+            body: JSON.stringify(inputBody),
+            headers: headers
+        })
+        .then(function (res) {
+            return res.json();
+        }).then(function (body) {
+            payPageURL = body._links.next_url.href
+            console.log(payPageURL);
+            res.redirect(payPageURL);
+        });
+
 })
 
 
