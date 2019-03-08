@@ -2506,23 +2506,10 @@ router.post('/' + version + '/maintenance/app/certaddress', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/app/verification', (req, res) => {
-
-    if (req.session.data['verify-method'] === 'employer') {
+   
         req.session.data["verificationcomplete"] = 1
         res.redirect('/' + version + '/maintenance/app/verify-employer');
-    }
-
-    if (req.session.data['verify-method'] === 'thirdparty') {
-        req.session.data["verificationcomplete"] = 1
-        res.redirect('/' + version + '/maintenance/app/verify-thirdparty');
-    }
-
-    if (req.session.data['verify-method'] === 'gc') {
-        req.session.data["verificationcomplete"] = 1
-        res.redirect('/' + version + '/maintenance/app/verify-gc');
-    }
-
-    res.redirect('/' + version + '/maintenance/tasks/list');
+   
 })
 
 
