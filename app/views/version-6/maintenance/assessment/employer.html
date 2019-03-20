@@ -1,7 +1,7 @@
 {% extends "layout-signedinRenew.html" %}
 
 {% block pageTitle %}
-Who is your employer?
+Employer details
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@ Who is your employer?
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <span class="govuk-caption-l">Renew your licence</span>
             <h1 class="govuk-fieldset__heading">
-              Who is your employer?
+              Employer details
             </h1>
             <span id="how-contacted-conditional-hint" class="govuk-hint">
 
@@ -33,9 +33,7 @@ Who is your employer?
 
           <p class="govuk-body">If your employer isn't listed they may be licensed under a different name. Speak to
             your employer to find out what name is on their operating licence.</p>
-          <p class="govuk-body">You can also search our <a href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search"
-              target="_Blank">public register</a> (link opens in a new window) for details of licensed operators.</p>
-
+         
           <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -53,7 +51,7 @@ Who is your employer?
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="operators">
-              Gambling operator licence holders
+              Name of employer
             </label>
 
             <select class="govuk-select" id="operators" name="operators">
@@ -2933,7 +2931,13 @@ Who is your employer?
 
           </div>
 
-
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-width-two-thirds" for="email">
+                Email address
+              </label>
+              <span class="govuk-hint">For example, your employers HR contact email</span>
+              <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text">
+            </div>
 
         </fieldset>
       </div>
