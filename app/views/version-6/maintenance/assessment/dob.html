@@ -1,0 +1,64 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/assessment/name-changed" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+            <form method="POST"> 
+                 
+
+                          <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset" aria-describedby="dob-correct-conditional-hint">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                                <span class="govuk-caption-l">Renew your licence</span>
+                                            <h1 class="govuk-fieldset__heading">
+                                              Is your date of birth correct?
+                                            </h1>
+                                          </legend>
+                                         
+                                          <div class="govuk-inset-text">
+                                              <p class="govuk-body">
+                                                {{accountData.dateOfBirth | date('DD MMMM YYYY')}} 
+                                                        </p>
+                                              </div>
+                                  <div class="govuk-radios govuk-radios--inline" data-module="radios">
+                                    <div class="govuk-radios__item">
+                                      <input class="govuk-radios__input" id="dob-correct-conditional-1" name="dob-correct" type="radio" value="yes" data-aria-controls="conditional-dob-correct-conditional-1"  {{ checked('dob-correct', 'yes') }}>
+                                      <label class="govuk-label govuk-radios__label" for="dob-correct-conditional-1">
+                                        Yes
+                                      </label>
+                                    </div>
+                                   
+                                    <div class="govuk-radios__item">
+                                      <input class="govuk-radios__input" id="dob-correct-conditional-2" name="dob-correct" type="radio" value="no" data-aria-controls="conditional-dob-correct-conditional-2" {{ checked('dob-correct', 'no') }}>
+                                      <label class="govuk-label govuk-radios__label" for="dob-correct-conditional-2">
+                                        No
+                                      </label>
+                                    </div>
+                                   
+                                   
+                                  </div>
+                                </fieldset>
+                              </div>
+
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

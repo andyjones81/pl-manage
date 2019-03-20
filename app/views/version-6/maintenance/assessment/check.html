@@ -1,0 +1,260 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Renew your licence</span>
+    <h1 class="govuk-heading-l">
+      Check your answers before continuing
+    </h1>
+
+    <form method="post">
+
+      <dl class="app-check-your-answers app-check-your-answers--short">
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Keep licence
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{data['keep-licence'] | title }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="keep">
+              Change<span class="govuk-visually-hidden"> answer</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Employed
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{data['employed'] | title }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="employed">
+              Change<span class="govuk-visually-hidden"> employed</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['employed'] === 'yes' %}
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Employer
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{data['operators'] | title }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="employer">
+              Change<span class="govuk-visually-hidden"> employer</span>
+            </a>
+          </dd>
+        </div>
+
+        {% endif %}
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Financial actions
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{data['changed-financial'] | title }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="financial">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Name
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {% if data['same-name'] === 'no' %}
+            {{data['title']}} {{data['firstname']}} {{data['middlename']}} {{data['lastname']}}
+            {% else %}
+            {{accountData.title}} {{accountData.firstName}} {{accountData.middleName}} {{accountData.lastName}}
+            {% endif %}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="name-changed">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Date of birth
+          </dt>
+          <dd class="app-check-your-answers__answer">
+
+            {%if data['dob-correct'] === 'yes' %}
+
+            {{accountData.dateOfBirth | date('DD MMMM YYYY')}}
+
+            {% elseif data['dob-correct'] === 'no' %}
+
+            {% set vdate %}
+            {{data['dob-month']}}/{{data['dob-day']}}/{{data['dob-year']}}
+            {% endset %}
+
+            {{vdate | date('DD MMMM YYYY')}}
+
+
+
+
+            {% else %}
+            <span class="govuk-tag gc-tag-red">To do</span>
+            {%endif%}
+
+
+          </dd>
+          <dd class="app-check-your-answers__change">
+            {%if data['dob-correct'] === 'yes'%}
+            <a href="dob">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+            {% elseif data['dob-correct'] === 'no' %}
+            <a href="dob">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+            {% else %}
+            <a href="dob">
+              Check<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+            {% endif %}
+
+
+          </dd>
+        </div>
+
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Home address
+          </dt>
+          <dd class="app-check-your-answers__answer">
+
+            {%if data['current-home-address'] === 'yes' %}
+            {{accountData.homeAddress.street}}<br />
+            {{accountData.homeAddress.city}}<br />
+            {{accountData.homeAddress.postcode}}<br />
+            {{accountData.homeAddress.country}}<br /><br />
+
+            From {{accountData.homeAddress.since | date('MMMM YYYY') }}
+
+            {% elseif data['current-home-address'] === 'no' %}
+            {{data['address-line-1']}}<br />
+            {{data['address-town']}}<br />
+            {{data['Country']}}<br />
+            {{data['address-postcode']}} <br /> <br />
+            {% set vdate %}
+
+            {{data['movedin-start-month']}}/01/{{data['movedin-start-year']}}
+            {% endset %}
+
+            From {{vdate | date('MMMM YYYY')}}
+
+
+
+            {%else%}
+
+            <span class="govuk-tag gc-tag-red">To do</span>
+
+            {% endif %}
+
+          </dd>
+          <dd class="app-check-your-answers__change">
+            {%if data['current-home-address'] === 'yes'%}
+            <a href="current-home-address">
+              Change<span class="govuk-visually-hidden"> home address</span>
+            </a>
+            {% elseif data['current-home-address'] === 'no' %}
+            <a href="current-home-address">
+              Change<span class="govuk-visually-hidden"> home address</span>
+            </a>
+            {% else %}
+            <a href="current-home-address">
+              Check<span class="govuk-visually-hidden"> home address</span>
+            </a>
+            {% endif %}
+
+
+          </dd>
+        </div>
+
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Key events
+          </dt>
+          <dd class="app-check-your-answers__answer">
+
+            {%if data['key-event'] === 'yes' %}
+            {{data['key-event'] | title }}
+
+            {% elseif data['key-event'] === 'no' %}
+            {{data['key-event'] | title }}
+
+            {% else %}
+            <span class="govuk-tag gc-tag-red">To do</span>
+            {%endif%}
+
+          </dd>
+          <dd class="app-check-your-answers__change">
+            {%if data['key-event'] === 'yes'%}
+            <a href="events">
+              Change<span class="govuk-visually-hidden"> home address</span>
+            </a>
+            {% elseif data['key-event'] === 'no' %}
+            <a href="events">
+              Change<span class="govuk-visually-hidden"> home address</span>
+            </a>
+            {% else %}
+            <a href="events">
+              Check<span class="govuk-visually-hidden"> home address</span>
+            </a>
+            {% endif %}
+          </dd>
+        </div>
+
+      </dl>
+      <br/>     <br/>
+
+      ** This will only appear when all the pages in the assessment journey are completed **
+      <br/>     <br/>
+
+      <h2 class="govuk-heading-m">Continue your renewal application</h2>
+      <p class="govuk-body">We have all the information we need to start your renewal application.</p>
+      <form method="POST">
+        <div class="govuk-form-group">
+          <button class="govuk-button" type="submit">
+            Continue application
+          </button>
+        </div>
+      </form>
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}

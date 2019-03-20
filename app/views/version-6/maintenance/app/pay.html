@@ -1,0 +1,59 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+        <form class="form" method="post">
+
+
+
+
+            <span class="govuk-caption-l">Apply</span>
+            <h1 class="govuk-heading-l">
+                Pay your renewal fee of &pound;{{accountData.fee}}
+            </h1>
+        
+            <p class="govuk-body">
+                You are required to pay the fee using your credit or debit card. We will not start processing your application until this fee is paid.
+            </p>
+
+            <h2 class="govuk-heading-m">
+                The card must be:
+            </h2>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>in your name</li>
+                <li>registered at your home address</li>
+            </ul>
+
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  We are unable to accept payment of this fee from anyone except you. We will reject your application if the payment does not meet these requirements.
+                </strong>
+            </div>
+  
+            <p class="govuk-body">
+               Card payments are processed by GOV.UK Pay.
+            </p>
+
+            <div class="govuk-form-group ">
+                <button type="submit" class="govuk-button">
+                    Pay using credit or debit card
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

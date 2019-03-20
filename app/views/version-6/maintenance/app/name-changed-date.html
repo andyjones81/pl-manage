@@ -1,0 +1,69 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/app/new-name" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+            <form method="POST"> 
+                    
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="name-changed-hint" role="group">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Renew your licence</span>
+                        <h1 class="govuk-fieldset__heading">
+                          When did you change your name?
+                        </h1>
+                      </legend>
+                      <span id="name-changed-hint" class="govuk-hint">
+                        For example, 31 3 2018
+                      </span>
+                      <div class="govuk-date-input" id="name-changed">
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="name-changed-day">
+                              Day
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="name-changed-day" name="name-changed-day" type="number" pattern="[0-9]*" value="{{data['name-changed-day'] }}">
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="name-changed-month">
+                              Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="name-changed-month" name="name-changed-month" type="number" pattern="[0-9]*" value="{{data['name-changed-month'] }}">
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="name-changed-year">
+                              Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="name-changed-year" name="name-changed-year" type="number" pattern="[0-9]*" value="{{data['name-changed-year'] }}">
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

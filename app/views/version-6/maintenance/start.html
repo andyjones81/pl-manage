@@ -1,0 +1,70 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Your licence</span>
+        <h1 class="govuk-heading-l">
+            Renew your licence
+        </h1>
+
+        <p class="govuk-body">To keep your {{accountData.type}} active, you need to renew it every 5 years.</p>
+
+        <div class="govuk-inset-text">
+            Your licence renewal is due by {{accountData.renewalDate | date('DD MMMM YYYY')}}
+        </div>
+
+        
+            <p class="govuk-body">
+                It costs &pound;{{accountData.fee}} to renew your licence, the fee must be paid by credit or debit card online. This fee is non-refundable.
+            </p>
+          
+            <h2 class="govuk-heading-m">
+                To renew your licence you'll need:
+            </h2>
+            
+           
+            <ul class="govuk-list govuk-list--bullet">
+                <li>all your addresses for the last 5 years and the dates you lived there</li>
+                <li>a credit or debit card to pay the renewal fee</li>
+                <li>details of ID documents such as your passport or drivers licence</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+                If you have lived outside the UK in the last 5 years, you'll also need: </h2>
+            
+                <ul class="govuk-list govuk-list--bullet">                   
+                    <li>copies of police reports</li>
+                    <li>copy of a credit report or letter of good standing from your bank.</li>
+                </ul>
+                <p class="govuk-body">
+                   Where these documents are not in English, you will need to provide originals and certified copies translated into English.
+                </p>
+                      
+
+            <a href="/{{version}}/maintenance/assessment/keep" role="button" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-5">
+                Continue
+            </a>
+                                    
+            
+            <h2 class="govuk-heading-m">
+                Get help to use this service
+            </h2>
+            
+            <p class="govuk-body">
+                If you need support to use this service, call us on 0121 230 6666 (Option 2) or email <a href="mailto:licensing@gamblingcommission.gov.uk">licensing@gamblingcommission.gov.uk</a>
+            </p>
+      
+
+    </div>
+
+</div>
+
+{% endblock %}

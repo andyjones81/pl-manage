@@ -1,0 +1,54 @@
+{% extends "layoutpfl.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+                <a href="/{{version}}/financial/details" class="govuk-back-link">Back</a>
+            <span class="govuk-caption-xl">Financial</span>
+            <h1 class="govuk-heading-xl">
+                You can upload additional files relating to this {{data['where-do-you-live']}}
+            </h1>
+        <form method="POST">
+                <div class="govuk-form-group">
+                    <table class="govuk-table">
+    
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="col">File</th>
+                                <th class="govuk-table__header" scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row">placeholder-demo-file3.jpg</th>
+                                <td class="govuk-table__cell "><a href="nofiles" class="govuk-link">Remove <span class="govuk-visually-hidden"> file placeholder-demo-file3.jpg</span></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="govuk-form-group">
+                    <a href="upload" class="govuk-link">Add another file</a>
+                </div>
+    
+                <div class="govuk-form-group">
+                    <button type="submit" class="govuk-button">
+                        Save and continue
+                    </button>
+                </div>
+            </form>
+      
+    </div>
+
+    
+
+</div>
+
+{% endblock %}

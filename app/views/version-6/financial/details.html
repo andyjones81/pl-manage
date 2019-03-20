@@ -1,0 +1,49 @@
+{% extends "layoutpfl.html" %}
+
+{% block pageTitle %}
+Gambling Commission Prototypes
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/financial/body" class="govuk-back-link">Back</a>
+    <form method="POST">
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <span class="govuk-caption-l">Financial</span>
+                        <h1 class="govuk-fieldset__heading">
+                          Tell us how this {{data['where-do-you-live']}} happened
+                        </h1>
+                      </legend>
+                     
+                      <div class="govuk-character-count" data-module="character-count" data-maxlength="1000">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label" for="with-hint">
+                                Details
+                              </label>
+                              <span id="with-hint-hint" class="govuk-hint">
+                                Do not include personal or financial information like your National Insurance number or credit card details.
+                              </span>
+                              <textarea class="govuk-textarea js-character-count " id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-hint"></textarea>
+                            </div>
+                          
+                            <span id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                              You can enter up to 1000 characters
+                            </span>
+                          </div>
+                    </fieldset>
+                  </div>
+
+      <button type="submit" class="govuk-button">
+        Save and continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Provide some additional details about this action
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/maintenance/assessment/events" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Renew your licence</span>
+        <h1 class="govuk-heading-l">
+            You need to tell us of the key events before continuing
+        </h1>
+
+        <form method="POST">
+
+            <p class="govuk-body">
+                We have saved your progress so far. </p>
+            <p class="govuk-body">You can report the key events and return to this service when you have finshed
+            </p>
+            <button type="submit" class="govuk-button">
+                Continue to report key events
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

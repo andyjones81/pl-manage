@@ -1,0 +1,69 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="POST">
+            <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+
+            <h2 class="govuk-heading-xl">
+                <span class="govuk-caption-l">Renew your licence</span>
+                Where do you want your certificate posting to?
+            </h2>
+
+
+            <p class="govuk-body">A paper DBS certificate will be produced as part of this check. You can choose where
+                this is sent to. </p>
+            <p class="govuk-body">If you send your certificate to another address make sure you are able to check the
+                information on it is correct. </p>
+
+            <div class="govuk-inset-text">
+                If you send your certificate to a non-UK address it could take longer to arrive in the post.
+            </div>
+
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h1 class="govuk-fieldset__heading">
+                          Your addresses
+                        </h1>
+                      </legend>
+                      <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="certAddress-1" name="certAddress" type="radio" value="home" {{checked('certAddress','home') }}>
+                          <label class="govuk-label govuk-radios__label" for="certAddress-1">
+                            {{accountData.homeAddress.street}}, {{accountData.homeAddress.city}}, {{accountData.homeAddress.postcode}}
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="certAddress-2" name="certAddress" type="radio" value="other" {{checked('certAddress','other') }}>
+                          <label class="govuk-label govuk-radios__label" for="certAddress-2">
+                            Send to another address
+                          </label>
+                        </div>
+                       
+                      </div>
+                    </fieldset>
+                  </div>
+
+            <div class="govuk-form-group">
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </div>
+
+        </form>
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}

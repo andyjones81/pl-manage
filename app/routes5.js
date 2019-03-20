@@ -297,7 +297,7 @@ router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
 
     
 
-    res.redirect('/' + version + '/maintenance/assessment/employed');
+    res.redirect('/' + version + '/maintenance/assessment/');
 })
 
 router.get('/' + version + '/maintenance/assessment/employed', (req, res) => {

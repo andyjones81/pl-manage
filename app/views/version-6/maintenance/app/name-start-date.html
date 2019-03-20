@@ -1,0 +1,69 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/app/name-changed-date" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+            <form method="POST"> 
+                    
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="name-start-hint" role="group">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Renew your licence</span>
+                        <h1 class="govuk-fieldset__heading">
+                          When did you start using this name?
+                        </h1>
+                      </legend>
+                      <span id="name-start-hint" class="govuk-hint">
+                        For example, 31 3 2018
+                      </span>
+                      <div class="govuk-date-input" id="name-start">
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="name-start-day">
+                              Day
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="name-start-day" name="name-start-day" type="number" pattern="[0-9]*" value="{{data['name-start-day'] }}">
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="name-start-month">
+                              Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="name-start-month" name="name-start-month" type="number" pattern="[0-9]*" value="{{data['name-start-month'] }}">
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="name-start-year">
+                              Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="name-start-year" name="name-start-year" type="number" pattern="[0-9]*" value="{{data['name-start-year'] }}">
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

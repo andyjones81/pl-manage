@@ -1,0 +1,41 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Your name has been updated
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+            <div class="app-panel app-panel--success">
+                    <h1 class="govuk-heading-l">Your name has been updated</h1>
+                           
+                    <a href="/{{version}}/maintenance/assessment/check" role="button" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                        Continue renewing your licence
+                    </a>
+                  </div>
+                  
+            
+                <h2 class="govuk-heading-m">We have:</h2>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>sent you an email confirming this change</li>      
+                    <li>changed the name on your account</li>                  
+                    <li>created a key event</li>         
+                </ul>
+
+                <p class="govuk-body">Return to <a href="/{{version}}/maintenance/assessment/check">renew your licence.</a></p> 
+                
+
+                <!-- <h2 class="govuk-heading-m">What do you want to do now?</h2>
+                <p class="govuk-body">Return to <a href="/{{version}}/account/manage">manage your details.</a></p> 
+                <p class="govuk-body">Return to <a href="/{{version}}/account/hub/">your account hub</a></p> -->
+
+    </div>
+
+</div>
+
+{% endblock %}

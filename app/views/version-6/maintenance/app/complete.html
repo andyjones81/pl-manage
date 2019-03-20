@@ -1,0 +1,49 @@
+{% extends "layout-signedinRenewAppComplete.html" %}
+
+{% block pageTitle %}
+Renew your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="app-panel app-panel--success">
+            <h1 class="govuk-heading-l">
+                Licence renewal submitted
+            </h1>
+            <h2 class="govuk-heading-m">Your reference is PLM-2423</h2>
+            <p class="govuk-body">
+                We have sent you an email confirming the submission of your application.
+            </p>
+            <p class="govuk-body">
+                <a href="/{{version}}/account/hub2">Return to your account hub</a> </p>
+
+            <h2 class="govuk-heading-m">Tell us what you think of this service</h2>
+            <p class="govuk-body govuk-!-margin-bottom-0">
+                <a href="https://gamreggbsurveys.azurewebsites.net/survey/r/4888de9a-e11a-45f2-9071-cf84d280b110"
+                    target="_blank">
+                    Complete the survey</a> - It takes 2 minutes and survey opens in a new window
+
+            </p>
+        </div>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+        <p class="govuk-body">
+            We are processing your application and you should receive a response within 5
+            working days.
+        </p>
+        <p class="govuk-body">
+            We may contact you either to request further documents or to ask for more information.
+        </p>
+    </div>
+    
+
+
+
+</div>
+</div>
+
+{% endblock %}
