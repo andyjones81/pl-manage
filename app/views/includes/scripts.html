@@ -4,5 +4,17 @@
 <script src="/public/javascripts/application.js"></script>
 
 {% if useAutoStoreData %}
-  <script src="/public/javascripts/auto-store-data.js"></script>
+<script src="/public/javascripts/auto-store-data.js"></script>
 {% endif %}
+
+
+<script src="/public/accessible-autocomplete/dist/accessible-autocomplete.min.js"></script>
+
+<script type="text/javascript">
+  accessibleAutocomplete.enhanceSelectElement(
+    {
+    selectElement: document.querySelector('#operators'),
+    
+    
+  })
+</script>

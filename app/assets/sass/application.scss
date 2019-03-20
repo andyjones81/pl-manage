@@ -104,6 +104,7 @@ $govuk-global-styles: true;
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 
+
 .code {
   color: $govuk-text-colour;
   background-color: govuk-colour("grey-4");

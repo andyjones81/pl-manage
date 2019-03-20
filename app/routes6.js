@@ -60,6 +60,10 @@ router.post('/' + version + '/security/createaccount', (req, res) => {
     res.redirect('/' + version + '/security/found');
 })
 
+router.post('/' + version + '/security/forgot', (req, res) => {
+    res.redirect('/' + version + '/security/found');
+})
+
 router.post('/' + version + '/security/signin', (req, res) => {
     req.session.data['account'] = '999101'
     res.redirect('/' + version + '/account/hub');
@@ -306,10 +310,9 @@ router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
     if (req.session.data['keep-licence'] === 'no') {
         res.redirect('/' + version + '/maintenance/assessment/outcome/surrender');
     }
-
     
 
-    res.redirect('/' + version + '/maintenance/assessment/');
+    res.redirect('/' + version + '/maintenance/assessment/employed');
 })
 
 router.get('/' + version + '/maintenance/assessment/employed', (req, res) => {
