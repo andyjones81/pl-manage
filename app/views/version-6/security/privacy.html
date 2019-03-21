@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Privacy statement
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="POST">
+      <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="privacy-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                  Privacy statement
+              </h1>
+            </legend>
+            <p class="govuk-body">The Gambling Commission (the Commission) is legally required, under the Data Protection Act 1998 to make sure you know what we intend to do with your information and who it will be shared with.</p><p class="govuk-body">Our general approach is detailed in our <a href="">privacy statement</a> (link opens in a new window).</p>
+
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="privacy-1" name="privacy" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="privacy-1">
+                  I confirm I have read and understand the privacy statement
+                </label>
+              </div>
+              
+            </div>
+          </fieldset>
+        </div>
+
+
+
+
+
+      
+
+
+      <button type="submit" class="govuk-button">
+        Sign in
+      </button>
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}
