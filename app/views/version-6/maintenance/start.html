@@ -1,7 +1,7 @@
 {% extends "layout-signedinRenew.html" %}
 
 {% block pageTitle %}
-Renew your licence
+Maintain your licence
 {% endblock %}
 
 {% block content %}
@@ -12,10 +12,10 @@ Renew your licence
         <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
         <span class="govuk-caption-l">Your licence</span>
         <h1 class="govuk-heading-l">
-            Renew your licence
+            Maintain your licence
         </h1>
 
-        <p class="govuk-body">To keep your {{accountData.type}} active, you need to renew it every 5 years.</p>
+        <p class="govuk-body">To keep your {{accountData.type}} active, you need to maintain it every 5 years.</p>
 
         <div class="govuk-inset-text">
             Your licence renewal is due by {{accountData.renewalDate | date('DD MMMM YYYY')}}
@@ -23,11 +23,11 @@ Renew your licence
 
         
             <p class="govuk-body">
-                It costs &pound;{{accountData.fee}} to renew your licence, the fee must be paid by credit or debit card online. This fee is non-refundable.
+                It costs &pound;{{accountData.fee}} to maintain your licence , the fee must be paid by credit or debit card online. This fee is non-refundable.
             </p>
           
             <h2 class="govuk-heading-m">
-                To renew your licence you'll need:
+                To maintain your licence  you'll need:
             </h2>
             
            

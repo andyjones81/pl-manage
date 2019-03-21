@@ -1,0 +1,139 @@
+{% extends "template.njk" %}
+
+{% from "back-link/macro.njk"     import govukBackLink %}
+{% from "breadcrumbs/macro.njk"   import govukBreadcrumbs %}
+{% from "button/macro.njk"        import govukButton %}
+{% from "character-count/macro.njk"  import govukCharacterCount %}
+{% from "checkboxes/macro.njk"    import govukCheckboxes %}
+{% from "date-input/macro.njk"    import govukDateInput %}
+{% from "details/macro.njk"       import govukDetails %}
+{% from "error-message/macro.njk" import govukErrorMessage %}
+{% from "error-summary/macro.njk" import govukErrorSummary %}
+{% from "fieldset/macro.njk"      import govukFieldset %}
+{% from "file-upload/macro.njk"   import govukFileUpload %}
+{% from "input/macro.njk"         import govukInput %}
+{% from "inset-text/macro.njk"    import govukInsetText %}
+{% from "panel/macro.njk"         import govukPanel %}
+{% from "phase-banner/macro.njk"  import govukPhaseBanner %}
+{% from "radios/macro.njk"        import govukRadios %}
+{% from "select/macro.njk"        import govukSelect %}
+{% from "skip-link/macro.njk"     import govukSkipLink %}
+{% from "table/macro.njk"         import govukTable %}
+{% from "tabs/macro.njk"          import govukTabs %}
+{% from "tag/macro.njk"           import govukTag %}
+{% from "textarea/macro.njk"      import govukTextarea %}
+{% from "warning-text/macro.njk"  import govukWarningText %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  Gambling Commission Prototypes
+{% endblock %}
+
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {% block phase %}
+{% endblock %}
+  <header class="govuk-header " role="banner" data-module="header">
+      <div class="govuk-header__container govuk-width-container">
+    
+        <div class="govuk-header__logo">
+          <a class="govuk-header__link govuk-header__link--homepage" href="/">
+            <span class="govuk-header__logotype">
+    
+              <span class="govuk-header__logotype-text">
+                Gambling Commission
+              </span>
+            </span>
+    
+          </a>
+        </div>
+        <div class="govuk-header__content">    
+    
+          <a class="govuk-header__link govuk-header__link--service-name" href="/">
+           Renew your personal licence
+          </a>       
+    
+          <button class="govuk-header__menu-button js-header-toggle" role="button" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+          <nav>
+            <ul class="govuk-header__navigation " id="navigation" aria-label="Top Level Navigation">
+                <li class="govuk-header__navigation-item">
+                    <a class="govuk-header__link" href="/{{version}}/account/hub2">
+                        Hub
+                    </a>
+                </li>
+                <li class="govuk-header__navigation-item">
+                    <a class="govuk-header__link" href="/{{version}}/account/manage">
+                      Manage your details
+                    </a>
+                </li>
+                <li class="govuk-header__navigation-item">
+                    <a class="govuk-header__link" href="/{{version}}/security/signedout">
+                        Sign out
+                    </a>
+                </li>
+              {% block links %}
+              {% endblock %}</ul>
+          </nav>
+    
+    
+        </div>
+      </div>
+    </header>
+
+ 
+{% endblock %}
+
+{% block footer %}
+<footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container ">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        
+        <div class="footer-meta-inner">
+          <ul class="govuk-footer__inline-list">
+
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/http://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx"
+                target="_Blank">Privacy Policy</a>
+            </li>
+            
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">Accessibility statement</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">Feedback</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/prototype-admin/clear-data">Clear prototype data</a>
+            </li>
+          </ul>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+</footer><script type="text/javascript">
+  var mouseflowCrossDomainSupport = true;
+window._mfq = window._mfq || [];
+(function() {
+    var mf = document.createElement("script");
+    mf.type = "text/javascript"; mf.async = true;
+    mf.src = "//cdn.mouseflow.com/projects/fc40e27a-b29c-4535-a675-fcc684f91b81.js";
+    document.getElementsByTagName("head")[0].appendChild(mf);
+})();
+</script>
+{% endblock %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

@@ -21,12 +21,12 @@ Your personal licence
     <div class="govuk-grid-column-full">
         <section id="maintenancePanel">
             <div class="gc-alert gc-alert-important">
-                <h2 class="govuk-heading-m">You need to renew your licence</h2>
-                <p class="govuk-body">To keep your personal licence active, you need to renew it by
+                <h2 class="govuk-heading-m">You need to maintain your licence</h2>
+                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance application it by
                     {{accountData.renewalDate | date('DD MMMM YYYY')}}
                 </p>
                 <a href="/{{version}}/maintenance/start" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-2">
-                    Renew your licence
+                    Maintain your licence
                 </a>
                
             </div>
@@ -76,7 +76,7 @@ Your personal licence
             <div class="card-action">
                 <ul class="govuk-list">
                     {% if accountData.renewalDue === "yes" %}
-                    <li><a class="govuk-link" href="/{{version}}/maintenance/start">Renew your licence</a></li>
+                    <li><a class="govuk-link" href="/{{version}}/maintenance/start">Maintain your licence</a></li>
                     {% endif %}
                     <li><a class="govuk-link" href="/{{version}}/downloadlicence/start">Download your licence</a></li>
 
