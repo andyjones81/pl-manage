@@ -895,6 +895,76 @@ router.post('/' + version + '/maintenance/assessment/outcome/home-address-requir
     res.redirect('/' + version + '/account/change-home-address-start');
 })
 
+router.get('/' + version + '/account/change-correspondence-postcode', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-correspondence-postcode', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-correspondence-postcode', (req, res) => {
+    res.redirect('/' + version + '/account/change-correspondence-addresses');
+})
+
+router.get('/' + version + '/account/change-correspondence-addresses', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-correspondence-addresses', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-correspondence-addresses', (req, res) => {
+    res.redirect('/' + version + '/account/change-correspondence-check');
+})
+
+router.get('/' + version + '/account/change-correspondence-check', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-correspondence-check', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/account/change-correspondence-check', (req, res) => {
+    res.redirect('/' + version + '/account/change-correspondence-complete');
+})
+
+router.get('/' + version + '/account/change-correspondence-complete', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/account/change-correspondence-complete', {
+        version,
+        accountData
+    });
+})
+
+
+
 router.get('/' + version + '/maintenance/assessment/events', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
