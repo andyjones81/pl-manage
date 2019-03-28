@@ -37,52 +37,42 @@
   {# Set serviceName in config.js. #}
   {% block phase %}
 {% endblock %}
-  <header class="govuk-header " role="banner" data-module="header">
-      <div class="govuk-header__container govuk-width-container">
-    
-        <div class="govuk-header__logo">
-          <a class="govuk-header__link govuk-header__link--homepage" href="/">
-            <span class="govuk-header__logotype">
-    
-              <span class="govuk-header__logotype-text">
-                Gambling Commission
-              </span>
-            </span>
-    
-          </a>
-        </div>
-        <div class="govuk-header__content">    
-    
-          <a class="govuk-header__link govuk-header__link--service-name" href="/">
-           Maintain your personal licence
-          </a>       
-    
-          <button class="govuk-header__menu-button js-header-toggle" role="button" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
-          <nav>
-            <ul class="govuk-header__navigation " id="navigation" aria-label="Top Level Navigation">
-                <li class="govuk-header__navigation-item">
-                    <a class="govuk-header__link" href="/{{version}}/account/hub2">
-                        Hub
-                    </a>
-                </li>
-                <li class="govuk-header__navigation-item">
-                    <a class="govuk-header__link" href="/{{version}}/account/manage">
-                      Manage your details
-                    </a>
-                </li>
-                <li class="govuk-header__navigation-item">
-                    <a class="govuk-header__link" href="/{{version}}/security/signedout">
-                        Sign out
-                    </a>
-                </li>
-              {% block links %}
-              {% endblock %}</ul>
-          </nav>
-    
-    
-        </div>
+<header class="govuk-header " role="banner" data-module="header">
+    <div class="govuk-header__container govuk-width-container">
+  
+      <div class="govuk-header__logo">
+        <a class="govuk-header__link govuk-header__link--homepage" href="/">
+          <img src="/public/images/logo.png" alt="Gambling Commission Logo" class="gc-logo-image">
+        </a>
       </div>
-    </header>
+      <div class="govuk-header__content">    
+  
+        <a class="govuk-header__link govuk-header__link--service-name" href="/">
+          Maintain your personal licence
+        </a>       
+  
+        <button class="govuk-header__menu-button js-header-toggle" role="button" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+        <nav>
+          <ul class="govuk-header__navigation " id="navigation" aria-label="Top Level Navigation">
+             
+              <li class="govuk-header__navigation-item">
+                  <a class="govuk-header__link" href="/{{version}}/account/hub">
+                    Hub
+                  </a>
+              </li>
+              <li class="govuk-header__navigation-item">
+                  <a class="govuk-header__link" href="/{{version}}/security/signedout">
+                      Sign out
+                  </a>
+              </li>
+            {% block links %}
+            {% endblock %}</ul>
+        </nav>
+  
+  
+      </div>
+    </div>
+  </header>
 
  
 {% endblock %}

@@ -8,44 +8,53 @@ Maintain your licence
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-two-thirds">
-    <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/maintenance/tasks/list" class="govuk-back-link">Back</a>
+      
+        <form method="POST">
+                <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                <span class="govuk-caption-l">Identity verification</span>
+                                <h1 class="govuk-heading-l">
+                                        Who do you want your identity documents checked by?
+                                </h1>
 
-    <span class="govuk-caption-l">Maintain your licence</span>
-    <h1 class="govuk-heading-l">
-      Choose a way to prove your identity
-    </h1>
+                                <p class="govuk-body">If you're employed in the gambling industry, the quickest way to get your ID documents checked is with your employer.</p>
+                               
+                                <p class="govuk-body">We'll let you know which documents you can have verified in the next step. </p>
+                          </legend>
+                          <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="verify-method-1" name="verify-method" type="radio" value="employer" {{checked('verify-method','employer') }}>
+                              <label class="govuk-label govuk-radios__label" for="verify-method-1">
+                                Your employer
+                              </label>
+                            </div>
+                            <div class="govuk-radios__divider">or</div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="verify-method-2" name="verify-method" type="radio" value="thirdparty" {{checked('verify-method','thirdparty') }}>
+                              <label class="govuk-label govuk-radios__label" for="verify-method-2">
+                                A third party such as a solicitor or the post office
+                              </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="verify-method-3" name="verify-method" type="radio" value="gc" {{checked('verify-method','gc') }}>
+                              <label class="govuk-label govuk-radios__label" for="verify-method-3">
+                                The Gambling Commission
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
 
-    <p class="govuk-body">To maintain your licence , we must confirm your identity. You can do this either through
-      your employer or using GOV.UK Verify. </p>
-    <p class="govuk-body">If you use GOV.UK Verify, you can then use this to access other government services
-      online. </p>
 
-    <h3 class="govuk-heading-s">
-      Your employer
-    </h3>
-    <p class="govuk-body">You can ask your employer to check and confirm original identity documents and complete an <a
-        href="#">ID Verification form</a>. </p>
-    <p class="govuk-body">You will need to upload the completed form in the next step.</p>
-    <form method="POST">
-    <button type="submit" role="button" class="govuk-button">I'll ask my employer to check my ID documents</button>
-</form>
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
 
-    <h3 class="govuk-heading-s">
-      GOV.UK Verify
-    </h3>
-    <p class="govuk-body">You can use GOV.UK verify and have your identity checked electronically. 
-      </p>
-      <p class="govuk-body">
-      If you have not used GOV.UK Verify before, it will take about 15 minutes to complete your ID check the first time. It works best if you have:</p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>a UK address</li>
-      <li>a valid passport or photocard driving licence</li>
-    </ul>
-    <a href="https://govuk-verify.herokuapp.com/hub/verify-signin-picker?" role="button"  class="govuk-button">Use GOV.UK Verify</a>
-    
-  </div>
+    </div>
 
 </div>
 

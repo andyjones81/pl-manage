@@ -1888,7 +1888,61 @@ router.get('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/dbs-id', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
 
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/dbs-id', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/maintenance/app/passport', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/passport', {
+        version,
+        accountData
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/ni', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/ni', {
+        version,
+        accountData
+    });
+})
+router.get('/' + version + '/maintenance/app/drivers', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/drivers', {
+        version,
+        accountData
+    });
+})
 router.get('/' + version + '/maintenance/app/declaration', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
@@ -2380,6 +2434,52 @@ router.get('/' + version + '/maintenance/app/pay-other', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/overseas', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+    var HerokuServiceName = process.env.HerokuServiceName
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/overseas', {
+        version,
+        accountData,
+        HerokuServiceName
+    });
+})
+
+
+router.get('/' + version + '/maintenance/app/overseas-add', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+    var HerokuServiceName = process.env.HerokuServiceName
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/overseas-add', {
+        version,
+        accountData,
+        HerokuServiceName
+    });
+})
+
+router.get('/' + version + '/maintenance/app/overseas-list', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+    var HerokuServiceName = process.env.HerokuServiceName
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/app/overseas-list', {
+        version,
+        accountData,
+        HerokuServiceName
+    });
+})
+
 router.get('/' + version + '/maintenance/app/pay-other-emailsent', (req, res) => {
     var d = require('./data/data.json')
     var accountNumber = '999101'
@@ -2452,6 +2552,7 @@ router.get('/' + version + '/thirdpartypay/pay/:id', (req, res) => {
         accountData
     });
 })
+
 
 router.get('/' + version + '/thirdpartypay/result', (req, res) => {
 
@@ -2556,7 +2657,13 @@ router.post('/' + version + '/maintenance/app/sex', (req, res) => {
 
 router.post('/' + version + '/maintenance/app/placeofbirth', (req, res) => {
     req.session.data["placeofbirthcomplete"] = 1
+
+    if(req.session.data["born-country"] !== "United Kingdom (England)")
+    {
+        res.redirect('/' + version + '/maintenance/app/overseas');
+    }
     res.redirect('/' + version + '/maintenance/tasks/list');
+    
 })
 
 
@@ -2566,8 +2673,30 @@ router.post('/' + version + '/maintenance/app/dbsconsent', (req, res) => {
 })
 
 
+
 router.post('/' + version + '/maintenance/app/certaddress', (req, res) => {
     req.session.data["certcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/dbs-id');
+})
+
+
+router.post('/' + version + '/maintenance/app/dbs-id', (req, res) => {
+    req.session.data["idtypes"] = 1
+    res.redirect('/' + version + '/maintenance/app/drivers');
+})
+
+router.post('/' + version + '/maintenance/app/drivers', (req, res) => {
+    req.session.data["drivers"] = 1
+    res.redirect('/' + version + '/maintenance/app/ni');
+})
+
+router.post('/' + version + '/maintenance/app/ni', (req, res) => {
+    req.session.data["ukni"] = 1
+    res.redirect('/' + version + '/maintenance/app/passport');
+})
+
+router.post('/' + version + '/maintenance/app/passport', (req, res) => {
+    req.session.data["passport"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
 })
 
@@ -2655,6 +2784,21 @@ router.post('/' + version + '/maintenance/app/thirdparty', (req, res) => {
     res.redirect('/' + version + '/maintenance/app/declaration');
 })
 
+router.post('/' + version + '/maintenance/app/overseas', (req, res) => {
+    req.session.data["overseascomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
+router.post('/' + version + '/maintenance/app/overseas-add', (req, res) => {
+  
+    res.redirect('/' + version + '/maintenance/app/overseas-list');
+})
+
+router.post('/' + version + '/maintenance/app/overseas-list', (req, res) => {
+    req.session.data["overseascomplete"] = 1
+    res.redirect('/' + version + '/maintenance/tasks/list');
+})
+
 router.post('/' + version + '/maintenance/app/declaration', (req, res) => {
     req.session.data["declarationcomplete"] = 1
     res.redirect('/' + version + '/maintenance/tasks/list');
@@ -2663,7 +2807,7 @@ router.post('/' + version + '/maintenance/app/declaration', (req, res) => {
 router.post('/' + version + '/maintenance/app/pay', (req, res) => {
 
     var returnUrl = process.env.HerokuServiceName + '/' + version + '/maintenance/app/complete';
-
+   
     const fetch = require('node-fetch');
     const inputBody = {
         "amount": 14500,
@@ -2678,6 +2822,8 @@ router.post('/' + version + '/maintenance/app/pay', (req, res) => {
     };
 
     var payPageURL = "";
+
+
 
     fetch('https://publicapi.payments.service.gov.uk/v1/payments', {
             method: 'POST',

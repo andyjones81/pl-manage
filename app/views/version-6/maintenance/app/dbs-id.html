@@ -1,0 +1,67 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/maintenance/app/certaddress" class="govuk-back-link">Back</a>
+
+
+        <form class="form" method="post">
+
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="dbsid-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">
+                            Identity
+                        </span>
+                        <h1 class="govuk-fieldset__heading">
+                            What identity documents do you have?
+                        </h1>
+
+                    </legend>
+                    <p class="govuk-body">If you have any of these documents, providing the details in the next steps
+                        will speed up the Disclosure and barring service check.</p>
+
+                    <span id="dbsid-hint" class="govuk-hint">
+                        Select all that apply.
+                    </span>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="dbsid-1" name="dbsid" type="checkbox"
+                                value="iddrivers">
+                            <label class="govuk-label govuk-checkboxes__label" for="dbsid-1">
+                                UK Driving licence
+                            </label>
+                        </div>
+
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="dbsid-3" name="dbsid" type="checkbox"
+                                value="idni">
+                            <label class="govuk-label govuk-checkboxes__label" for="dbsid-3">
+                                UK National insurance number
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="dbsid-2" name="dbsid" type="checkbox"
+                                value="idpassport">
+                            <label class="govuk-label govuk-checkboxes__label" for="dbsid-2">
+                                Passport
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button">
+                    Save and continue
+                  </button>
+
+        </form>
+        {% endblock %}

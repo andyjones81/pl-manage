@@ -46,10 +46,29 @@ We need some additional documents from you
 
 
     
-                <div class="govuk-inset-text">
-                        No files uploaded. <a href="/{{version}}/maintenance/app/overseas-add">Upload a file</a>
+                <div class="govuk-form-group">
+                        <table class="govuk-table">
+                                <caption class="govuk-table__caption">Files</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">Name</th>
+                                    <th class="govuk-table__header" scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="row">placeholder-demo-file.jpg</th>
+                                    <td class="govuk-table__cell "><a href="/{{version}}/maintenance/app/overseas">Remove <span class="govuk-visually-hidden">placeholder-demo-file.jpg</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
         
+                    <div class="govuk-form-group">
+                        <p class="govuk-body"></p>
+                        <a href="/{{version}}/maintenance/app/overseas-add" >Add another file</a>
+                    </p>
+                    </div>
                   
            
 
