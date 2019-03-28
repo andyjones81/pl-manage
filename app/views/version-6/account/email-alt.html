@@ -18,18 +18,18 @@ Change your email address
     
             <form method="POST">
                 <div class="govuk-form-group">
-                    <label class="govuk-label" for="name">
+                    <label class="govuk-label govuk-!-width-two-thirds" for="name">
                         Email address
                     </label>
-                    <input class="govuk-input" id="name" name="name" type="text" value="{{accountData.contactDetails.emailAddress}}">
+                    <input class="govuk-input govuk-!-width-two-thirds" id="name" name="name" type="text" value="{{accountData.contactDetails.emailAddress}}">
                 </div>
     
                 <button type="submit" class="govuk-button">
                     Save
                 </button>
-                <a href="/{{version}}/account/hub" role="button" type="submit" class="govuk-button gc-button-secondary">
-                        Return to manage your details
-                </a>
+                <p>
+                    <a href="/{{version}}/account/manage" class="govuk-link">Cancel and return to manage your details</a>
+                </p>
     
                
             </form>

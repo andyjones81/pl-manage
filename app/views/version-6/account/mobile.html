@@ -17,18 +17,22 @@ Change your mobile number
           
            <form method="POST">
                 <div class="govuk-form-group">
-                    <label class="govuk-label" for="mobile">
+                    <label class="govuk-label govuk-!-width-two-thirds" for="mobile">
                         Phone number
                     </label>
-                    <input class="govuk-input" id="mobile" name="mobile" type="text" value="{{accountData.contactDetails.mobile}}">
+                    <span id="telephone-number-hint" class="govuk-hint">
+                        For international numbers include the country code
+                      </span>
+                    
+                    <input class="govuk-input govuk-!-width-two-thirds" id="mobile" name="mobile" type="text" value="{{accountData.contactDetails.mobile}}">
                 </div>
     
                 <button type="submit" class="govuk-button">
                     Save 
                 </button>
-                <a href="/{{version}}/account/manage" role="button" type="submit" class="govuk-button gc-button-secondary">
-                        Return to manage your details
-                </a>
+                <p>
+                    <a href="/{{version}}/account/manage" class="govuk-link">Cancel and return to manage your details</a>
+                </p>
     
                
             </form>

@@ -1,0 +1,41 @@
+.gc-pull-right{float: right;}
+.gc-clear-left{clear: left !important;}
+.gc-text-grey{ color: govuk-colour(grey-1)}
+.gc-tag{
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 14px;
+    font-size: 0.87rem;
+    line-height: 1.25;
+    display: inline-block;
+    padding: 4px 8px;
+    padding-bottom: 1px;
+    outline: 2px solid #005ea5;
+    outline-offset: -2px;
+    color: #005ea5;
+    background-color: #ffffff;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@media all and (min-width:40.06em){
+.gc-tag {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+}
+
+.gc-button-secondary{
+    box-shadow: 0px 2px 0px govuk-colour(grey-1);
+    background: govuk-colour(grey-2);
+    color: #000000 !important;
+}
+
+.gc-button-secondary:hover{
+    box-shadow: 0px 2px 0px govuk-colour(grey-1);
+    background: rgba(191, 193, 195, 0.7);
+}

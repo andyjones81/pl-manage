@@ -13,7 +13,7 @@ Your licence has lapsed and is no longer active
 
 
         <span class="govuk-caption-l">Maintain your licence</span>
-        <h1 class="govuk-heading-xl">
+        <h1 class="govuk-heading-l">
             Your licence has lapsed and is no longer active
         </h1>
 
@@ -52,7 +52,14 @@ Your licence has lapsed and is no longer active
                         Date of action
                     </dt>
                     <dd class="app-check-your-answers__answer">
-                        {{data['bankrupt-day'] }}/{{data['bankrupt-month'] }}/{{data['bankrupt-year'] }}
+
+                            {% set vdate %}
+                            {{data['bankrupt-month']}}/{{data['bankrupt-day']}}/{{data['bankrupt-year']}} 
+                            {% endset %}
+    
+                            {{vdate | date('DD MMM YYYY')}}
+
+                      
                     </dd>
                     <dd class="app-check-your-answers__change">
                         <a href="refuse">
@@ -60,7 +67,7 @@ Your licence has lapsed and is no longer active
                         </a>
                     </dd>
                 </div>
-                <div class="app-check-your-answers__contents">
+                <!-- <div class="app-check-your-answers__contents">
                         <dt class="app-check-your-answers__question">
                             Details
                         </dt>
@@ -72,7 +79,7 @@ Your licence has lapsed and is no longer active
                                 Change<span class="govuk-visually-hidden"> name</span>
                             </a>
                         </dd>
-                    </div>
+                    </div> -->
 
 
 

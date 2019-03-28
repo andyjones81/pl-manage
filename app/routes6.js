@@ -4,6 +4,53 @@ const version = "version-6"
 
 // Add your routes here - above the module.exports line
 
+router.get('/' + version + '/companieshouse', (req, res) => {
+
+    const CHA = require('companies-house-api-es6');
+    const cha = new CHA(process.env.CompaniesHouseAPIKey);
+
+    cha.searchForDisqualifiedOfficer('Paul+Smith').then(result => {
+        res.render(version + '/companieshouse', {
+            result
+        });
+    }).catch(err => {
+        console.log(err);
+    });
+
+    // const fetch = require('node-fetch');
+    // const inputBody = {
+    //     "q": "Paul Smith"
+    // };
+    // const headers = {
+    //     'Content-Type': 'application/json',
+    //      'Accept': 'application/json'
+    // };
+
+    // var payPageURL = "";
+
+    // fetch('https://api.companieshouse.gov.uk/search/disqualified-officers?q='+ 'Paul+Smith', {
+    //         method: 'GET',
+    //         headers: headers,
+    //         auth:{
+    //             username: process.env.CompaniesHouseAPIKey,
+    //             password: ''
+    //         },
+    //         params: {
+    //             q: 'Paul Smith',
+    //             items_per_page: ''
+    //         },
+
+    //     })
+    //     .then(function (res) {
+    //         return res.json();
+    //     }).then(function (body) {
+    //         console.log(body);
+    //         res.render(version + '/companieshouse', {
+    //             body
+    //         });
+    //     })
+
+})
 
 router.get('/' + version + '/security/signin', (req, res) => {
     req.session.data = {}
@@ -11,6 +58,8 @@ router.get('/' + version + '/security/signin', (req, res) => {
         version
     });
 })
+
+
 
 router.get('/' + version + '/security/createaccount', (req, res) => {
     res.render(version + '/security/createaccount', {
@@ -305,12 +354,12 @@ router.get('/' + version + '/maintenance/assessment/keep', (req, res) => {
 
 
 router.post('/' + version + '/maintenance/assessment/keep', (req, res) => {
-    
-    
+
+
     if (req.session.data['keep-licence'] === 'no') {
         res.redirect('/' + version + '/maintenance/assessment/outcome/surrender');
     }
-    
+
 
     res.redirect('/' + version + '/maintenance/assessment/employed');
 })
@@ -330,7 +379,7 @@ router.get('/' + version + '/maintenance/assessment/employed', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/employed', (req, res) => {
-    
+
     if (req.session.data['employed'] === 'no') {
         res.redirect('/' + version + '/maintenance/assessment/financial');
     }
@@ -354,8 +403,8 @@ router.get('/' + version + '/maintenance/assessment/employer', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/employer', (req, res) => {
-    
-     
+
+
 
     res.redirect('/' + version + '/maintenance/assessment/financial');
 })
@@ -420,7 +469,7 @@ router.post('/' + version + '/maintenance/assessment/name-changed', (req, res) =
 
 
 router.post('/' + version + '/maintenance/assessment/outcome/name-change-required', (req, res) => {
-  
+
     res.redirect('/' + version + '/account/change-name-start');
 })
 
@@ -467,7 +516,7 @@ router.get('/' + version + '/maintenance/assessment/outcome/refuse-details', (re
 })
 
 router.post('/' + version + '/maintenance/assessment/outcome/refuse', (req, res) => {
-    res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-details');
+    res.redirect('/' + version + '/maintenance/assessment/outcome/refuse-check');
 })
 
 
@@ -784,7 +833,7 @@ router.post('/' + version + '/maintenance/assessment/dob', (req, res) => {
         res.redirect('/' + version + '/maintenance/assessment/new-dob');
     }
 
-    
+
     res.redirect('/' + version + '/maintenance/assessment/current-home-address');
 })
 
@@ -803,7 +852,7 @@ router.get('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/assessment/new-dob', (req, res) => {
-  
+
     res.redirect('/' + version + '/maintenance/assessment/current-home-address');
 })
 
@@ -843,7 +892,7 @@ router.get('/' + version + '/maintenance/assessment/outcome/home-address-require
 })
 
 router.post('/' + version + '/maintenance/assessment/outcome/home-address-required', (req, res) => {
-      res.redirect('/' + version + '/account/change-home-address-start');
+    res.redirect('/' + version + '/account/change-home-address-start');
 })
 
 router.get('/' + version + '/maintenance/assessment/events', (req, res) => {
@@ -864,7 +913,7 @@ router.post('/' + version + '/maintenance/assessment/events', (req, res) => {
     if (req.session.data['key-event'] == "yes") {
         res.redirect('/' + version + '/maintenance/assessment/outcome/key-event-required');
     }
-    
+
     res.redirect('/' + version + '/maintenance/assessment/check');
 })
 
@@ -882,7 +931,7 @@ router.get('/' + version + '/maintenance/assessment/outcome/key-event-required',
     });
 })
 
-router.post('/' + version + '/maintenance/assessment/outcome/key-event-required', (req, res) => {      
+router.post('/' + version + '/maintenance/assessment/outcome/key-event-required', (req, res) => {
     res.redirect('/' + version + '/reportevent/start');
 })
 
@@ -987,7 +1036,7 @@ router.get('/' + version + '/account/change-home-check', (req, res) => {
 })
 
 router.post('/' + version + '/account/change-home-check', (req, res) => {
-   
+
     res.redirect('/' + version + '/account/change-home-complete');
 })
 
@@ -2523,10 +2572,10 @@ router.post('/' + version + '/maintenance/app/certaddress', (req, res) => {
 })
 
 router.post('/' + version + '/maintenance/app/verification', (req, res) => {
-   
-        req.session.data["verificationcomplete"] = 1
-        res.redirect('/' + version + '/maintenance/app/verify-employer');
-   
+
+    req.session.data["verificationcomplete"] = 1
+    res.redirect('/' + version + '/maintenance/app/verify-employer');
+
 })
 
 

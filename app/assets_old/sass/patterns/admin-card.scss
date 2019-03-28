@@ -1,0 +1,68 @@
+$black: #0b0c0c;
+$grey-1: #6f777b;
+$grey-2: #bfc1c3;
+$grey-3: #dee0e2;
+$grey-4: #f8f8f8;
+$white: #fff;
+$yellow: #ffbf47;
+
+
+.gc-panel-card {
+    margin-bottom: 36px;
+    background-color: $grey-4;
+    border: 1px solid $grey-2;
+    box-shadow: 2px 2px 8px 0px $grey-1;
+  }
+
+  .gc-panel-card--noshadow{ box-shadow: none; border: 1px solid $grey-2}
+
+  .gc-panel-card--history{
+    margin-bottom: 36px;
+    background-color: $white;
+    border: 2px solid $grey-2;
+    box-shadow: none;
+  }
+  
+  .gc-panel-card-min-height{
+    min-height: 200px;
+    height: 200px;
+  }
+  
+  .gc-panel-card__link-wrapper {
+    background-color: $grey-4;
+
+    display: block;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .gc-panel-card__meta {
+    font-size: 12pt !important;
+    font-weight: 400;
+    text-align: right;
+}
+
+
+  .gc-panel-card__content {
+    padding: 5px 30px;
+  }
+
+  .gc-panel-card__count{font-size: 50pt;}
+  
+  .gc-panel-card__link-wrapper:hover {
+    background-color: $grey-4;
+    box-shadow: 0 0 0 4px $yellow;
+    text-decoration: none;
+  }
+  
+  .gc-panel-card__link-wrapper:hover .gc-panel-card__heading {
+    text-decoration: underline;
+  }
+
+  .gc-panel-card--history .gc-panel-card__heading, 
+  .gc-panel-card--history .gc-panel-card__description,
+  .gc-panel-card--history .gc-panel-card__meta{
+color: $grey-1 !important;
+  }
+

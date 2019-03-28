@@ -19,13 +19,17 @@ Your personal licence
 
     {% if accountData.renewalDue === "yes" %}
     <div class="govuk-grid-column-full">
+
+      
+
         <section id="maintenancePanel">
-            <div class="gc-alert gc-alert-important">
+            <div class="gc-panel gc-panel--information">
                 <h2 class="govuk-heading-m">You need to maintain your licence</h2>
-                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance application it by
+                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance application by
                     {{accountData.renewalDate | date('DD MMMM YYYY')}}
                 </p>
-                <a href="/{{version}}/maintenance/start" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-2">
+                <a href="/{{version}}/maintenance/start" role="button" draggable="false" 
+                class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4">
                     Maintain your licence
                 </a>
                
@@ -64,13 +68,12 @@ Your personal licence
     <div class="govuk-grid-column-one-third">
         <div class="card">
             <div class="card-body">
-                <span class="govuk-caption-s">Licence number</span>
+                <span class="govuk-heading-s">Licence number</span>
                 <h3 class="govuk-heading-s">{{accountData.licenceNumber}}</h3>
                 <ul class="govuk-list govuk-body-s govuk-!-margin-bottom-0">
-                    <li><span class="govuk-!-font-weight-bold">Start date</span> {{accountData.licenceStart | date('DD
+                    <li><span class="govuk-!-font-weight-bold">Issued</span> {{accountData.licenceStart | date('DD
                         MMMM YYYY')}}</li>
-                    <li><span class="govuk-!-font-weight-bold">Renewal date</span> {{accountData.renewalDate | date('DD
-                        MMMM YYYY')}}</li>
+                   
                 </ul>
             </div>
             <div class="card-action">
@@ -91,7 +94,7 @@ Your personal licence
     <div class="govuk-grid-column-one-third">
         <div class="card">
             <div class="card-body">
-                <h3 class="govuk-heading-s">{{accountData.title}} {{accountData.firstName}} {{accountData.middleName}}
+                <h3 class="govuk-heading-s">{{accountData.firstName}} {{accountData.middleName}}
                     {{accountData.lastName}}</h3>
 <ul class="govuk-list govuk-!-font-size-16">
     <li>{{accountData.contactDetails.emailAddress}}</li>
