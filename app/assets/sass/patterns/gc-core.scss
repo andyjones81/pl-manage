@@ -26,6 +26,8 @@ $govuk-blue: #005ea5;
 .gc-clear-left{clear: left !important;}
 .gc-text-grey{ color: govuk-colour(grey-1)}
 .gc-logo-image{max-width: 200px;}
+
+.attachment-thumb img {border: 1px solid $grey-3;}
 .gc-tag{
     
     -webkit-font-smoothing: antialiased;

@@ -115,6 +115,11 @@ router.post('/' + version + '/security/forgot', (req, res) => {
 
 router.post('/' + version + '/security/signin', (req, res) => {
     req.session.data['account'] = '999101'
+    res.redirect('/' + version + '/security/privacy');
+})
+
+router.post('/' + version + '/security/privacy', (req, res) => {
+    req.session.data['account'] = '999101'
     res.redirect('/' + version + '/account/hub');
 })
 
@@ -292,6 +297,21 @@ router.get('/' + version + '/account/change-name-complete', (req, res) => {
     })[0];
 
     //If from maintenance show a different result
+
+    var NotifyClient = require('notifications-node-client').NotifyClient,
+    notifyClient = new NotifyClient(process.env.notifyprototypekey);
+var personalisation = {}
+notifyClient
+    .sendEmail(process.env.namechangecomplete, 'ajones@gamblingcommission.gov.uk', {
+        personalisation: personalisation
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
+    res.render(version + '/maintenance/app/complete', {
+        version,
+        accountData
+    });
 
     if (req.session.data['frommaint'] === 'yes') {
         res.render(version + '/account/change-name-complete', {
@@ -2600,6 +2620,16 @@ router.get('/' + version + '/maintenance/app/complete', (req, res) => {
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
+
+    var NotifyClient = require('notifications-node-client').NotifyClient,
+    notifyClient = new NotifyClient(process.env.notifyprototypekey);
+var personalisation = {}
+notifyClient
+    .sendEmail(process.env.maintcomplete, 'ajones@gamblingcommission.gov.uk', {
+        personalisation: personalisation
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 
     res.render(version + '/maintenance/app/complete', {
         version,
