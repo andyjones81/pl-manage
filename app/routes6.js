@@ -298,21 +298,6 @@ router.get('/' + version + '/account/change-name-complete', (req, res) => {
 
     //If from maintenance show a different result
 
-    var NotifyClient = require('notifications-node-client').NotifyClient,
-    notifyClient = new NotifyClient(process.env.notifyprototypekey);
-var personalisation = {}
-notifyClient
-    .sendEmail(process.env.namechangecomplete, 'ajones@gamblingcommission.gov.uk', {
-        personalisation: personalisation
-    })
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
-
-    res.render(version + '/maintenance/app/complete', {
-        version,
-        accountData
-    });
-
     if (req.session.data['frommaint'] === 'yes') {
         res.render(version + '/account/change-name-complete', {
             version,
@@ -1377,25 +1362,6 @@ router.post('/' + version + '/surrenderlicence/form3', (req, res) => {
         return value.accountNumber === accountNumber;
     })[0];
 
-
-    var NotifyClient = require('notifications-node-client').NotifyClient,
-        notifyClient = new NotifyClient(process.env.NotifyAPIKey);
-    var personalisation = {
-        'accountName': accountData.accountName,
-        'licenceNumber': accountData.licenceNumber,
-        'type': accountData.type,
-        'action': req.session.data['action'],
-        'actiondetail': req.session.data['actiondetail'],
-        'more-detail': req.session.data['more-detail'],
-        'today': (new Date()).toLocaleDateString(),
-        'ar': '1-22132213'
-    }
-    notifyClient
-        .sendEmail(process.env.TemplateId, 'ajones@gamblingcommission.gov.uk', {
-            personalisation: personalisation
-        })
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
 
 
     res.redirect('/' + version + '/surrenderlicence/form4');
