@@ -200,6 +200,58 @@ Maintain your licence
           </dd>
         </div>
 
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Correspondence address
+          </dt>
+          <dd class="app-check-your-answers__answer">
+
+            {%if data['current-corr-address'] === 'yes' %}
+            {{accountData.correspondenceAddress.street}}<br />
+            {{accountData.correspondenceAddress.city}}<br />
+            {{accountData.correspondenceAddress.postcode}}<br />
+            {{accountData.correspondenceAddress.country}}<br /><br />
+
+            From {{accountData.correspondenceAddress.since | date('MMMM YYYY') }}
+
+            {% elseif data['current-corr-address'] === 'no' %}
+            {{data['caddress-line-1']}}<br />
+            {{data['caddress-town']}}<br />
+            {{data['caddress-postcode']}} <br /> <br />
+            {% set vdate %}
+
+            {{data['movedin-start-month']}}/01/{{data['movedin-start-year']}}
+            {% endset %}
+
+            From {{vdate | date('MMMM YYYY')}}
+
+
+
+            {%else%}
+
+            <span class="govuk-tag gc-tag-red">To do</span>
+
+            {% endif %}
+
+          </dd>
+          <dd class="app-check-your-answers__change">
+            {%if data['current-corr-address'] === 'yes'%}
+            <a href="current-corr-address">
+              Change<span class="govuk-visually-hidden"> correspondence address</span>
+            </a>
+            {% elseif data['current-corr-address'] === 'no' %}
+            <a href="current-corr-address">
+              Change<span class="govuk-visually-hidden"> correspondence address</span>
+            </a>
+            {% else %}
+            <a href="current-corr-address">
+              Check<span class="govuk-visually-hidden"> correspondence address</span>
+            </a>
+            {% endif %}
+
+
+          </dd>
+        </div>
 
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
@@ -242,13 +294,15 @@ Maintain your licence
           <dd class="app-check-your-answers__answer">
 
             <p class="govuk-body">
-              <strong>1-2345678</strong><br/>
-              Your petition for bankruptcy, sequestration or entering into an Individual Voluntary Arrangement (IVA)</p>
-
+             
+              Your petition for bankruptcy, sequestration or entering into an Individual Voluntary Arrangement (IVA)
+              <br/>
+              <span class="govuk-body-s govuk-!-font-weight-bold">Reference: 1-2131211</span></p>
               <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-              <strong>1-2367541</strong><br/>
-              Change of name/address</p>
-
+             
+              Change of name/address
+              <br/>
+              <span class="govuk-body-s govuk-!-font-weight-bold">Reference: 1-1233221</span></p>
           </dd>
           <dd class="app-check-your-answers__change">
            
@@ -259,13 +313,10 @@ Maintain your licence
         {%endif%}
 
       </dl>
-      <br/>     <br/>
+         
 
-      ** This will only appear when all the pages in the assessment journey are completed **
-      <br/>     <br/>
-
-      <h2 class="govuk-heading-m">Continue your renewal application</h2>
-      <p class="govuk-body">We have all the information we need to start your renewal application.</p>
+      <h2 class="govuk-heading-m">Continue your maintenance application</h2>
+      <p class="govuk-body">We have all the information we need to continue your maintenance application.</p>
       <form method="POST">
         <div class="govuk-form-group">
           <button class="govuk-button" type="submit">

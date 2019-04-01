@@ -1,7 +1,7 @@
 {% extends "layout-signedin.html" %}
 
 {% block pageTitle %}
-Your name has been updated
+Your home address has been updated
 {% endblock %}
 
 {% block content %}
@@ -10,10 +10,20 @@ Your name has been updated
 
     <div class="govuk-grid-column-two-thirds">
 
-            <div class="app-panel app-panel--success">
-                    <h1 class="govuk-heading-l">Your name has been updated</h1>                          
+      <div class="gc-panel gc-panel--complete">
+                    <h1 class="govuk-heading-l">Your home address has been updated</h1>                          
                   
-                  </div>
+                    {% if data['frommaint'] === 'yes' %}  
+                    <a href="/{{version}}/maintenance/assessment/check" role="button"
+                        class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                        Continue renewing your licence
+                    </a>    </div>
+                    {% else %}
+                    <p class="govuk-body"><a href="/{{version}}/account/manage">
+                            Return to manage your details
+                        </a></p>
+                </div>
+                {% endif %}
                   
             
                 <h2 class="govuk-heading-m">We have:</h2>

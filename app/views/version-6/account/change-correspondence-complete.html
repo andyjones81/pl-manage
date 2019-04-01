@@ -10,22 +10,29 @@ What is your new correspondence address?
 
 
     <div class="govuk-grid-column-two-thirds">
-      
-            <div class="gc-panel gc-panel--complete">
-                    <h1 class="govuk-heading-l">Your correspondence address has been updated</h1>
-                           
-                    <p class="govuk-body"><a href="/{{version}}/account/manage">
-                        Return to manage your details
-                    </a></p>
-                  </div>
-                  
-            
-                <h2 class="govuk-heading-m">We have:</h2>
 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>sent you an email confirming this change</li>      
-                    <li>changed the address on your account</li>   
-                </ul>
+        <div class="gc-panel gc-panel--complete">
+            <h1 class="govuk-heading-l">Your correspondence address has been updated</h1>
+
+            {% if data['frommaint'] === 'yes' %}  
+            <a href="/{{version}}/maintenance/assessment/check" role="button"
+                class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                Continue renewing your licence
+            </a>    </div>
+            {% else %}
+            <p class="govuk-body"><a href="/{{version}}/account/manage">
+                    Return to manage your details
+                </a></p>
+        </div>
+        {% endif %}
+
+
+        <h2 class="govuk-heading-m">We have:</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>sent you an email confirming this change</li>
+            <li>changed the address on your account</li>
+        </ul>
 
 
 

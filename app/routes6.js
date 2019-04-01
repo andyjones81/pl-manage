@@ -879,6 +879,27 @@ router.post('/' + version + '/maintenance/assessment/current-home-address', (req
     if (req.session.data['current-home-address'] == "no") {
         res.redirect('/' + version + '/maintenance/assessment/outcome/home-address-required');
     }
+    res.redirect('/' + version + '/maintenance/assessment/current-corr-address');
+})
+
+router.get('/' + version + '/maintenance/assessment/current-corr-address', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/maintenance/assessment/current-corr-address', {
+        version,
+        accountData
+    });
+})
+
+router.post('/' + version + '/maintenance/assessment/current-corr-address', (req, res) => {
+    if (req.session.data['current-corr-address'] == "no") {
+        res.redirect('/' + version + '/maintenance/assessment/outcome/corr-address-required');
+    }
     res.redirect('/' + version + '/maintenance/assessment/events');
 })
 
@@ -898,6 +919,12 @@ router.get('/' + version + '/maintenance/assessment/outcome/home-address-require
 
 router.post('/' + version + '/maintenance/assessment/outcome/home-address-required', (req, res) => {
     res.redirect('/' + version + '/account/change-home-address-start');
+})
+
+router.post('/' + version + '/maintenance/assessment/outcome/corr-address-required', (req, res) => {
+  
+  
+    res.redirect('/' + version + '/account/change-correspondence-postcode');
 })
 
 router.get('/' + version + '/account/change-correspondence-postcode', (req, res) => {
@@ -1124,12 +1151,12 @@ router.get('/' + version + '/account/change-home-complete', (req, res) => {
     })[0];
 
     if (req.session.data['frommaint'] === 'yes') {
-        res.render(version + '/account/change-name-complete', {
+        res.render(version + '/account/change-home-complete', {
             version,
             accountData
         });
     } else {
-        res.render(version + '/account/change-name-complete-hub', {
+        res.render(version + '/account/change-home-complete-hub', {
             version,
             accountData
         });

@@ -38,19 +38,30 @@ Tasks
                     <span class="app-task-list__section-number">2. </span> Personal details
                 </h2>
                 <ul class="app-task-list__items">
-                    <!-- <li class="app-task-list__item">
-                                    <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/currentname"
-                                        aria-describedby="contact-details-completed">
-                                       Current name
-                                    </a>
-                                    {% if data['currentnamescomplete'] === 1 %}
-                                    <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
-                                    {% endif %}
-                                </li> -->
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/placeofbirth">
+                            Place of birth
+                        </a>
+                        {% if data['placeofbirthcomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed"
+                            id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
+
+                    <li class="app-task-list__item">
+                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/previousaddresses"
+                            aria-describedby="company-information-completed">
+                            Addresses
+                        </a>
+                        {% if data['adressscomplete'] === 1 %}
+                        <strong class="govuk-tag app-task-list__task-completed"
+                            id="eligibility-completed">Completed</strong>
+                        {% endif %}
+                    </li>
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/previousnames"
                             aria-describedby="contact-details-completed">
-                            Previous names
+                            Previous names [DBS ONLY]
                         </a>
                         {% if data['previousnamescomplete'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -68,7 +79,7 @@ Tasks
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/sex"
                             aria-describedby="company-information-completed">
-                            Sex
+                            Sex [DBS ONLY]
                         </a>
                         {% if data['sexcomplete'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -76,15 +87,8 @@ Tasks
                         {% endif %}
                     </li>
 
-                    <li class="app-task-list__item">
-                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/placeofbirth">
-                            Place of birth
-                        </a>
-                        {% if data['placeofbirthcomplete'] === 1 %}
-                        <strong class="govuk-tag app-task-list__task-completed"
-                            id="eligibility-completed">Completed</strong>
-                        {% endif %}
-                    </li>
+
+                  
 
                     {% if data['born-country'] === "Afghanistan" %}
                     <li class="app-task-list__item">
@@ -99,38 +103,20 @@ Tasks
                         {% endif %}
                 </ul>
             </li>
-            <li>
-                <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">3. </span> Check your address history
-                </h2>
-                <ul class="app-task-list__items">
-                    <li class="app-task-list__item">
-                        <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/previousaddresses"
-                            aria-describedby="company-information-completed">
-                            Addresses
-                        </a>
-                        {% if data['adressscomplete'] === 1 %}
-                        <strong class="govuk-tag app-task-list__task-completed"
-                            id="eligibility-completed">Completed</strong>
-                        {% endif %}
-                    </li>
-
-
-                </ul>
-            </li>
+          
             {%if accountData.homeAddress.country === 'United Kingdom'%}
 
 
 
             <li>
                 <h2 class="app-task-list__section">
-                    <span class="app-task-list__section-number">4. </span> Disclosure and Barring Service
+                    <span class="app-task-list__section-number">3. </span> Disclosure and Barring Service
                 </h2>
                 <ul class="app-task-list__items">
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/dbsconsent"
                             aria-describedby="company-information-completed">
-                            DBS consent and declaration
+                            DBS consent and declaration 
                         </a>
                         {% if data['dbsconsentcomplete'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -141,7 +127,7 @@ Tasks
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/certaddress"
                             aria-describedby="company-information-completed">
-                            Certificate address
+                            Certificate address [DBS ONLY]
                         </a>
                         {% if data['certcomplete'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -152,7 +138,7 @@ Tasks
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/dbs-id"
                             aria-describedby="company-information-completed">
-                            ID types
+                            ID types [DBS ONLY]
                         </a>
                         {% if data['idtypes'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -164,7 +150,7 @@ Tasks
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/drivers"
                             aria-describedby="company-information-completed">
-                            Driving licence
+                            Driving licence [DBS ONLY]
                         </a>
                         {% if data['drivers'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -175,7 +161,7 @@ Tasks
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/ni"
                             aria-describedby="company-information-completed">
-                            National insurance number
+                            National insurance number [DBS ONLY]
                         </a>
                         {% if data['ukni'] === 1 %}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -186,7 +172,7 @@ Tasks
                     <li class="app-task-list__item">
                         <a class="app-task-list__task-name" href="/{{version}}/maintenance/app/passport"
                             aria-describedby="company-information-completed">
-                            Passport
+                            Passport [DBS ONLY]
                         </a>
                         {% if data['passport'] === 1%}
                         <strong class="govuk-tag app-task-list__task-completed"
@@ -201,9 +187,9 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
-                    <span class="app-task-list__section-number">5. </span> Identity verification
+                    <span class="app-task-list__section-number">4. </span> Identity verification
                     {%else%}
-                    <span class="app-task-list__section-number">3. </span> Identity verification
+                    <span class="app-task-list__section-number">2. </span> Identity verification
                     {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
@@ -329,7 +315,7 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
 
-                    <span class="app-task-list__section-number">5. </span> Police reports
+                    <span class="app-task-list__section-number">4. </span> Police reports
 
                 </h2>
                 <ul class="app-task-list__items">
@@ -352,9 +338,9 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
-                    <span class="app-task-list__section-number">6. </span> Declarations
-                    {%else%}
                     <span class="app-task-list__section-number">5. </span> Declarations
+                    {%else%}
+                    <span class="app-task-list__section-number">4. </span> Declarations
                     {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
@@ -383,9 +369,9 @@ Tasks
             <li>
                 <h2 class="app-task-list__section">
                     {%if accountData.homeAddress.country === 'United Kingdom'%}
-                    <span class="app-task-list__section-number">7. </span> Pay and submit
-                    {%else%}
                     <span class="app-task-list__section-number">6. </span> Pay and submit
+                    {%else%}
+                    <span class="app-task-list__section-number">5. </span> Pay and submit
                     {%endif%}
                 </h2>
                 <ul class="app-task-list__items">
