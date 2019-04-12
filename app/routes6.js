@@ -123,6 +123,20 @@ router.post('/' + version + '/security/privacy', (req, res) => {
     res.redirect('/' + version + '/account/hub');
 })
 
+router.get('/' + version + '/security/privacy', (req, res) => {
+    req.session.data = {}
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    res.render(version + '/security/privacy', {
+        version,
+        accountData
+    });
+})
+
 router.get('/' + version + '/account/hub', (req, res) => {
     req.session.data = {}
     var d = require('./data/data.json')

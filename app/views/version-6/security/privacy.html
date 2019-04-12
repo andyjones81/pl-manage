@@ -9,37 +9,114 @@ Privacy statement
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <form method="POST">
-      <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="privacy-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                  Privacy statement
-              </h1>
-            </legend>
-            <p class="govuk-body">The Gambling Commission (the Commission) is legally required, under the Data Protection Act 1998 to make sure you know what we intend to do with your information and who it will be shared with.</p><p class="govuk-body">Our general approach is detailed in our <a href="">privacy statement</a> (link opens in a new window).</p>
-
-            <div class="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="privacy-1" name="privacy" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-checkboxes__label" for="privacy-1">
-                  I confirm I have read and understand the privacy statement
-                </label>
-              </div>
-              
-            </div>
-          </fieldset>
-        </div>
 
 
+    
+    <h1 class="govuk-heading-l">
+      {{ accountData.accountName}}
+    </h1>
+    <span class="govuk-caption-m"></span>
 
+    <p class="govuk-body-l">Before you can manage your details and your licence, we want to confirm a few things with
+      you.</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
+      <h2 class="govuk-heading-m">
+        Your licence
+      </h2>
+      <p class="govuk-body">Your {{accountData.type | lower}} number is {{accountData.licenceNumber}} and is valid from {{accountData.accountStart | date('DD MMMM YYYY')}}.</p>
+      <p class="govuk-body">Your account number is {{accountData.accountNumber}}, quote this whenever you contact us.</p>
+      <p class="govuk-body">You can download a copy of your licence once you confirm the declaration on this page.</p>
+      <p class="govuk-body">If you no longer need your licence, you can request to surrender it online. Select 'Surrender your licence' when in your account.</p>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
+    <h2 class="govuk-heading-m">
+      Your privacy
+    </h2>
+    <p class="govuk-body">
+      The Gambling Commission (the Commission) is legally required, under the Data Protection Act 1998 to make sure you
+      know what we intend to do with your information and who it will be shared with.
+    </p>
+    <p class="govuk-body">
+      Our general approach is detailed in our <a
+        href="https://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx" target="_blank">privacy
+        statement</a> (link opens in a new window).
+    </p>
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      Your obligations
+    </h2>
+
+    <p class="govuk-body">
+      In accordance with <a href="/{{version}}/lccp/part-3" target="_blank">Part 3 of the Licence Conditions and Codes
+        of Practice</a> (link opens in a new window), you must tell us within five working days, or as soon as you can,
+      if any of the following events occur:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you change your name or address</li>
+      <li>an offence under <a href="http://www.legislation.gov.uk/ukpga/2005/19/schedule/7" target="_Blank">Schedule 7
+          of the Gambling Act 2005</a>
+        (link opens in a new window) </li>
+      <li>any investigations by any professional or statutory bodies in Great Britain or abroad</li>
+      <li>any sanctions or disciplinary action imposed on you</li>
+      <li>your disqualification from acting as a company director</li>
+      <li>your petition for bankruptcy, sequestration or entering into an Individual Voluntary Arrangement (IVA)</li>
+    </ul>
+
+    <div class="govuk-inset-text">
+    <span class="govuk-!-font-weight-bold">Do this online</span>. You can report any events from your account by choosing 'Report an event'
+    </div>
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <h2 class="govuk-heading-m">
+       Maintaining your licence
+      </h2>
+  
+
+      <p class="govuk-body">You need to maintain your licence every 5 years and pay a fee to cover the processing.</p>
+
+      <div class="govuk-inset-text">
+          <span class="govuk-!-font-weight-bold">Do this online</span>.  We will notify you by email when this is due. It is important that you keep your email address up to date, otherwise you risk your licence lapsing.
+          </div>
       
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <h2 class="govuk-heading-m">
+         Keeping your details up to date
+         </h2>
+         <p class="govuk-body">In addition to telling us if your name or address changes, it is important that your contact details are also kept up to date.</p>
+
+<div class="govuk-inset-text">
+    <span class="govuk-!-font-weight-bold">Do this online</span>. You can update your contact details through 'Manage your details' once in your account.
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <form method="POST">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="privacy-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h3 class="govuk-fieldset__heading">
+                    Confirmation
+                </h3>
+              </legend>
+            
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input name="privacy" class="govuk-checkboxes__input" id="privacy-1" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="privacy-1">
+                    I confirm I have read and understand the information provided on this page and my obligations while holding a personal licence. 
+                  </label>
+                </div>
+                
+              </div>
+            </fieldset>
+          </div>
 
 
       <button type="submit" class="govuk-button">
-        Sign in
+        Confirm and continue to your account
       </button>
     </form>
 
