@@ -1477,7 +1477,7 @@ router.get('/' + version + '/reportevent/start', (req, res) => {
     req.session.data['dob-day'] = null
     req.session.data['dob-month'] = null
     req.session.data['dob-year'] = null
-
+    req.session.data['cya-event'] = null
 
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
@@ -1575,6 +1575,8 @@ router.get('/' + version + '/reportevent/add/step7', (req, res) => {
     var accountData = d.accounts.filter(function (value) {
         return value.accountNumber === accountNumber;
     })[0];
+
+    req.session.data['cya-event'] = 'yes';
 
     res.render(version + '/reportevent/add/step7', {
         version,
@@ -1724,18 +1726,35 @@ router.post('/' + version + '/account/mobilecode', (req, res) => {
 })
 
 router.post('/' + version + '/reportevent/add/step1', (req, res) => {
+    if (req.session.data['cya-event'] === 'yes') {
+        res.redirect('/' + version + '/reportevent/add/step7');
+    }
+
     res.redirect('/' + version + '/reportevent/add/step2');
 })
 router.post('/' + version + '/reportevent/add/step2', (req, res) => {
+    if (req.session.data['cya-event'] === 'yes') {
+        res.redirect('/' + version + '/reportevent/add/step7');
+    }
     res.redirect('/' + version + '/reportevent/add/step3');
 })
 router.post('/' + version + '/reportevent/add/step3', (req, res) => {
+    if (req.session.data['cya-event'] === 'yes') {
+        res.redirect('/' + version + '/reportevent/add/step7');
+    }
+    
     res.redirect('/' + version + '/reportevent/add/step4');
 })
 router.post('/' + version + '/reportevent/add/step4', (req, res) => {
+    if (req.session.data['cya-event'] === 'yes') {
+        res.redirect('/' + version + '/reportevent/add/step7');
+    }
     res.redirect('/' + version + '/reportevent/add/step7');
 })
 router.post('/' + version + '/reportevent/add/step5', (req, res) => {
+    if (req.session.data['cya-event'] === 'yes') {
+        res.redirect('/' + version + '/reportevent/add/step7');
+    }
     res.redirect('/' + version + '/reportevent/add/step6');
 })
 router.post('/' + version + '/reportevent/add/step6', (req, res) => {
