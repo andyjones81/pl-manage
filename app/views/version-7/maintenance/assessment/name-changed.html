@@ -1,0 +1,60 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+
+    <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="same-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Maintain your licence</span>
+            <h1 class="govuk-fieldset__heading">
+              Is your name correct?
+            </h1>
+          </legend>
+
+          <p class="govuk-body">Your name appears on your licence.</p>
+
+          <div class="govuk-inset-text">
+            <p class="govuk-body">
+              {{accountData.firstName}} {{accountData.middleName}}
+              {{accountData.lastName}}
+            </p>
+          </div>
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="same-name-1" name="same-name" type="radio" value="yes"
+                {{ checked('same-name', 'yes') }}>
+              <label class="govuk-label govuk-radios__label" for="same-name-1">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="same-name-2" name="same-name" type="radio" value="no"
+                {{ checked('same-name', 'no') }}>
+              <label class="govuk-label govuk-radios__label" for="same-name-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Save and continue
+      </button>
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

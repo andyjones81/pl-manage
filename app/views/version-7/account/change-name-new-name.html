@@ -1,0 +1,64 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+What is your new name?
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/change-name-start" class="govuk-back-link">Back</a>
+
+        <form method="POST">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="title-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Change your name</span>
+                        <h1 class="govuk-heading-l">
+                            What is your new name?
+                        </h1>
+                    </legend>
+                    <span id="title-hint" class="govuk-hint">
+                        This includes changing your last name or spelling your name differently.
+                    </span>
+
+                                   
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-width-two-thirds" for="firstname">
+                            First name
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="firstname" name="firstname" type="text" value="{{accountData.firstName}}">
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-width-two-thirds" for="middlename">
+                            Middle name
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="middlename" name="middlename" type="text" value="{{accountData.middleName}}">
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-!-width-two-thirds" for="lastname">
+                            Last name
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="lastname" name="lastname" type="text" value="{{accountData.lastName}}">
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

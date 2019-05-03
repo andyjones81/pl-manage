@@ -1,0 +1,101 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Your licence has lapsed and is no longer active
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <span class="govuk-caption-l">Maintain your licence</span>
+        <h1 class="govuk-heading-l">
+            Your licence has lapsed and is no longer active
+        </h1>
+
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                This is in accordance with <a href="https://www.legislation.gov.uk/ukpga/2005/19/section/114" target="_Blank">Section
+                    114 of the Gambling Act 2005</a>
+            </strong>
+        </div>
+        <p class="govuk-body">[Additional guidance]</p>
+
+        <h2 class="govuk-heading-m">
+                Check your answers
+            </h2>
+
+        <dl class="app-check-your-answers app-check-your-answers--short">
+
+
+            <div class="app-check-your-answers__contents">
+                <dt class="app-check-your-answers__question">
+                    Declared bankrupt or sequestrated
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{data['changed-financial'] | title }}
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="/{{version}}/maintenance/assessment/financial">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                        Date of action
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+
+                            {% set vdate %}
+                            {{data['bankrupt-month']}}/{{data['bankrupt-day']}}/{{data['bankrupt-year']}} 
+                            {% endset %}
+    
+                            {{vdate | date('DD MMM YYYY')}}
+
+                      
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                        <a href="refuse">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                        </a>
+                    </dd>
+                </div>
+                <!-- <div class="app-check-your-answers__contents">
+                        <dt class="app-check-your-answers__question">
+                            Details
+                        </dt>
+                        <dd class="app-check-your-answers__answer">
+                                {{data['bankrupcy-detail'] }}
+                        </dd>
+                        <dd class="app-check-your-answers__change">
+                            <a href="refuse-details">
+                                Change<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div> -->
+
+
+
+
+
+        </dl>
+
+        <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+            <button type="submit" class="govuk-button">
+               Complete submission 
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

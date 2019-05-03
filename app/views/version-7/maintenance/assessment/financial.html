@@ -1,0 +1,66 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+
+            
+ 
+      
+      <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="changed-financial-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <span class="govuk-caption-l">Maintain your licence</span>
+                        <h1 class="govuk-fieldset__heading">
+                          In the last 5 years, have you been declared bankrupt or sequestrated?
+                        </h1>
+                      </legend>
+             
+                      <details class="govuk-details">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                              What does sequestrated mean?
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                             The action by a court to take legal possession of (assets) until a debt has been paid or other claims have been met, or be declared bankrupt.
+                          </div>
+                        </details>
+
+                      
+                      <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-financial-1" name="changed-financial" type="radio" value="yes" {{ checked('changed-financial', 'yes') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-financial-1">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="changed-financial-2" name="changed-financial" type="radio" value="no"{{ checked('changed-financial', 'no') }}>
+                          <label class="govuk-label govuk-radios__label" for="changed-financial-2">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+        <button type="submit" class="govuk-button">
+            Save and continue
+        </button>
+    </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

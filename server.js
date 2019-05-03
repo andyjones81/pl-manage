@@ -24,6 +24,7 @@ const routes3 = require('./app/routes3.js')
 const routes4 = require('./app/routes4.js')
 const routes5 = require('./app/routes5.js')
 const routes6 = require('./app/routes6.js')
+const routes7 = require('./app/routes7.js')
 const utils = require('./lib/utils.js')
 
 // Variables for v6 backwards compatibility
@@ -315,6 +316,13 @@ if (typeof (routes6) !== 'function') {
   routes6.bind(app)
 } else {
   app.use('/', routes6)
+}
+if (typeof (routes7) !== 'function') {
+  console.log(routes7.bind)
+  console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
+  routes7.bind(app)
+} else {
+  app.use('/', routes7)
 }
 
 if (useDocumentation) {

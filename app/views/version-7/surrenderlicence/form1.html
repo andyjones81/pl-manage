@@ -1,0 +1,72 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Surrender your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/surrenderlicence/form" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Your licence</span>
+    
+ 
+       
+        <form method="post">           
+
+       
+
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="action-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                          Are you subject to any ongoing investigation or disciplinary action by your employer, regulator or law enforcement?
+                        </h1>
+                      </legend>
+                      <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="action-1" name="action" type="radio" value="yes" {{ checked('action','yes') }}
+                          data-aria-controls="conditional-action-1">
+                          <label class="govuk-label govuk-radios__label" for="action-1">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-action-1">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label" for="actiondetail">
+                              Provide details of the action
+                            </label>
+                            <textarea class="govuk-textarea" rows="5" id="actiondetail" name="actiondetail" type="text" rows="5">{{data['actiondetail']}}</textarea>
+                          </div>
+                  
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="action-2" name="action" type="radio" value="no"  {{ checked('action','no') }}
+                          data-aria-controls="action-2">
+                          <label class="govuk-label govuk-radios__label" for="action-2">
+                            No
+                          </label>
+                        </div>                    
+                  
+                        </div>                      
+                    
+                    </fieldset>
+                  </div>
+
+
+       
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}

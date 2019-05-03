@@ -1,0 +1,36 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+    <div class="govuk-grid-column-two-thirds">
+      <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">Report something that may affect your licence</span>
+        <h1 class="govuk-heading-l">
+        Can you provide more detail?
+        </h1>
+        <div class="govuk-form-group">
+                <label class="govuk-label" for="more-detail">
+                  Details
+                </label>
+                <span id="more-detail-hint" class="govuk-hint">
+                  Don’t include personal or financial information, eg your National Insurance number or credit card details.
+                </span>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint">{{data['more-detail']}}</textarea>
+              </div>
+              <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+    </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

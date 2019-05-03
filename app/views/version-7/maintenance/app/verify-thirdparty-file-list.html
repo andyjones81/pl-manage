@@ -1,0 +1,73 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+
+        <h1 class="govuk-heading-l">
+            <span class="govuk-caption-xl">Maintain your licence</span>You have chosen to have your ID documents verified
+            by a third party
+        </h1>
+
+        <p class="govuk-body">
+            We require verified copies of at least three forms of ID.
+        </p>
+        <p class="govuk-body">
+            You can upload the ID Verification form by taking a picture of it using a mobile or tablet device. </p>
+        <p class="govuk-body">We do not require verified copies of the ID documents.</p>
+
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                We may reject your application if documents are incomplete or not provided.
+            </strong>
+        </div>
+
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                If you are providing identity documents which are not in English, you must provide English
+                translations and these must be verified as true translations by a notary.
+            </strong>
+        </div>
+
+        <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Files</span></caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="col">File</th>
+                        <th class="govuk-table__header" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">passport.jpg</th>
+                        <td class="govuk-table__cell"><a href="verify-thirdparty-file">Remove</a> <span class="govuk-visually-hidden">file</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <p class="govuk-body"><a href="verify-thirdparty-file-add">Upload another file</a></p>
+
+            <div class="govuk-form-group">
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

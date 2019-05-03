@@ -1,0 +1,54 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Download your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+    <span class="govuk-caption-l">Your licence</span>
+    <h1 class="govuk-heading-l">
+      Download your licence
+    </h1>
+
+    <p class="govuk-body">Before you can download your licence, you'll need to confirm that you are aware of your
+      obligations under <a href="/{{version}}/lccp/part-3"
+      target="_Blank">Part 3 of the Licence Conditions and Codes of Practice</a> (link opens in new window).</p>
+
+    <form method="POST">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Declaration
+            </h1>
+          </legend>
+
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste-1" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-1">
+                I confirm I have read and understand my obligations outlined in the LCCP
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">
+        Agree and continue
+      </button>
+
+    </form>
+
+
+
+  </div>
+
+</div>
+
+{% endblock %}

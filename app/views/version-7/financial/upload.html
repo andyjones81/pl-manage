@@ -1,0 +1,43 @@
+{% extends "layoutpfl.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+                <a href="/{{version}}/financial/nofiles" class="govuk-back-link">Back</a>
+                <span class="govuk-caption-xl">Financial</span>
+                <h1 class="govuk-heading-l">
+                    Upload a file
+                </h1>
+        
+       
+    
+            <form method="POST">
+    
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="file-upload-1">
+                        Upload a file
+                    </label>
+                    <span id="file-upload-1-hint" class="govuk-hint">
+                        We can accept png, jpg, pdf and office documents up to 30mb
+                    </span>
+    
+                    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                </div>
+    
+                <div class="govuk-form-group">
+                    <button type="submit" class="govuk-button">
+                        Upload file
+                    </button>
+                </div>
+            </form>
+    
+    
+        </div>
+    </div>
+
+{% endblock %}

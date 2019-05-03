@@ -1,0 +1,39 @@
+{% extends "layoutpfl.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/financial/details" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-xl">Financial</span>
+        <h1 class="govuk-heading-l">
+            You can upload additional files relating to this {{data['where-do-you-live']}}
+        </h1>
+
+
+       
+        <div class="govuk-inset-text">
+                No files uploaded. <a href="upload" class="govuk-link">Upload a file</a>
+            </div>
+<form method="POST">
+            <div class="govuk-form-group">
+                <button type="submit" class="govuk-button">
+                    I don't have files to upload
+                </button>
+            </div>
+</form>
+             
+      
+    </div>
+
+    
+
+</div>
+
+{% endblock %}

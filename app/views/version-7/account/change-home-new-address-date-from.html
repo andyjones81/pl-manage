@@ -1,0 +1,61 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+When did your change your movedin?
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/change-home-new-address-postcode" class="govuk-back-link">Back</a>
+
+        <form method="POST">
+          
+
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="movedin-start-hint" role="group">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Change your home address</span>
+                        <h1 class="govuk-fieldset__heading">
+                                When did you move in to this address?
+                        </h1>
+                      </legend>
+                      <span id="movedin-start-hint" class="govuk-hint">
+                        For example, 3 2018
+                      </span>
+                      <div class="govuk-date-input" id="movedin-start">
+                        
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="movedin-start-month">
+                              Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="movedin-start-month" name="movedin-start-month" type="number" pattern="[0-9]*" value="{{data['movedin-start-month'] }}">
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="movedin-start-year">
+                              Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="movedin-start-year" name="movedin-start-year" type="number" pattern="[0-9]*" value="{{data['movedin-start-year'] }}">
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

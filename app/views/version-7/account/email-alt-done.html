@@ -1,0 +1,33 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Change your email address
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/account/manage" class="govuk-back-link">Back</a>
+            
+            <div class="gc-panel gc-panel--complete">
+                    <h2 class="govuk-heading-l">Email address updated</h2>
+                    <p class="govuk-!-font-size-24">
+                        We have sent you an email to your new address.
+                    </p> 
+                    <p class="govuk-body">
+                            Your email address will not be updated until you click the link in the email we have sent you.
+                        </p>  <p class="govuk-body">
+                               Once you have done this, you will be able to sign in using your new email address.
+                            </p> 
+                    <p class="govuk-body">Return to <a href="/{{version}}/account/manage">manage your details</a></p>
+                    
+                  </div>
+           
+        </div>
+    
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+                <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+                <span class="govuk-caption-l">Report something that may affect your licence</span>
+            <h1 class="govuk-heading-l">
+                Report an event
+            </h1>
+               <p class="govuk-inset-text">If you name or address has changed, use the <a href="/{{version}}/account/manage">Manage your details</a> option to update these. This will also create an event automatically.</p>
+     
+      <p class="govuk-body">
+        In accordance with <a href="/{{version}}/lccp/part-3" target="_blank">Part 3 of the Licence Conditions and Codes of Practice</a> (link opens in a new window), you must tell us within five working days, or as soon as you can, if any of the following events occur:
+        </p> 
+        
+      
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>an offence under  <a href="http://www.legislation.gov.uk/ukpga/2005/19/schedule/7" target="_Blank">Schedule 7 of the Gambling Act 2005</a>
+                        (Link opens in a new window) </li>
+                    <li>any investigations by any professional or statutory bodies in Great Britain or abroad</li>
+                    <li>any sanctions or disciplinary action imposed on you</li>
+                    <li>your disqualification from acting as a company director</li>
+                    <li>your petition for bankruptcy, sequestration or entering into an Individual Voluntary Arrangement (IVA)</li>
+                </ul>
+
+                
+                <p>You will need to raise separate events if you have multiple things to tell us.</p>
+
+                <a href="/{{version}}/reportevent/add/step1" role="button" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-5">
+                    Start
+                </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,177 @@
+{
+    "pages": 
+        [{
+            "page": "keep",
+            "back": "maintenance/start",
+            "submit": "maintenance/assessment/keep",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/assessment/financial",
+                "no": "/maintenance/assessment/outcome/surrender"
+            }]
+        },
+        {
+            "page": "outcome/surrender",
+            "back": "maintenance/assessment/keep",
+            "submit": "maintenance/assessment/outcome/surrender",
+            "next": "/maintenance/assessment/outcome/surrender-submitted",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "financial",
+            "back": "maintenance/assessment/keep",
+            "submit": "maintenance/assessment/financial",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/assessment/outcome/refuse",
+                "no": "/maintenance/assessment/name-changed"
+            }]
+        },
+        {
+            "page": "outcome/refuse",
+            "back": "maintenance/assessment/financial",
+            "submit": "maintenance/assessment/outcome/refuse",
+            "next": "/maintenance/assessment/outcome/refuse-check",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "outcome/refuse-check",
+            "back": "maintenance/assessment/refuse",
+            "submit": "maintenance/assessment/outcome/refuse-check",
+            "next": "/maintenance/assessment/outcome/refuse-complete",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "name-changed",
+            "back": "maintenance/assessment/financial",
+            "submit": "maintenance/assessment/name-changed",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/assessment/dob",
+                "no": "/maintenance/assessment/outcome/name-change-required"
+            }]
+        },
+        {
+            "page": "outcome/name-change-required",
+            "back": "maintenance/assessment/name-changed",
+            "submit": "maintenance/assessment/name-change-required",
+            "next": "/account/change-name-start",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "dob",
+            "back": "maintenance/assessment/name-changed",
+            "submit": "maintenance/assessment/dob",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/assessment/current-home-address",
+                "no": "/maintenance/assessment/new-dob"
+            }]
+        },
+        {
+            "page": "new-dob",
+            "back": "maintenance/assessment/dob",
+            "submit": "maintenance/assessment/new-dob",
+            "next": "/maintenance/assessment/current-home-address",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "current-home-address",
+            "back": "maintenance/assessment/dob",
+            "submit": "maintenance/assessment/current-home-address",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/app/previousaddresses",
+                "no": "/maintenance/assessment/outcome/home-address-required"
+            }]
+        },
+        {
+            "page": "outcome/home-address-required",
+            "back": "maintenance/assessment/current-home-address",
+            "submit": "maintenance/assessment/outcome/home-address-required",
+            "next": "/account/change-home-address-start",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/previousaddresses",
+            "back": "maintenance/assessment/current-home-address",
+            "submit": "maintenance/app/previousaddresses",
+            "next": "/maintenance/assessment/current-corr-address",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "current-corr-address",
+            "back": "maintenance/app/previousaddresses",
+            "submit": "maintenance/assessment/current-corr-address",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/app/previousnames",
+                "no": "/maintenance/assessment/outcome/corr-address-required"
+            }]
+        },
+        {
+            "page": "outcome/corr-address-required",
+            "back": "maintenance/assessment/current-corr-address",
+            "submit": "maintenance/assessment/outcome/corr-address-required",
+            "next": "/maintenance/assessment/current-corr-address",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/previousnames",
+            "back": "maintenance/assessment/current-corr-address",
+            "submit": "maintenance/app/previousnames",
+            "next": "/maintenance/app/placeofbirth",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/born",
+            "back": "maintenance/app/previousnames",
+            "submit": "maintenance/app/placeofbirth",
+            "next": "/maintenance/app/sex",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/sex",
+            "back": "maintenance/app/placeofbirth",
+            "submit": "maintenance/app/sex",
+            "next": "/maintenance/app/dbsconsent",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/dbsconsent",
+            "back": "maintenance/app/sex",
+            "submit": "maintenance/app/dbsconsent",
+            "next": "/maintenance/app/dbs-id",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/dbs-id",
+            "back": "maintenance/app/dbsconsent",
+            "submit": "maintenance/app/dbs-id",
+            "next": "/maintenance/app/verification",
+            "check": "",
+            "conditions":[{
+                "iddrivers": "/maintenance/app/drivers",
+                "idni": "/maintenance/app/ni",                
+                "idpassport": "/maintenance/app/passport"
+            }]
+        }]
+}

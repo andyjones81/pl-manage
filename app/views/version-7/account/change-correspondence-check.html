@@ -1,0 +1,84 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+What is your new correspondence address?
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/change-correspondence-addresses" class="govuk-back-link">Back</a>
+ 
+        <form method="POST">
+                <div class="govuk-form-group ">
+                <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        
+                                <span class="govuk-caption-l">Correspondence address</span>
+                          <h1 class="govuk-fieldset__heading">
+                                Confirm your new correspondence address
+                          </h1>
+                        </legend>
+                      
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="caddress-line-1">
+                            Building and street
+                            <span class="govuk-visually-hidden">line 1</span>
+                          </label>
+                          <input class="govuk-input" id="caddress-line-1" name="caddress-line-1" type="text" value="123 Church Hill">
+                        </div>
+                      
+                     
+                      
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="caddress-town">
+                            Town or city
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="caddress-town" name="caddress-town" type="text"value="Birmingham">
+                        </div>
+                      
+                
+                      
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="caddress-postcode">
+                            Postcode
+                          </label>
+                          <input class="govuk-input govuk-input--width-10" id="caddress-postcode" name="caddress-postcode" type="text" value="B91 2SD">
+                        </div>
+                      
+                      </fieldset>
+                    </div>
+                      <div class="govuk-form-group ">
+                            <fieldset class="govuk-fieldset" aria-describedby="Confirmation-hint">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                    Confirm change
+                                </legend>
+                                <span class="field-validation-valid govuk-error-message" data-valmsg-for="Confirmation" data-valmsg-replace="true"></span>
+                                <div class="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input type="checkbox" class="govuk-checkboxes__input " name="Confirmation" id="Confirmation-0" value="I confirm I have read and understand this declaration." >
+                                                <label class="govuk-label govuk-checkboxes__label" for="Confirmation-0">
+                                                    I confirm that this address is correct and can receive documents from the Gambling Commission.
+                                                </label>
+                                            </div>
+                                </div>
+                            </fieldset>
+                            </div>
+                            
+
+            <button type="submit" class="govuk-button">
+                Confirm and update address
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

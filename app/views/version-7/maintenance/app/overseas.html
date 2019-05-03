@@ -1,0 +1,61 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+We need some additional documents from you
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+        <span class="govuk-caption-l">
+                Personal details
+            </span>
+        <h1 class="govuk-heading-l">
+         We need some additional documents from you
+        </h1>
+
+        <p class="govuk-body">We need you to provide us with:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>a copy of your police report from the countries listed</li>
+            <li>a copy of your credit report or a letter of good standing from your bank</li>
+        </ul>
+
+        <p class="govuk-body">Documents required from the following countries:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Afghanistan</li>
+        </ul>
+            
+        <p class="govuk-body">
+        You can upload scans of these documents or take a picture of them using a mobile or tablet device. 
+</p> <p class="govuk-body">
+        We do not need the originals to be posted to us.</p> 
+        
+        <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  If you are providing identification documents which are not in English, you must provide English translations and these must be verified as true translations. 
+                </strong>
+              </div>
+
+       
+              <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+
+
+    
+                <div class="govuk-inset-text">
+                        No files uploaded. <a href="/{{version}}/maintenance/app/overseas-add">Upload a file</a>
+                    </div>
+        
+                  
+           
+
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+
+        </form>
+        {% endblock %}

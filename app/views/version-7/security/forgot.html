@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Set a new password
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+        Set a new password
+    </h1>
+
+    <p class="govuk-body">If you can't remember your password, we can send you an email with a link to set up a new
+      one.</p>
+
+    <p class="govuk-body">If your email address associated with your account is no longer active or you don't have
+      access to it, you will need to <a href="https://www.gamblingcommission.gov.uk/about/Contact-us/Contact-us.aspx"
+        target="_Blank">contact us</a></p>
+
+
+    <form method="POST">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-!-width-two-thirds" for="email">
+          Email address
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text">
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Send email
+      </button>
+    </form>
+
+<p class="govuk-body">
+    <a href="/{{version}}/security/signin">Return to sign in</a>
+</p>
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+    <p class="govuk-body">
+      <ul class="govuk-list">
+        <li><a href="">I need help using this service</a></li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+{% endblock %}

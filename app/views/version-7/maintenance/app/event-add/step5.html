@@ -1,0 +1,42 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Report an event
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+                <span class="govuk-caption-l">Report something that may affect your licence</span>
+            <h1 class="govuk-heading-l">
+                Provide any additional evidence
+            </h1>
+            <p class="govuk-body">You can upload any additional files or photos which may be relevant.</p>
+    
+            <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+    
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="file-upload-1">
+                        Upload a file
+                    </label>
+                    <span id="file-upload-1-hint" class="govuk-hint">
+                        We can accept png, jpg, pdf and office documents up to 50mb
+                    </span>
+    
+                    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                </div>
+    
+                <div class="govuk-form-group">
+                    <button type="submit" class="govuk-button">
+                        Upload file
+                    </button>
+                </div>
+            </form>
+    
+    
+        </div>
+    </div>
+
+{% endblock %}

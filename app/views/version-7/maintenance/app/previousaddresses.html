@@ -1,0 +1,80 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+
+        <div class="govuk-inset-text">
+            THIS FEATURE SHOULD WORK IN EXACTLY THE SAME WAY AS APPLY FOR A PFL. 
+            <br/> <br/>
+            SHOW THEIR HOME ADDRESS AS THE CURRENT ADDRESS WITH DATES
+            <br/> <br/>
+            IF HOME ADDRESS CHANGED, SHOW PREVIOUS AS WELL
+          </div>
+
+        <span class="govuk-caption-xl">Maintain your licence</span>
+        <h1 class="govuk-heading-l">
+            Check your address history
+        </h1>
+
+        <p class="govuk-body">You must tell us about all the addresses you've lived at in the last 5 years.
+            You cannot leave any gaps but dates may overlap.</p>
+
+        <p class="govuk-body">You should include secondary addresses, for example student accommodation or if you work
+            away from home. </p>
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Addresses</span></caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Address</th>
+                    <th class="govuk-table__header" scope="col">Dates</th>
+                    <th class="govuk-table__header" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row"> {{accountData.homeAddress.street}},
+                        {{accountData.homeAddress.city}}, {{accountData.homeAddress.postcode}}</th>
+                    <td class="govuk-table__cell">{{accountData.homeAddress.since | date('MMM YYYY') }}
+
+                        {% if(data['current-home-address'] === 'no') %}
+
+                        {% set vdate %}
+                        {{data['address-end-day']}}/{{data['address-end-month']}}/{{data['address-end-year']}} {%
+                        endset %}
+
+                        to {{vdate | date('MMM YYYY')}}
+                        {%else%}
+
+                        to present
+                        {% endif %}
+
+
+                    </td>
+                    <td class="govuk-table__cell"><a href="">Change</a> <span class="govuk-visually-hidden">{{accountData.homeAddress.street}}</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <p class="govuk-body"><a href="">Add another address</a></p>
+
+        <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

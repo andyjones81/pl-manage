@@ -1,0 +1,59 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+CH Data
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <span class="govuk-caption-l">Companies House Data</span>
+        <h1 class="govuk-heading-l">
+            Search results for Paul Smith
+        </h1>
+
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <table class="govuk-table">
+            <caption class="govuk-table__caption">Companies house records found</caption>
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Name</th>
+                    <th class="govuk-table__header" scope="col">Date of Birth</th>
+
+                    <th class="govuk-table__header" scope="col">View record</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                {% for i in result%}
+
+
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row">{{i.title}}</th>
+                    <td class="govuk-table__cell">{{i.date_of_birth | date('DD MMMM YYYY')}}</td>
+                    <th class="govuk-table__header" scope="row">
+
+                      
+                        <a href="https://beta.companieshouse.gov.uk/{{i.links.self}}" target="_Blank">View</a></th>
+              
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+
+
+
+        <!-- {{result | dump}} -->
+    </div>
+
+
+</div>
+
+{% endblock %}

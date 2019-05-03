@@ -1,0 +1,73 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+
+
+
+
+        <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="ke-disqualifications-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h1 class="govuk-fieldset__heading">
+                                <span class="govuk-caption-l">Maintain your licence</span>
+                                In the last 5 years, have you been disqualified from acting as a company director?
+    
+                            </h1>
+    
+                        </legend>
+    
+                        
+    
+    
+                        <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="ke-disqualifications-1" name="disqualifications" type="radio"
+                                    value="yes" data-aria-controls="conditional-ke-disqualifications-1"
+                                    {{ checked('disqualifications','yes') }}>
+                                <label class="govuk-label govuk-radios__label" for="ke-disqualifications-1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-ke-disqualifications-1">
+    
+                                <p class="govuk-body">
+                                    <a href="personal-disqualifications-add">Add details</a>
+                                </p>
+    
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="ke-disqualifications-2" name="disqualifications" type="radio"
+                                    value="no" data-aria-controls="conditional-ke-disqualifications-2"
+                                    {{ checked('disqualifications','no') }}>
+                                <label class="govuk-label govuk-radios__label" for="ke-disqualifications-2">
+                                    No
+                                </label>
+                            </div>
+    
+    
+                        </div>
+                    </fieldset>
+                </div>
+    
+                <div class="govuk-form-group">
+                    <button type="submit" class="govuk-button">
+                        Save and continue
+                    </button>
+                </div>
+            </form>
+
+    </div>
+</div>
+
+{% endblock %}

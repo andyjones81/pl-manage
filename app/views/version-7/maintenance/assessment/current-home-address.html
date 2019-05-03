@@ -1,0 +1,67 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
+
+
+
+
+    <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="current-home-address-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Maintain your licence</span>
+            <h1 class="govuk-fieldset__heading">
+              Is this your home address?
+            </h1>
+          </legend>
+
+          <div class="govuk-inset-text">
+           
+            <p class="govuk-body">
+              {{accountData.homeAddress.street}}<br />
+              {{accountData.homeAddress.city}}<br />
+              {{accountData.homeAddress.postcode}}<br />
+              {{accountData.homeAddress.country}}<br /><br />
+              
+              From {{accountData.homeAddress.since | date('MMMM YYYY') }}
+            </p>
+          </div>
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="current-home-address-1" name="current-home-address" type="radio" value="yes"
+                {{ checked('current-home-address', 'yes') }}>
+              <label class="govuk-label govuk-radios__label" for="current-home-address-1">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="current-home-address-2" name="current-home-address" type="radio" value="no"
+              {{ checked('current-home-address', 'no') }}>
+              <label class="govuk-label govuk-radios__label" for="current-home-address-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button type="submit" class="govuk-button">
+        Save and continue
+      </button>
+    </form>
+
+
+  </div>
+
+</div>
+
+{% endblock %}
