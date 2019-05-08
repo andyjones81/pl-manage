@@ -168,10 +168,112 @@
             "submit": "maintenance/app/dbs-id",
             "next": "/maintenance/app/verification",
             "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/verification",
+            "back": "maintenance/app/dbs-id",
+            "submit": "maintenance/app/verification",
+            "next": "/maintenance/assessment/events",
+            "check": "",
             "conditions":[{
-                "iddrivers": "/maintenance/app/drivers",
-                "idni": "/maintenance/app/ni",                
-                "idpassport": "/maintenance/app/passport"
+                "employer": "/maintenance/app/verify-employer",
+                "thirdparty": "/maintenance/app/verify-thirdparty",
+                "gc": "/maintenance/app/verify-gc"
             }]
+        },
+        {
+            "page": "ass/events",
+            "back": "maintenance/app/verification",
+            "submit": "maintenance/assessment/events",
+            "next": "",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/assessment/outcome/key-event-required",
+                "no": "/maintenance/assessment/employed"
+            }]
+        },
+        {
+            "page": "ass/key-event-required",
+            "back": "maintenance/assessment/events",
+            "submit": "maintenance/assessment/outcome/key-event-required",
+            "next": "/reportevent/start",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "ass/employed",
+            "back": "maintenance/assessment/events",
+            "submit": "maintenance/assessment/employed",
+            "next": "/maintenance/app/overseas",
+            "check": "",
+            "conditions":[{
+                "yes": "/maintenance/assessment/employer",
+                "no": "/maintenance/app/overseas"
+            }]
+        },
+        {
+            "page": "ass/employer",
+            "back": "maintenance/assessment/employed",
+            "submit": "maintenance/assessment/employer",
+            "next": "/maintenance/app/overseas",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/overseas",
+            "back": "maintenance/assessment/events",
+            "submit": "maintenance/app/overseas",
+            "next": "/maintenance/app/thirdparty",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/overseas-add",
+            "back": "maintenance/app/overseas",
+            "submit": "maintenance/app/overseas-add",
+            "next": "/maintenance/app/overseas-list",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/overseas-list",
+            "back": "maintenance/app/overseas-add",
+            "submit": "maintenance/app/overseas-list",
+            "next": "/maintenance/app/thirdparty",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/thirdparty",
+            "back": "maintenance/app/overseas",
+            "submit": "maintenance/app/thirdparty",
+            "next": "/maintenance/app/declaration",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/declaration",
+            "back": "maintenance/app/thirdparty",
+            "submit": "maintenance/app/declaration",
+            "next": "/maintenance/app/pay",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/pay",
+            "back": "maintenance/app/declaration",
+            "submit": "maintenance/app/pay",
+            "next": "",
+            "check": "",
+            "conditions":[{}]
+        },
+        {
+            "page": "app/complete",
+            "back": "",
+            "submit": "",
+            "next": "",
+            "check": "",
+            "conditions":[{}]
         }]
 }

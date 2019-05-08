@@ -8,15 +8,15 @@ Manage your details
 
 <div class="govuk-grid-row">
 
-      <div class="govuk-grid-column-two-thirds">
-            <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
-            <h1 class="govuk-heading-l">
-                Manage your details
-            </h1>
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/{{version}}/account/hub" class="govuk-back-link">Back</a>
+        <h1 class="govuk-heading-l">
+            Manage your details
+        </h1>
         <dl class="app-check-your-answers app-check-your-answers--short">
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
-                    Name
+                    Full name
                 </dt>
                 <dd class="app-check-your-answers__answer">
                     {{accountData.firstName}} {{accountData.middleName}} {{accountData.lastName}}
@@ -44,7 +44,7 @@ Manage your details
 
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">
-                    Mobile number
+                    Contact number
                 </dt>
                 <dd class="app-check-your-answers__answer">
                     {{accountData.contactDetails.mobile}}
@@ -66,39 +66,38 @@ Manage your details
                     Home
                 </dt>
                 <dd class="app-check-your-answers__answer">
-                    {{accountData.homeAddress.street}}<br/>
-                    {{accountData.homeAddress.city}}<br/>
-                    {{accountData.homeAddress.postcode}}<br/>
-                    {{accountData.homeAddress.country}}<br/>
+                    {{accountData.homeAddress.street}}<br />
+                    {{accountData.homeAddress.city}}<br />
+                    {{accountData.homeAddress.postcode}}<br />
+                    {{accountData.homeAddress.country}}<br />
                 </dd>
                 <dd class="app-check-your-answers__change">
-                        <a href="/{{version}}/account/change-home-address-start">
+                    <a href="/{{version}}/account/change-home-address-start">
                         Change<span class="govuk-visually-hidden"> home address</span>
                     </a>
                 </dd>
 
             </div>
             <div class="app-check-your-answers__contents">
-                    <dt class="app-check-your-answers__question">
-                        Correspondence
-                    </dt>
-                    <dd class="app-check-your-answers__answer">
-                        {{accountData.correspondenceAddress.street}}<br/>
-                        {{accountData.correspondenceAddress.city}}<br/>
-                        {{accountData.correspondenceAddress.postcode}}<br/>
-                        {{accountData.correspondenceAddress.country}}<br/>
-                    </dd>
-                    <dd class="app-check-your-answers__change">
-                            <a href="/{{version}}/account/change-correspondence-postcode">
-                            Change<span class="govuk-visually-hidden"> correspondence address</span>
-                        </a>
-                    </dd>
-    
-                </div>
+                <dt class="app-check-your-answers__question">
+                    Correspondence (This is conditional)
+                </dt>
+                <dd class="app-check-your-answers__answer">
+                    {{accountData.correspondenceAddress.street}}<br />
+                    {{accountData.correspondenceAddress.city}}<br />
+                    {{accountData.correspondenceAddress.postcode}}<br />
+                    {{accountData.correspondenceAddress.country}}<br />
+                </dd>
+                <dd class="app-check-your-answers__change">
+                    <a href="/{{version}}/account/change-correspondence-postcode">
+                        Change<span class="govuk-visually-hidden"> correspondence address</span>
+                    </a>
+                </dd>
+            </div>
 
         </dl>
 
-        <h2 class="govuk-heading-l">Security</h2>
+        <h2 class="govuk-heading-l">Update password</h2>
         <dl class="app-check-your-answers app-check-your-answers--short">
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">

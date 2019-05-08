@@ -698,6 +698,197 @@ router.get('/' + version + '/maintenance/app/dbs-id', (req, res) => {
     });
 })
 
+router.get('/' + version + '/maintenance/app/verification', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/verification";
+    })[0];
+    res.render(version + '/maintenance/app/verification', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/assessment/events', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/events";
+    })[0];
+    res.render(version + '/maintenance/assessment/events', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/assessment/outcome/key-event-required', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/key-event-required";
+    })[0];
+    res.render(version + '/maintenance/assessment/outcome/key-event-required', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/assessment/employer', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/employer";
+    })[0];
+    res.render(version + '/maintenance/assessment/employer', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/assessment/employed', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/employed";
+    })[0];
+    res.render(version + '/maintenance/assessment/employed', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/overseas', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/overseas";
+    })[0];
+    res.render(version + '/maintenance/app/overseas', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/overseas-add', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/overseas-add";
+    })[0];
+    res.render(version + '/maintenance/app/overseas-add', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/overseas-list', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/overseas-list";
+    })[0];
+    res.render(version + '/maintenance/app/overseas-list', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/thirdparty', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/thirdparty";
+    })[0];
+    res.render(version + '/maintenance/app/thirdparty', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/declaration', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/declaration";
+    })[0];
+    res.render(version + '/maintenance/app/declaration', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/pay', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/pay";
+    })[0];
+    res.render(version + '/maintenance/app/pay', {
+        version,
+        accountData,
+        appJourney
+    });
+})
+
+router.get('/' + version + '/maintenance/app/complete', (req, res) => {
+    var d = require('./data/data.json')
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/complete";
+    })[0];
+    res.render(version + '/maintenance/app/complete', {
+        version,
+        accountData,
+        appJourney
+    });
+})
 
 // *******************************************************************************************************************
 // *******************************************************************************************************************
@@ -878,20 +1069,144 @@ router.post('/' + version + '/maintenance/app/dbs-id', (req, res) => {
     var appJourney = appJourneyData.pages.filter(function (value) {
         return value.page === "app/dbs-id";
     })[0];
-
-
-    if (req.session.data['dbsid']) {
-        if (req.session.data['dbsid'][0] === 'iddrivers') {
-            res.redirect('/' + version + appJourney.conditions[0].iddrivers);
-        } else if (req.session.data['dbsid'][0] === 'idni') {
-            res.redirect('/' + version + appJourney.conditions[0].idni);
-        } else if (req.session.data['dbsid'][0] === 'idpassport') {
-            res.redirect('/' + version + appJourney.conditions[0].idpassport);
-        }
-    } else {
-        res.redirect('/' + version + appJourney.next);
-    }
+    res.redirect('/' + version + appJourney.next);
 })
+
+router.post('/' + version + '/maintenance/app/verification', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/verification";
+    })[0];
+
+    res.redirect('/' + version + appJourney.next);
+
+    if (req.session.data['verify-method'] === 'employer') {
+        res.redirect('/' + version + appJourney.conditions[0].employer);
+    } else if (req.session.data['verify-method'] === 'thirdparty') {
+        res.redirect('/' + version + appJourney.conditions[0].thirdparty);
+    } else if (req.session.data['verify-method'] === 'gc') {
+        res.redirect('/' + version + appJourney.conditions[0].gc);
+    } 
+})
+
+router.post('/' + version + '/maintenance/assessment/events', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/events";
+    })[0];
+ 
+    if (req.session.data['key-event'] === 'yes') {
+        res.redirect('/' + version + appJourney.conditions[0].yes);
+    }
+    else if (req.session.data['key-event'] === 'no') { 
+        res.redirect('/' + version + appJourney.conditions[0].no);
+    } 
+})
+
+
+router.post('/' + version + '/maintenance/assessment/outcome/key-event-required', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/key-event-required";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/assessment/employed', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/employed";
+    })[0];
+ 
+    if (req.session.data['employed'] === 'yes') {
+        res.redirect('/' + version + appJourney.conditions[0].yes);
+    }
+    else if (req.session.data['employed'] === 'no') { 
+        res.redirect('/' + version + appJourney.conditions[0].no);
+    } 
+})
+
+router.post('/' + version + '/maintenance/assessment/employer', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "ass/employer";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/app/overseas', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/overseas";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/app/overseas-add', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/overseas-add";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/app/overseas-list', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/overseas-list";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/app/thirdparty', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/thirdparty";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/app/declaration', (req, res) => {
+    var appJourneyData = require('./data/app-journey-config.json')
+    var appJourney = appJourneyData.pages.filter(function (value) {
+        return value.page === "app/declaration";
+    })[0];
+    res.redirect('/' + version + appJourney.next);
+})
+
+router.post('/' + version + '/maintenance/app/pay', (req, res) => {
+
+    var returnUrl = process.env.HerokuServiceName + '/' + version + '/maintenance/app/complete';
+   
+    const fetch = require('node-fetch');
+    const inputBody = {
+        "amount": 14500,
+        "reference": "999101",
+        "return_url": returnUrl,
+        "description": "Personal licence maintenance"
+    };
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + process.env.PayKey
+    };
+
+    var payPageURL = "";
+
+    fetch('https://publicapi.payments.service.gov.uk/v1/payments', {
+            method: 'POST',
+            body: JSON.stringify(inputBody),
+            headers: headers
+        })
+        .then(function (res) {
+            return res.json();
+        }).then(function (body) {
+            payPageURL = body._links.next_url.href
+            console.log(payPageURL);
+            res.redirect(payPageURL);
+        });
+})
+
 
 
 module.exports = router
