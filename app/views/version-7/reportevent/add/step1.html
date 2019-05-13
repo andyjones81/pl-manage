@@ -13,148 +13,146 @@ Report an event
 
     <div class="govuk-grid-column-two-thirds">
         <a href="/{{version}}/reportevent/start" class="govuk-back-link">Back</a>
-      
-        <form  method="POST">
+
+        <form method="POST">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-    
+
                         <h1 class="govuk-heading-l">
-                            <span class="govuk-caption-l">Report something that may affect your licence</span>Tell us the reason
+                            <span class="govuk-caption-l">Report something that may affect your licence</span>Select the reason
                         </h1>
-                       
+
                     </legend>
 
                     <details class="govuk-details">
                         <summary class="govuk-details__summary">
-                          <span class="govuk-details__summary-text">
-                            What are Schedule 7 offences?
-                          </span>
+                            <span class="govuk-details__summary-text">
+                                What are Schedule 7 offences?
+                            </span>
                         </summary>
                         <div class="govuk-details__text">
-                         Schedule 7 offences are detailed in the Gambling Act 2005 and periodically updated. View the <a href="http://www.legislation.gov.uk/ukpga/2005/19/schedule/7" target="_Blank">latest list of Schedule 7 offences</a> (link opens in a new window).
+                            Schedule 7 offences are detailed in the Gambling Act 2005 and periodically updated. View the
+                            <a href="http://www.legislation.gov.uk/ukpga/2005/19/schedule/7" target="_Blank">latest list
+                                of Schedule 7 offences</a> (link opens in a new window).
                         </div>
-                      </details>
+                    </details>
 
                     <div class="govuk-radios" data-module="radios">
-                       
+
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="type-conditional-2" name="type" type="radio" value="an offence user Schedule 7 of the Gambling Act 2005" data-aria-controls="conditional-type-conditional-2"  {{ checked('type','an offence user Schedule 7 of the Gambling Act 2005') }}>
+                            <input class="govuk-radios__input" id="type-conditional-2" name="type" type="radio"
+                                value="an offence user Schedule 7 of the Gambling Act 2005"
+                                data-aria-controls="conditional-type-conditional-2"
+                                {{ checked('type','an offence user Schedule 7 of the Gambling Act 2005') }}>
                             <label class="govuk-label govuk-radios__label" for="type-conditional-2">
-                                an offence under Schedule 7 of the Gambling Act 2005
+                                an investigation of an offence listed under Schedule 7
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional" id="conditional-type-conditional-2">
-                            <p class="govuk-body">
-                               Guidance text
-                            </p>
-    
-                        </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="type-conditional-3" name="type" type="radio" value="conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005" data-aria-controls="conditional-type-conditional-3"  {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            <input class="govuk-radios__input" id="type-conditional-3" name="type" type="radio"
+                                value="conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005"
+                                data-aria-controls="conditional-type-conditional-3"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
                             <label class="govuk-label govuk-radios__label" for="type-conditional-3">
-                                conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005
+                                a conviction of any offence listed under Schedule 7
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional" id="conditional-type-conditional-3">
-                            <p class="govuk-body">
-                               Guidance
-                            </p>
-    
-                        </div>
+
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="type-conditional-4" name="type" type="radio" value="any current or pending investigation by a professional, statutory, regulatory or government body in Great Britain or abroad" data-aria-controls="conditional-type-conditional-4"{{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            <input class="govuk-radios__input" id="type-conditional-4" name="type" type="radio"
+                                value="any current or pending investigation by a professional, statutory, regulatory or government body in Great Britain or abroad"
+                                data-aria-controls="conditional-type-conditional-4"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
                             <label class="govuk-label govuk-radios__label" for="type-conditional-4">
-                                any current or pending investigation by a professional, statutory, regulatory or government body in Great Britain or abroad
+                                any current or pending investigation by a professional, statutory, regulatory or
+                                government body in Great Britain or abroad
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional" id="conditional-type-conditional-4">
-                            <p class="govuk-body">
-                                    Guidance text
-                            </p>
-    
-                        </div>
-    
+
+
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="type-conditional-5" name="type" type="radio" value="the imposition of any sanction or penalty against you following an investigation by any professional, statutory, regulatory
-                            or government body in Great Britain or abroad" data-aria-controls="conditional-type-conditional-5" {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            or government body in Great Britain or abroad"
+                                data-aria-controls="conditional-type-conditional-5"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
                             <label class="govuk-label govuk-radios__label" for="type-conditional-5">
-                                the imposition of any sanction or penalty against you following an investigation by any professional, statutory, regulatory
-                                or government body in Great Britain or abroad
+                                any sanction or penalty against you following an investigation by a professional,
+                                statutory, regulatory or government body in Great Britain or abroad
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional" id="conditional-type-conditional-5">
-                            <p class="govuk-body">
-                               Guidance text
-                            </p>
-    
-                        </div>
-    
+
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="type-conditional-6" name="type" type="radio" value="the imposition of a disciplinary sanction against you, including dismissal, for gross misconduct" data-aria-controls="conditional-type-conditional-6" {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            <input class="govuk-radios__input" id="type-conditional-6" name="type" type="radio"
+                                value="the imposition of a disciplinary sanction against you, including dismissal, for gross misconduct"
+                                data-aria-controls="conditional-type-conditional-6"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
                             <label class="govuk-label govuk-radios__label" for="type-conditional-6">
-                                    the imposition of a disciplinary sanction against you, including dismissal, for gross misconduct
+                                the imposition of a disciplinary sanction against you, including dismissal, for gross
+                                misconduct
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional" id="conditional-type-conditional-6">
-                            <p class="govuk-body">
-                                    Guidance text
-                            </p>
-    
-                        </div>
-    
+
+
                         <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="type-conditional-7" name="type" type="radio" value="your resignation from a position for which a personal licence is required following commencement of disciplinary proceedings in respect of gross misconduct" data-aria-controls="conditional-type-conditional-7" {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
-                                <label class="govuk-label govuk-radios__label" for="type-conditional-7">
-                                        your resignation from a position for which a personal licence is required following commencement of disciplinary proceedings in respect of gross misconduct
-                                </label>
+                            <input class="govuk-radios__input" id="type-conditional-7" name="type" type="radio"
+                                value="your resignation from a position for which a personal licence is required following commencement of disciplinary proceedings in respect of gross misconduct"
+                                data-aria-controls="conditional-type-conditional-7"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            <label class="govuk-label govuk-radios__label" for="type-conditional-7">
+                                your resignation from a position for which a personal licence is required following
+                                commencement of disciplinary proceedings in respect of gross misconduct
+                            </label>
+                        </div>
+
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="type-conditional-8" name="type" type="radio"
+                                value=" your disqualification from acting as a company director"
+                                data-aria-controls="conditional-type-conditional-8"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            <label class="govuk-label govuk-radios__label" for="type-conditional-8">
+                                your disqualification from acting as a company director
+                            </label>
+                        </div>
+
+                        <details class="govuk-details govuk-!-margin-top-6">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                    What does sequestration mean?
+                                </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                The action by a court to take legal possession of assets until a debt has been paid or
+                                other claims have been met, or be declared bankrupt.
                             </div>
-                            <div class="govuk-radios__conditional" id="conditional-type-conditional-7">
-                                <p class="govuk-body">
-                                        Guidance text
-                                </p>
-        
-                            </div>
-    
-                            <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="type-conditional-8" name="type" type="radio" value=" your disqualification from acting as a company director" data-aria-controls="conditional-type-conditional-8" {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
-                                    <label class="govuk-label govuk-radios__label" for="type-conditional-8">
-                                            your disqualification from acting as a company director
-                                    </label>
-                                </div>
-                                <div class="govuk-radios__conditional" id="conditional-type-conditional-8">
-                                    <p class="govuk-body">
-                                            Guidance text
-                                    </p>
-            
-                                </div>
-    
-                                <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="type-conditional-9" name="type" type="radio" value="the presentation of a petition for your bankruptcy or sequestration or your entering into an individual voluntary agreement" data-aria-controls="conditional-type-conditional-9" {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
-                                        <label class="govuk-label govuk-radios__label" for="type-conditional-9">
-                                                the presentation of a petition for your bankruptcy or sequestration or your entering into an individual voluntary agreement
-                                        </label>
-                                    </div>
-                                    <div class="govuk-radios__conditional" id="conditional-type-conditional-9">
-                                        <p class="govuk-body">
-                                                Guidance text
-                                        </p>
-                
-                                    </div>
+                        </details>
+
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="type-conditional-9" name="type" type="radio"
+                                value="the presentation of a petition for your bankruptcy or sequestration or your entering into an individual voluntary agreement"
+                                data-aria-controls="conditional-type-conditional-9"
+                                {{ checked('type','conviction of any offence listed under Schedule 7 – Relevant Offences of the Gambling Act 2005') }}>
+                            <label class="govuk-label govuk-radios__label" for="type-conditional-9">
+                                your petition for bankruptcy, sequestration or entering into an individual voluntary
+                                agreement
+                            </label>
+                        </div>
+
                     </div>
                 </fieldset>
             </div>
-    
+
             <button type="submit" class="govuk-button">
-                    Save and continue
-                </button>
+                Save and continue
+            </button>
         </form>
 
-      
+
     </div>
 
-    
+
 
 </div>
 

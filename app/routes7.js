@@ -18,6 +18,8 @@ router.get('/' + version + '/companieshouse', (req, res) => {
         console.log(err);
     });
 
+    
+
     // const fetch = require('node-fetch');
     // const inputBody = {
     //     "q": "Paul Smith"
@@ -52,6 +54,44 @@ router.get('/' + version + '/companieshouse', (req, res) => {
     //     })
 
 })
+
+
+router.get('/' + version + '/reportevent/add/step1', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/add/step1', {
+        version,
+        accountData
+    });
+})
+
+router.get('/' + version + '/reportevent/start', (req, res) => {
+    var d = require('./data/data.json')
+    var accountNumber = '999101'
+
+
+    req.session.data['type'] = null
+    req.session.data['more-detail'] = null
+    req.session.data['dob-day'] = null
+    req.session.data['dob-month'] = null
+    req.session.data['dob-year'] = null
+    req.session.data['cya-event'] = null
+
+    var accountData = d.accounts.filter(function (value) {
+        return value.accountNumber === accountNumber;
+    })[0];
+
+    res.render(version + '/reportevent/start', {
+        version,
+        accountData
+    });
+})
+
 
 router.get('/' + version + '/security/signin', (req, res) => {
     req.session.data = {}
