@@ -1,0 +1,90 @@
+{% extends "layout-signedin.html" %}
+
+{% block pageTitle %}
+Your personal licence
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+            Hub call to actions for maintenance
+        </h1>
+        <span class="govuk-caption-m"></span>
+
+    </div>
+
+
+    <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-m">Due and not started</h2>
+
+        <section id="maintenancePanel">
+            <div class="gc-panel gc-panel--information">
+                <h2 class="govuk-heading-m">You need to maintain your licence</h2>
+                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance
+                    application by [account renewal date (DD MMMM YYYY)]</p>
+                <a href="#" role="button" draggable="false"
+                    class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4"
+                    data-prevent-double-click="true">Start maintenance</a>
+            </div>
+        </section>
+
+        <h2 class="govuk-heading-m">Started and not submitted</h2>
+
+        <section id="maintenancePanel">
+            <div class="gc-panel gc-panel--information">
+                <h2 class="govuk-heading-m">Continue your maintenance application</h2>
+                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance
+                    application by [account renewal date (DD MMMM YYYY)]</p>
+                <a href="#" role="button" draggable="false"
+                    class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4"
+                    data-prevent-double-click="true">Continue maintenance</a>
+            </div>
+        </section>
+
+        <h2 class="govuk-heading-m">Submitted and not finished processing</h2>
+
+        <section id="maintenancePanel">
+            <div class="gc-panel gc-panel--information">
+                <h2 class="govuk-heading-m">We're processing your maintenance application</h2>
+                <p class="govuk-body">You submitted your maintenance application on [submitted date (DD MMMM YYYY)]. Your reference for this is [CASE NUMBER].</p>
+                <p class="govuk-body">We will contact you when it has completed, or if we need any additional information. </p>
+                <a href="#" role="button" draggable="false"
+                    class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4"
+                    data-prevent-double-click="true">View maintenance</a>
+            </div>
+        </section>
+
+        <h2 class="govuk-heading-m">Revocation period (Option 1)</h2>
+
+   
+        <section id="maintenancePanel">
+            <div class="gc-panel gc-panel--warning">
+                <h2 class="govuk-heading-m">You need to complete your maintenance application</h2>
+                <p class="govuk-body">If you do not complete your maintenance application by [lapse on date (DD MMMM YYYY)], your licence will no longer be active and you will need to apply for a new licence.</p>
+                <a href="#" role="button" draggable="false"
+                    class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4"
+                    data-prevent-double-click="true">Start maintenance</a>
+            </div>
+        </section>
+
+        <section id="maintenancePanel">
+            <div class="gc-panel gc-panel--warning">
+                <h2 class="govuk-heading-m">Continue your maintenance application</h2>
+                <p class="govuk-body">You need to submit your maintenance application by [lapse on date (DD MMMM YYYY)], or your licence will no longer be active and you will need to apply for a new licence.</p>
+                <a href="#" role="button" draggable="false"
+                    class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4"
+                    data-prevent-double-click="true">Continue maintenance</a>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+</div>
+
+{% endblock %}
