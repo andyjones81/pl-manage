@@ -1,0 +1,56 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Is this your current phone number?
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds"> 
+      
+      <form method="POST" action="/{{version}}/{{appJourney.submit}}">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="same-email-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Is this your current phone number?
+              </h1>
+            </legend>
+    
+            <div class="govuk-inset-text">
+              <p class="govuk-body">
+                071234567890
+              </p>
+            </div>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="same-email-1" name="same-email" type="radio" value="yes"
+                  {{ checked('same-email', 'yes') }}>
+                <label class="govuk-label govuk-radios__label" for="same-email-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="same-email-2" name="same-email" type="radio" value="no"
+                  {{ checked('same-email', 'no') }}>
+                <label class="govuk-label govuk-radios__label" for="same-email-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+  
+        <button type="submit" class="govuk-button">
+          Save and continue
+        </button>
+      </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}

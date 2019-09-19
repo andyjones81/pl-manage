@@ -1220,7 +1220,7 @@ router.post('/' + version + '/maintenance/app/pay', (req, res) => {
    
     const fetch = require('node-fetch');
     const inputBody = {
-        "amount": 14500,
+        "amount": 14500000,
         "reference": "999101",
         "return_url": returnUrl,
         "description": "Personal licence maintenance"
@@ -1232,6 +1232,7 @@ router.post('/' + version + '/maintenance/app/pay', (req, res) => {
     };
 
     var payPageURL = "";
+    console.log("Return url:" +returnUrl)
 
     fetch('https://publicapi.payments.service.gov.uk/v1/payments', {
             method: 'POST',
@@ -1239,10 +1240,11 @@ router.post('/' + version + '/maintenance/app/pay', (req, res) => {
             headers: headers
         })
         .then(function (res) {
+            console.log(res)
             return res.json();
         }).then(function (body) {
             payPageURL = body._links.next_url.href
-            console.log(payPageURL);
+            console.log("PayPageURL:"+ payPageURL);
             res.redirect(payPageURL);
         });
 })

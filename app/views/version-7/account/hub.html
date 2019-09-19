@@ -18,50 +18,51 @@ Your personal licence
 
     {% if accountData.renewalDue === "yes" %}
     <div class="govuk-grid-column-full">
-     
+
 
         <section id="maintenancePanel">
             <div class="gc-panel gc-panel--information">
                 <h2 class="govuk-heading-m">You need to maintain your licence</h2>
-                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance application by
+                <p class="govuk-body">To keep your personal licence active, you need to complete your maintenance
+                    application by
                     {{accountData.renewalDate | date('DD MMMM YYYY')}}
                 </p>
-                <a href="/{{version}}/maintenance/start" role="button" draggable="false" 
-                class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4">
+                <a href="/{{version}}/maintenance/start" role="button" draggable="false"
+                    class="govuk-button govuk-!-margin-bottom-2 govuk-!-margin-top-4">
                     Maintain your licence
                 </a>
-               
+
             </div>
         </section>
     </div>
 
-   
+
 
     {% endif %}
-  
+
 
 </div>
 
 <div class="govuk-grid-row">
 
-        <div class="govuk-grid-column-one-third">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="govuk-heading-s">Event reporting</h3>
-                        <h3 class="govuk-heading-l govuk-!-margin-bottom-1">1</h3>
-                        <p class="govuk-body-s govuk-!-margin-bottom-1">event reported</p>
-                    </div>
-                    <div class="card-action">
-                        <ul class="govuk-list">
-                                <li><a class="govuk-link" href="/{{version}}/reportevent/list">View submitted events
-                                </a></li>
-                            <li><a class="govuk-link" href="/{{version}}/reportevent/start">Report an event
-                                </a></li>
-                                <li><a class="govuk-link" href="/{{version}}/guidance/start">What you must report</a></li>
-                                                   </ul>
-                    </div>
-                </div>
+    <div class="govuk-grid-column-one-third">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="govuk-heading-s">Event reporting</h3>
+                <h3 class="govuk-heading-l govuk-!-margin-bottom-1">1</h3>
+                <p class="govuk-body-s govuk-!-margin-bottom-1">event reported</p>
             </div>
+            <div class="card-action">
+                <ul class="govuk-list">
+                    <li><a class="govuk-link" href="/{{version}}/reportevent/list">View submitted events
+                        </a></li>
+                    <li><a class="govuk-link" href="/{{version}}/reportevent/start">Report an event
+                        </a></li>
+                    <li><a class="govuk-link" href="/{{version}}/guidance/start">What you must report</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class="govuk-grid-column-one-third">
         <div class="card">
@@ -71,7 +72,7 @@ Your personal licence
                 <ul class="govuk-list govuk-body-s govuk-!-margin-bottom-0">
                     <li><span class="govuk-!-font-weight-bold">Issued</span> {{accountData.licenceStart | date('DD
                         MMMM YYYY')}}</li>
-                   
+
                 </ul>
             </div>
             <div class="card-action">
@@ -87,18 +88,18 @@ Your personal licence
         </div>
     </div>
 
-   
+
 
     <div class="govuk-grid-column-one-third">
         <div class="card">
             <div class="card-body">
                 <h3 class="govuk-heading-s">{{accountData.firstName}} {{accountData.middleName}}
                     {{accountData.lastName}}</h3>
-<ul class="govuk-list govuk-!-font-size-16">
-    <li>{{accountData.contactDetails.emailAddress}}</li>
-    <li>{{accountData.contactDetails.mobile}}</li>
-</ul>
-               
+                <ul class="govuk-list govuk-!-font-size-16">
+                    <li>{{accountData.contactDetails.emailAddress}}</li>
+                    <li>{{accountData.contactDetails.mobile}}</li>
+                </ul>
+
             </div>
             <div class="card-action">
                 <ul class="govuk-list">

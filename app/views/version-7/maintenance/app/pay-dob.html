@@ -12,12 +12,39 @@ Maintain your licence
         <a href="/{{version}}/{{appJourney.back}}" class="govuk-back-link">Back</a>
         <form method="POST" action="/{{version}}/{{appJourney.submit}}">
 
-
-           
+         
             <h1 class="govuk-heading-l">
-                Pay your maintenance fee of &pound;{{accountData.fee}}
+                You need to pay &pound;170
             </h1>
 
+           <p class="govuk-body">
+                
+            </p>
+            <table class="govuk-table">
+                <caption class="govuk-table__caption">Fee breakdown</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Reason</th>
+                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row">Maintenance fee</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£145</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="row">Admin variation fee<br/>
+                    <span class="gc-table__meta">Update to date of birth</span>
+                    </th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£25</td>
+                  </tr>
+                  <tr class="govuk-table__row gc-table__row--total">
+                    <th class="govuk-table__header" scope="row">Total</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£170</td>
+                  </tr>
+                </tbody>
+              </table>
                     
             <p class="govuk-body">
                 You are required to pay the fee using your credit or debit card. We will not start processing your application until this fee is paid.

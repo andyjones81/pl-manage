@@ -1,0 +1,39 @@
+{% extends "layout-signedinRenewApp.html" %}
+
+{% block pageTitle %}
+Is this your current email address?
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds"> 
+      
+      <h1 class="govuk-heading-l">
+       Update your email address
+      </h1>
+
+      <p class="govuk-body">
+        It is important that your email address is kept up to date.
+      </p>
+
+       <p class="govuk-body">
+       Your email address is used to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>sign in to Manage your personal licence</li>     
+        <li>send you confirmation emails about changes to your account or licence</li>         
+        <li>send reminders or information that may impact you or your licence</li>
+      </ul>
+
+      <button type="submit" class="govuk-button">
+        Continue to update your email address
+      </button>
+           
+    </div>
+
+</div>
+
+{% endblock %}
