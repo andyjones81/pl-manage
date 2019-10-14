@@ -1,0 +1,68 @@
+{% extends "layout-signedinRenew.html" %}
+
+{% block pageTitle %}
+Maintain your licence
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+           
+ 
+      
+        <form method="POST" action="/{{version}}/{{appJourney.submit}}"> 
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="key-event-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                          In the last 5 years, have you failed to declare any of the following:
+                        </h1>
+                      </legend>
+
+                                 
+                      <ul class="govuk-list govuk-list--bullet">
+                            <li>an offence under  <a href="http://www.legislation.gov.uk/ukpga/2005/19/schedule/7" target="_Blank">Schedule 7 of the Gambling Act 2005</a>
+                                <span class="govuk-body-s">(Link opens in a new window)</span> </li>
+                            <li>any investigations by any professional or statutory bodies in Great Britain or abroad</li>
+                            <li>any sanctions or disciplinary action imposed on you</li>
+                            <li>your disqualification from acting as a company director</li>
+                            <li>your petition for bankruptcy, sequestration or entering into an Individual Voluntary Arrangement (IVA)</li>
+                        </ul>
+
+                        
+                        <table class="govuk-table">
+                          <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                  <th class="govuk-table__header" scope="col">Reason</th>
+                                  <th class="govuk-table__header" scope="col">Submitted</th>
+                              </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                  <td class="govuk-table__cell" scope="row"><a href="/version-7/maintenance/app/new-events-detail">Change of name</a></td>
+                                  <td class="govuk-table__cell">10 Jul 2018 </td>
+                              </tr>
+                             
+                          </tbody>
+                      </table>
+                          
+                          
+                          <p><a href="/version-7/maintenance/app/new-events-list">Report an event</a></p>
+                                        
+                    
+                    </fieldset>
+                  </div>
+
+        <button type="submit" class="govuk-button">
+            Continue
+        </button>
+    </form>
+
+           
+    </div>
+
+</div>
+
+{% endblock %}
