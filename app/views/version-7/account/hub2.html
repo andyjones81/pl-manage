@@ -17,6 +17,18 @@ Your personal licence
 
     </div>
 
+    <div class="govuk-grid-column-full">
+        <div class="gc-notification gc-notification--info">
+            <h2 class="govuk-heading-m">Your licence maintenance is coming up</h2>
+            <p class="govuk-body">We'll send you an email when you can start your maintenance application. Please check
+                your contact details are up to date.</p>
+            <p class="govuk-body">You'll be able to start your personal licence maintenance from 1 January 2020, you'll
+                have until 30 January 2020 to submit this application online.</p>
+        </div>
+    </div>
+
+</div>
+<!-- 
     {% if accountData.renewalDue === "yes" %}
     <div class="govuk-grid-column-full">
         <section id="maintenancePanel">
@@ -28,74 +40,90 @@ Your personal licence
         </section>
     </div>
 
-    {% endif %}
+    {% endif %} -->
 
 
-</div>
+
+
+
+
 
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
 
-    <div class="govuk-grid-column-one-third">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="govuk-heading-s">Event reporting</h3>
-                    <h3 class="govuk-heading-l govuk-!-margin-bottom-1">1</h3>
-                    <p class="govuk-body-s govuk-!-margin-bottom-1">event reported</p>
+        <div class="govuk-grid-row gc-card-group">
+
+            <div class="govuk-grid-column-one-quarter  gc-card-group__item">
+                <div class="gc-card-with-actions">
+                    <div class="gc-card-with-actions-body">
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Event reporting</h2>
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">24</h2>
+                        <p class="gc-card__description">events reported</p>
+                    </div>
+                    <div class="gc-card-with-actions-action">
+                        <ul class="govuk-list">
+                            <li>
+                                <a class="govuk-link" href="/personalmanage/Events/List">
+                                    View submitted events
+                                </a>
+                            </li>
+                            <li>
+                                <a class="govuk-link" href="/personalmanage/Events/Start">
+                                    Report an event
+                                </a>
+                            </li>
+                            <li><a class="govuk-link" target="_blank"
+                                    href="http://srv-test2/PersonalManage/Content/LCCP3#point-3">What you must
+                                    report</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <ul class="govuk-list">
-                            <li><a class="govuk-link" href="/{{version}}/reportevent/list">View submitted events
-                            </a></li>
-                        <li><a class="govuk-link" href="/{{version}}/reportevent/start">Report an event
-                            </a></li>
-                                          </ul>
+            </div>
+
+            <div class="govuk-grid-column-one-half  gc-card-group__item">
+                <div class="gc-card-with-actions">
+                    <div class="gc-card-with-actions-body">
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Licence number</h2>
+                        <h3 class="govuk-heading-s">012345-M-987654-001</h3>
+                        <ul class="govuk-list govuk-body-s govuk-!-margin-bottom-0">
+                            <li><span class="govuk-!-font-weight-bold">Started</span> 1 January 2015</li>
+                            <li><span class="govuk-!-font-weight-bold">Maintenance due</span> 30 January 2020</li>
+                        </ul>
+                    </div>
+                    <div class="gc-card-with-actions-action">
+                        <ul class="govuk-list">
+                            <li><a class="govuk-link" href="/personalmanage/DownloadLicence">Download your licence</a>
+                            </li>
+
+                            <li><a class="govuk-link" href="/personalmanage/Surrender">Surrender your licence</a></li>
+                            <li><a class="govuk-link" href="/personalmanage/BankruptcySeq">Notify us of a bankruptcy or sequestration</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="govuk-grid-column-one-quarter  gc-card-group__item">
+                <div class="gc-card-with-actions">
+                    <div class="gc-card-with-actions-body">
+                        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+                            Your details
+                        </h2>
+                        <ul class="govuk-list govuk-!-font-size-16">
+                            <li><span class="truncate"> someone@example.com</span></li>
+                            <li>07123456789</li>
+                        </ul>
+
+                    </div>
+                    <div class="gc-card-with-actions-action">
+                        <ul class="govuk-list">
+                            <li>
+                                <a class="govuk-link" href="/personalmanage/Account/Manage">Manage your details</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-
-<div class="govuk-grid-column-one-third">
-    <div class="card">
-        <div class="card-body">
-            <span class="govuk-heading-s">Licence number</span>
-            <h3 class="govuk-heading-s">{{accountData.licenceNumber}}</h3>
-            <ul class="govuk-list govuk-body-s govuk-!-margin-bottom-0">
-                <li><span class="govuk-!-font-weight-bold">Issued</span> {{accountData.licenceStart | date('DD
-                    MMMM YYYY')}}</li>
-               
-            </ul>
-        </div>
-        <div class="card-action">
-            <ul class="govuk-list">
-                {% if accountData.renewalDue === "yes" %}
-                <li><a class="govuk-link" href="/{{version}}/maintenance/start">Maintain your licence</a></li>
-                {% endif %}
-                <li><a class="govuk-link" href="/{{version}}/downloadlicence/start">Download your licence</a></li>
-
-                <li><a class="govuk-link" href="/{{version}}/account/surrender">Surrender your licence</a></li>
-            </ul>
-        </div>
     </div>
-</div>
-
-
-
-<div class="govuk-grid-column-one-third">
-    <div class="card">
-        <div class="card-body">
-            <h3 class="govuk-heading-s">{{accountData.firstName}} {{accountData.middleName}}
-                {{accountData.lastName}}</h3>
-<ul class="govuk-list govuk-!-font-size-16">
-<li>{{accountData.contactDetails.emailAddress}}</li>
-<li>{{accountData.contactDetails.mobile}}</li>
-</ul>
-           
-        </div>
-        <div class="card-action">
-            <ul class="govuk-list">
-                <li><a class="govuk-link" href="/{{version}}/account/manage">Manage your details</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 </div> {% endblock %}
